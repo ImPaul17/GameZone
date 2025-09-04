@@ -1,0 +1,1612 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[NOMBRE DEL JUEGO] - GameZone</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../../favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+    <link rel="manifest" href="../../site.webmanifest">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @font-face {
+            font-family: 'SnesItalic';
+            src: url('../../fonts/SnesItalic.ttf') format('truetype');
+            font-weight: normal;
+            font-style: italic;
+            font-display: swap;
+        }
+
+        :root {
+            --primary-color: #6eb92b;
+            --primary-dark: #5a9823;
+            --primary-light: #7bc93f;
+            --secondary-color: #e60012;
+            --accent-yellow: #ffe100;
+            --accent-blue: #00a7eb;
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #1a1a1a;
+            --bg-tertiary: #2a2a2a;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0b0;
+            --text-muted: #808080;
+            --border-color: rgba(110, 185, 43, 0.2);
+            --shadow-light: 0 4px 20px rgba(0, 0, 0, 0.1);
+            --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.2);
+            --shadow-heavy: 0 15px 50px rgba(0, 0, 0, 0.3);
+            --gradient-primary: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            --gradient-hero: linear-gradient(135deg, rgba(10, 10, 10, 0.9), rgba(26, 26, 26, 0.8));
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-secondary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--gradient-primary);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-dark);
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .header.scrolled {
+            background: rgba(10, 10, 10, 0.98);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-text {
+            font-family: 'SnesItalic', 'Inter', sans-serif;
+            font-size: 2.6rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-shadow: 0 0 10px rgba(110, 185, 43, 0.3);
+            letter-spacing: 1px;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color);
+            background: rgba(110, 185, 43, 0.1);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-link:hover::after {
+            width: 80%;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Main Content */
+        .main {
+            padding-top: 80px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Game Hero Section */
+        .game-hero {
+            position: relative;
+            height: 60vh;
+            min-height: 500px;
+            background: linear-gradient(135deg, rgba(10, 10, 10, 0.8), rgba(26, 26, 26, 0.6)),
+                        url('[URL_IMAGEN_HERO]') center/cover;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .game-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, transparent 0%, rgba(10, 10, 10, 0.4) 100%);
+        }
+
+        .game-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        .game-title {
+            font-family: 'SnesItalic', 'Inter', sans-serif;
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            letter-spacing: 1px;
+        }
+
+        .game-categories {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .game-category {
+            padding: 0.5rem 1rem;
+            background: rgba(110, 185, 43, 0.2);
+            color: var(--primary-color);
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border: 1px solid rgba(110, 185, 43, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .game-description {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .game-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+            box-shadow: 0 4px 20px rgba(110, 185, 43, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(110, 185, 43, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 2px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(110, 185, 43, 0.1);
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        /* Content Sections */
+        .section {
+            padding: 2.5rem 0;
+        }
+
+        .section-title {
+            font-family: 'SnesItalic', 'Inter', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+            letter-spacing: 1px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+        }
+
+        /* Game Info Grid */
+        .game-info-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .game-info-main {
+            background: var(--bg-secondary);
+            border-radius: 15px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            min-height: fit-content;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .game-content {
+            line-height: 1.7;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .game-content p {
+            margin-bottom: 1rem;
+            text-align: justify;
+            hyphens: auto;
+            word-wrap: break-word;
+            flex-shrink: 0;
+        }
+
+        .game-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Dynamic content adaptation based on text length */
+        .game-content:has(p:nth-child(1):only-child) {
+            /* Single paragraph - compact layout */
+            gap: 0.5rem;
+        }
+
+        .game-content:has(p:nth-child(2)) {
+            /* Multiple paragraphs - standard spacing */
+            gap: 1rem;
+        }
+
+        .game-content:has(p:nth-child(4)) {
+            /* Many paragraphs - increased spacing for readability */
+            gap: 1.5rem;
+        }
+
+        /* Adjust padding based on content length */
+        .game-info-main:has(.game-content p:nth-child(1):only-child) {
+            /* Less padding for short content */
+            padding: 1.5rem;
+        }
+
+        .game-info-main:has(.game-content p:nth-child(4)) {
+            /* More padding for extensive content */
+            padding: 2.5rem;
+        }
+
+        /* Text size adaptation */
+        .game-content p {
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        /* Larger text for short content */
+        .game-content:has(p:nth-child(1):only-child) p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        /* Smaller text for very long content */
+        .game-content:has(p:nth-child(6)) p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Responsive text sizing */
+        @media (max-width: 768px) {
+            .game-content p {
+                font-size: 0.95rem;
+                line-height: 1.6;
+            }
+            
+            .game-content:has(p:nth-child(1):only-child) p {
+                font-size: 1rem;
+                line-height: 1.7;
+            }
+            
+            .game-content:has(p:nth-child(6)) p {
+                font-size: 0.9rem;
+                line-height: 1.5;
+            }
+            
+            .game-info-main:has(.game-content p:nth-child(1):only-child) {
+                padding: 1.25rem;
+            }
+            
+            .game-info-main:has(.game-content p:nth-child(4)) {
+                padding: 2rem;
+            }
+        }
+
+        /* Fallback for browsers that don't support :has() */
+        @supports not selector(:has(*)) {
+            .game-content.short-content {
+                gap: 0.5rem;
+            }
+            
+            .game-content.short-content p {
+                font-size: 1.1rem;
+                line-height: 1.8;
+            }
+            
+            .game-content.long-content {
+                gap: 1.5rem;
+            }
+            
+            .game-content.long-content p {
+                font-size: 0.95rem;
+                line-height: 1.6;
+            }
+            
+            .game-info-main.short-content {
+                padding: 1.5rem;
+            }
+            
+            .game-info-main.long-content {
+                padding: 2.5rem;
+            }
+        }
+
+        .game-info-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .info-card {
+            background: var(--bg-secondary);
+            border-radius: 15px;
+            padding: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .info-card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .specs-list {
+            list-style: none;
+        }
+
+        .specs-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .specs-list li:last-child {
+            border-bottom: none;
+        }
+
+        .specs-label {
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .specs-value {
+            color: var(--text-primary);
+            text-align: right;
+        }
+
+        /* Metacritic Score Card */
+        .metacritic-card {
+            position: relative;
+        }
+
+        .metacritic-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .metacritic-header h3 {
+            margin-bottom: 0;
+        }
+
+        .metacritic-logo {
+            position: absolute;
+            top: -0.5rem;
+            right: -0.5rem;
+            width: 35px;
+            height: 35px;
+            background: #000000;
+            border: 2px solid #ffffff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 6px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .metacritic-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: brightness(0) invert(1);
+        }
+
+        .metacritic-content {
+            text-align: center;
+        }
+
+        .score-container {
+            margin-bottom: 1rem;
+        }
+
+        .user-score {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .score-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            text-shadow: 0 0 10px rgba(110, 185, 43, 0.3);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .score-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .metacritic-footer {
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .metacritic-footer span {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* Score color variations based on rating */
+        .score-excellent .score-number {
+            color: #66cc33;
+            text-shadow: 0 0 10px rgba(102, 204, 51, 0.3);
+        }
+
+        .score-good .score-number {
+            color: #ffcc33;
+            text-shadow: 0 0 10px rgba(255, 204, 51, 0.3);
+        }
+
+        .score-mixed .score-number {
+            color: #ff6600;
+            text-shadow: 0 0 10px rgba(255, 102, 0, 0.3);
+        }
+
+        .score-poor .score-number {
+            color: #ff0000;
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+        }
+
+        /* Hover effect for metacritic card */
+        .metacritic-card:hover .metacritic-logo {
+            transform: scale(1.1);
+            transition: transform 0.3s ease;
+        }
+
+        .metacritic-card:hover .score-number {
+            transform: scale(1.05);
+            transition: transform 0.3s ease;
+        }
+
+        /* Requirements Section */
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .requirement-card {
+            background: var(--bg-secondary);
+            border-radius: 15px;
+            padding: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .requirement-card h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Media Section */
+        .media-section {
+            background: var(--bg-secondary);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .trailer-container {
+            position: relative;
+            width: 100%;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow-medium);
+        }
+
+        .trailer-placeholder {
+            aspect-ratio: 16/9;
+            background: var(--bg-tertiary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px dashed var(--border-color);
+        }
+
+        .trailer-placeholder i {
+            font-size: 3rem;
+            color: var(--text-muted);
+        }
+
+        /* Screenshots Gallery */
+        .screenshots-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .screenshot {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            aspect-ratio: 16/9;
+            background: var(--bg-tertiary);
+            border: 2px dashed var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .screenshot:hover {
+            transform: scale(1.05);
+        }
+
+        .screenshot i {
+            font-size: 1.5rem;
+            color: var(--text-muted);
+        }
+
+        /* Download Section */
+        .download-section {
+            background: var(--bg-secondary);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .download-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, rgba(110, 185, 43, 0.1) 0%, transparent 70%);
+        }
+
+        .download-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .download-options {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+
+        .download-btn {
+            padding: 1.2rem 2.5rem;
+            font-size: 1rem;
+            min-width: 180px;
+        }
+
+        /* Installation Steps */
+        .installation-steps {
+            margin-top: 2rem;
+        }
+
+        .steps-list {
+            list-style: none;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .step-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .step-item:last-child {
+            border-bottom: none;
+        }
+
+        .step-number {
+            background: var(--gradient-primary);
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            flex-shrink: 0;
+            font-size: 0.9rem;
+        }
+
+        .step-text {
+            color: var(--text-secondary);
+            line-height: 1.5;
+            font-size: 0.95rem;
+        }
+
+        .installation-note {
+            margin-top: 1.5rem;
+            padding: 1.2rem;
+            background: rgba(110, 185, 43, 0.1);
+            border: 1px solid rgba(110, 185, 43, 0.3);
+            border-radius: 10px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .installation-note p {
+            color: var(--text-secondary);
+            margin: 0;
+            font-size: 0.85rem;
+        }
+
+        .installation-note strong {
+            color: var(--primary-color);
+        }
+
+        /* Download Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: var(--bg-secondary);
+            border-radius: 20px;
+            padding: 3rem;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-heavy);
+            transform: scale(0.8);
+            transition: transform 0.3s ease;
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: scale(1);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .modal-close:hover {
+            color: var(--text-primary);
+        }
+
+        .modal-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+            text-align: center;
+        }
+
+        .modal-description {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .download-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .download-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            padding: 1rem 2rem;
+            background: var(--gradient-primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(110, 185, 43, 0.3);
+        }
+
+        .download-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(110, 185, 43, 0.4);
+        }
+
+        .download-link i {
+            font-size: 1.2rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--bg-secondary);
+            padding: 4rem 0 2rem;
+            margin-top: 5rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-muted);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .loading {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .loading.loaded {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .game-info-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .game-hero {
+                height: 50vh;
+                min-height: 400px;
+            }
+
+            .game-title {
+                font-size: 2.5rem;
+            }
+
+            .game-actions {
+                flex-direction: column;
+            }
+
+            .download-options {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .requirements-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .screenshots-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .section {
+                padding: 3rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="header-content">
+            <a href="../../index.html" class="logo">
+                <span class="logo-text">GameZone</span>
+            </a>
+            
+            <nav class="nav">
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="../../index.html" class="nav-link">
+                            <i class="fas fa-home"></i>
+                            Inicio
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-gamepad"></i>
+                            Juegos
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-newspaper"></i>
+                            Noticias
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-shopping-cart"></i>
+                            Pedidos
+                        </a>
+                    </li>
+                </ul>
+                
+                <button class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Game Hero Section -->
+        <section class="game-hero">
+            <div class="container">
+                <div class="game-hero-content loading">
+                    <h1 class="game-title">[NOMBRE DEL JUEGO]</h1>
+                    <div class="game-categories">
+                        <span class="game-category">[CATEGORÍA 1]</span>
+                        <span class="game-category">[CATEGORÍA 2]</span>
+                        <span class="game-category">[CATEGORÍA 3]</span>
+                    </div>
+                    <p class="game-description">
+                        [DESCRIPCIÓN BREVE DEL JUEGO - Una descripción atractiva que capture la esencia del juego y motive al usuario a seguir leyendo y descargarlo.]
+                    </p>
+                    <div class="game-actions">
+                        <a href="#download" class="btn btn-primary">
+                            <i class="fas fa-download"></i>
+                            Descargar Ahora
+                        </a>
+                        <a href="#trailer" class="btn btn-secondary">
+                            <i class="fas fa-play"></i>
+                            Ver Trailer
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Game Information -->
+        <section class="section">
+            <div class="container">
+                <div class="game-info-grid">
+                    <!-- Main Content -->
+                    <div class="game-info-main loading">
+                        <h2 class="section-title">Acerca del Juego</h2>
+                        <div class="game-content">
+                            <p>[DESCRIPCIÓN DETALLADA DEL JUEGO - Aquí va una descripción completa del juego, su historia, mecánicas de juego, características principales, y todo lo que hace especial a este título.]</p>
+                        </div>
+                    </div>
+
+                    <!-- Sidebar -->
+                    <div class="game-info-sidebar">
+                        <!-- Technical Specs -->
+                        <div class="info-card loading">
+                            <h3><i class="fas fa-cog"></i> Ficha Técnica</h3>
+                            <ul class="specs-list">
+                                <li>
+                                    <span class="specs-label">Desarrollador:</span>
+                                    <span class="specs-value">[DESARROLLADOR]</span>
+                                </li>
+                                <li>
+                                    <span class="specs-label">Editor:</span>
+                                    <span class="specs-value">[EDITOR]</span>
+                                </li>
+                                <li>
+                                    <span class="specs-label">Fecha de Lanzamiento:</span>
+                                    <span class="specs-value">[FECHA]</span>
+                                </li>
+                                <li>
+                                    <span class="specs-label">Género:</span>
+                                    <span class="specs-value">[GÉNERO]</span>
+                                </li>
+                                <li>
+                                    <span class="specs-label">Plataforma:</span>
+                                    <span class="specs-value">PC (Windows)</span>
+                                </li>
+                                <li>
+                                    <span class="specs-label">Idiomas:</span>
+                                    <span class="specs-value">[IDIOMAS]</span>
+                                </li>
+                                <li>
+                                    <span class="specs-label">Tamaño:</span>
+                                    <span class="specs-value">[TAMAÑO] GB</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Metacritic Score -->
+                        <div class="info-card loading">
+                            <div class="metacritic-card">
+                                <div class="metacritic-header">
+                                    <h3><i class="fas fa-star"></i> Valoración</h3>
+                                    <div class="metacritic-logo">
+                                        <img src="../../logos/metacritic.svg" alt="Metacritic">
+                                    </div>
+                                </div>
+                                <div class="metacritic-content">
+                                    <div class="score-container">
+                                        <div class="user-score">
+                                            <span class="score-number">[PUNTUACIÓN]</span>
+                                            <span class="score-label">User Score</span>
+                                        </div>
+                                    </div>
+                                    <div class="metacritic-footer">
+                                        <span>Metacritic</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Quick Download -->
+                        <div class="info-card loading">
+                            <h3><i class="fas fa-download"></i> Descarga Rápida</h3>
+                            <p style="color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 0.9rem;">
+                                Descarga directa y segura
+                            </p>
+                            <a href="#download" class="btn btn-primary" style="width: 100%; justify-content: center;">
+                                <i class="fas fa-download"></i>
+                                Descargar
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- System Requirements -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title loading">Requisitos del Sistema</h2>
+                <div class="requirements-grid">
+                    <div class="requirement-card loading">
+                        <h4>
+                            <i class="fas fa-desktop"></i>
+                            Requisitos Mínimos
+                        </h4>
+                        <ul class="specs-list">
+                            <li>
+                                <span class="specs-label">SO:</span>
+                                <span class="specs-value">[SISTEMA OPERATIVO MÍNIMO]</span>
+                            </li>
+                            <li>
+                                <span class="specs-label">Procesador:</span>
+                                <span class="specs-value">[PROCESADOR MÍNIMO]</span>
+                            </li>
+                            <li>
+                                <span class="specs-label">Memoria:</span>
+                                <span class="specs-value">[RAM MÍNIMA] GB RAM</span>
+                            </li>
+                            <li>
+                                <span class="specs-label">Gráficos:</span>
+                                <span class="specs-value">[TARJETA GRÁFICA MÍNIMA]</span>
+                            </li>
+                            <li>
+                                <span class="specs-label">DirectX:</span>
+                                <span class="specs-value">[VERSIÓN DIRECTX]</span>
+                            </li>
+                            <li>
+                                <span class="specs-label">Almacenamiento:</span>
+                                <span class="specs-value">[ESPACIO] GB</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="requirement-card loading">
+                        <h4>
+                            <i class="fas fa-rocket"></i>
+                            Requisitos Recomendados
+                        </h4>
+                        <ul class="specs-list">
+                            <li>
+                                <span class="specs-label">SO:</span>
+                                <span class="specs-value">[SISTEMA OPERATIVO RECOMENDADO]</span>
+                            </li>
+                            <li>
+                                <span class="specs-label">Procesador:</span>
+                                <span class="specs-value">[PROCESADOR RECOMENDADO]</span>
+                            </li>
+                            <li>
+                                <span class="specs-label">Memoria:</span>
+                                <span class="specs-value">[RAM RECOMENDADA] GB RAM</span>
+                            </li>
+                            <li>
+                                <span class="specs-label">Gráficos:</span>
+                                <span class="specs-value">[TARJETA GRÁFICA RECOMENDADA]</span>
+                            </li>
+                            <li>
+                                <span class="specs-label">DirectX:</span>
+                                <span class="specs-value">[VERSIÓN DIRECTX]</span>
+                            </li>
+                            <li>
+                                <span class="specs-label">Almacenamiento:</span>
+                                <span class="specs-value">[ESPACIO] GB</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Media Section -->
+        <section class="section" id="trailer">
+            <div class="container">
+                <div class="media-section loading">
+                    <h2 class="section-title">Trailer y Capturas</h2>
+                    
+                    <!-- Trailer -->
+                    <div class="trailer-container">
+                        <div class="trailer-placeholder">
+                            <i class="fas fa-play-circle"></i>
+                        </div>
+                    </div>
+
+                    <!-- Screenshots -->
+                    <h3 style="margin-bottom: 2rem; color: var(--primary-color); font-size: 1.5rem; text-align: center;">
+                        <i class="fas fa-images"></i>
+                        Capturas de Pantalla
+                    </h3>
+                    <div class="screenshots-grid">
+                        <div class="screenshot">
+                            <i class="fas fa-image"></i>
+                        </div>
+                        <div class="screenshot">
+                            <i class="fas fa-image"></i>
+                        </div>
+                        <div class="screenshot">
+                            <i class="fas fa-image"></i>
+                        </div>
+                        <div class="screenshot">
+                            <i class="fas fa-image"></i>
+                        </div>
+                        <div class="screenshot">
+                            <i class="fas fa-image"></i>
+                        </div>
+                        <div class="screenshot">
+                            <i class="fas fa-image"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Download Section -->
+        <section class="section" id="download">
+            <div class="container">
+                <div class="download-section loading">
+                    <div class="download-content">
+                        <h2 class="section-title">Descarga e Instalacion</h2>
+                        <p style="font-size: 1.2rem; color: var(--text-secondary); margin-bottom: 2rem;">
+                            Descarga [NOMBRE DEL JUEGO] de forma gratuita y segura
+                        </p>
+
+                        <div class="download-options">
+                            <button class="btn btn-primary download-btn" onclick="openDownloadModal()">
+                                <i class="fas fa-download"></i>
+                                Enlaces de descarga
+                            </button>
+                        </div>
+
+                        <!-- Installation Steps -->
+                        <div class="installation-steps">
+                            <h3 style="margin-bottom: 2rem; color: var(--primary-color); font-size: 1.5rem;">
+                                <i class="fas fa-list-ol"></i>
+                                Instrucciones de Instalacion
+                            </h3>
+                            <ol class="steps-list">
+                                <li class="step-item">
+                                    <span class="step-number">1</span>
+                                    <span class="step-text">Descargar el juego</span>
+                                </li>
+                                <li class="step-item">
+                                    <span class="step-number">2</span>
+                                    <span class="step-text">Descomprimir carpeta RAR</span>
+                                </li>
+                                <li class="step-item">
+                                    <span class="step-number">3</span>
+                                    <span class="step-text">Ejecutar el juego como Administrador</span>
+                                </li>
+                                <li class="step-item">
+                                    <span class="step-number">4</span>
+                                    <span class="step-text">Jugar</span>
+                                </li>
+                            </ol>
+                            
+                            <div class="installation-note">
+                                <p><strong>Nota:</strong> Si tienes problemas con la instalación, asegúrate de tener instalados los últimos controladores de gráficos y DirectX.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>GameZone</h3>
+                    <p>Tu portal definitivo para los mejores juegos de PC. Descubre, juega y disfruta.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="../../index.html">Inicio</a></li>
+                        <li><a href="#">Juegos</a></li>
+                        <li><a href="#">Categorías</a></li>
+                        <li><a href="#">Noticias</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Soporte</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Contacto</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Ayuda</a></li>
+                        <li><a href="#">Reportar Bug</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Términos de Uso</a></li>
+                        <li><a href="#">Política de Privacidad</a></li>
+                        <li><a href="#">Cookies</a></li>
+                        <li><a href="#">DMCA</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 GameZone. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Download Modal -->
+    <div class="modal-overlay" id="downloadModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeDownloadModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            <h3 class="modal-title">Enlaces de Descarga</h3>
+            <p class="modal-description">Elige tu plataforma de descarga preferida</p>
+            <div class="download-links">
+                <a href="#" class="download-link" target="_blank">
+                    <i class="fas fa-cloud-download-alt"></i>
+                    Mediafire
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Header Scroll Effect
+        function handleHeaderScroll() {
+            const header = document.getElementById('header');
+            const scrollY = window.scrollY;
+
+            if (scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        }
+
+        // Intersection Observer for Animations
+        function setupIntersectionObserver() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('loaded');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            document.querySelectorAll('.loading').forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        // Smooth Scrolling for Anchor Links
+        function setupSmoothScrolling() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        }
+
+        // Content Adaptation Function
+        function adaptContentLayout() {
+            const gameContent = document.querySelector('.game-content');
+            const gameInfoMain = document.querySelector('.game-info-main');
+            
+            if (!gameContent || !gameInfoMain) return;
+            
+            const paragraphs = gameContent.querySelectorAll('p');
+            const paragraphCount = paragraphs.length;
+            
+            // Remove existing classes
+            gameContent.classList.remove('short-content', 'long-content');
+            gameInfoMain.classList.remove('short-content', 'long-content');
+            
+            // Apply classes based on content length
+            if (paragraphCount === 1) {
+                gameContent.classList.add('short-content');
+                gameInfoMain.classList.add('short-content');
+            } else if (paragraphCount >= 4) {
+                gameContent.classList.add('long-content');
+                gameInfoMain.classList.add('long-content');
+            }
+            
+            // Additional adaptation based on text length
+            let totalTextLength = 0;
+            paragraphs.forEach(p => {
+                totalTextLength += p.textContent.length;
+            });
+            
+            // Adjust font size based on total text length
+            if (totalTextLength < 200 && paragraphCount === 1) {
+                gameContent.style.setProperty('--content-font-size', '1.1rem');
+                gameContent.style.setProperty('--content-line-height', '1.8');
+            } else if (totalTextLength > 1000) {
+                gameContent.style.setProperty('--content-font-size', '0.95rem');
+                gameContent.style.setProperty('--content-line-height', '1.6');
+            } else {
+                gameContent.style.setProperty('--content-font-size', '1rem');
+                gameContent.style.setProperty('--content-line-height', '1.7');
+            }
+        }
+
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            setupIntersectionObserver();
+            setupSmoothScrolling();
+            adaptContentLayout();
+
+            // Add scroll event listener
+            window.addEventListener('scroll', handleHeaderScroll);
+
+            // Add loading class removal with delay for initial elements
+            setTimeout(() => {
+                document.querySelectorAll('.loading').forEach((el, index) => {
+                    setTimeout(() => {
+                        el.classList.add('loaded');
+                    }, index * 100);
+                });
+            }, 500);
+            
+            // Re-adapt layout after content is loaded
+            setTimeout(adaptContentLayout, 1000);
+        });
+
+        // Performance optimization: Throttle scroll events
+        let ticking = false;
+        function requestTick() {
+            if (!ticking) {
+                requestAnimationFrame(handleHeaderScroll);
+                ticking = true;
+                setTimeout(() => ticking = false, 16);
+            }
+        }
+
+        window.addEventListener('scroll', requestTick);
+
+        // Download Modal Functions
+        function openDownloadModal() {
+            const modal = document.getElementById('downloadModal');
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeDownloadModal() {
+            const modal = document.getElementById('downloadModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('downloadModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeDownloadModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeDownloadModal();
+            }
+        });
+    </script>
+</body>
+</html>
