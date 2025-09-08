@@ -297,16 +297,85 @@
             cursor: pointer;
         }
 
+        /* Discord Button */
+        .discord-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: #6eb92b;
+            color: white;
+            text-decoration: none;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(110, 185, 43, 0.3);
+            border: 2px solid transparent;
+            flex-shrink: 0;
+        }
+
+        .discord-btn:hover {
+            background: #5a9823;
+            transform: translateY(-2px) scale(1.1);
+            box-shadow: 0 6px 20px rgba(110, 185, 43, 0.4);
+        }
+
+        .discord-btn i {
+            font-size: 1.2rem;
+        }
+
+        /* Ko-fi Button */
+        .kofi-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.2rem;
+            background: #ff5f5f;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 95, 95, 0.3);
+            border: 2px solid transparent;
+            flex-shrink: 0;
+        }
+
+        .kofi-btn:hover {
+            background: #ff4444;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 95, 95, 0.4);
+        }
+
+        .kofi-btn i {
+            font-size: 1rem;
+        }
+
+        .kofi-icon {
+            width: 16px;
+            height: 16px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ff5f5f;
+            font-size: 0.8rem;
+        }
+
         /* Hero Section */
         .hero {
             height: 100vh;
-            background: linear-gradient(135deg, rgba(10, 10, 10, 0.8), rgba(26, 26, 26, 0.6)),
-                        url('https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover;
+            background: linear-gradient(135deg, rgba(10, 10, 10, 0.8), rgba(26, 26, 26, 0.6));
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
             overflow: hidden;
+            background-size: cover;
+            background-position: center;
         }
 
         .hero::before {
@@ -477,9 +546,27 @@
         /* Games Grid */
         .games-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
             margin-bottom: 3rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Responsive adjustments for games grid */
+        @media (max-width: 1200px) {
+            .games-grid {
+                grid-template-columns: repeat(2, 1fr);
+                max-width: 800px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .games-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+            }
         }
 
         .game-card {
@@ -1064,57 +1151,57 @@
                         </a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a href="#" class="nav-link">
+                        <a href="games.html" class="nav-link">
                             <i class="fas fa-gamepad"></i>
                             Juegos
                             <i class="fas fa-chevron-down"></i>
                         </a>
                         <div class="dropdown-content">
-                            <a href="#" class="dropdown-item">
+                            <a href="games.html?category=accion" class="dropdown-item">
                                 <i class="fas fa-fist-raised"></i>
                                 Acción
                             </a>
-                            <a href="#" class="dropdown-item">
+                            <a href="games.html?category=aventura" class="dropdown-item">
                                 <i class="fas fa-map"></i>
                                 Aventura
                             </a>
-                            <a href="#" class="dropdown-item">
+                            <a href="games.html?category=rpg" class="dropdown-item">
                                 <i class="fas fa-dragon"></i>
                                 RPG
                             </a>
-                            <a href="#" class="dropdown-item">
+                            <a href="games.html?category=estrategia" class="dropdown-item">
                                 <i class="fas fa-chess"></i>
                                 Estrategia
                             </a>
-                            <a href="#" class="dropdown-item">
+                            <a href="games.html?category=simulacion" class="dropdown-item">
                                 <i class="fas fa-car"></i>
                                 Simulación
                             </a>
-                            <a href="#" class="dropdown-item">
+                            <a href="games.html?category=deportes" class="dropdown-item">
                                 <i class="fas fa-futbol"></i>
                                 Deportes
                             </a>
-                            <a href="#" class="dropdown-item">
+                            <a href="games.html?category=arcade" class="dropdown-item">
                                 <i class="fas fa-gamepad"></i>
                                 Arcade
                             </a>
-                            <a href="#" class="dropdown-item">
+                            <a href="games.html?category=plataformas" class="dropdown-item">
                                 <i class="fas fa-running"></i>
                                 Plataformas
                             </a>
-                            <a href="#" class="dropdown-item">
+                            <a href="games.html?category=shooters" class="dropdown-item">
                                 <i class="fas fa-crosshairs"></i>
                                 Shooters
                             </a>
-                            <a href="#" class="dropdown-item">
+                            <a href="games.html?category=puzzles" class="dropdown-item">
                                 <i class="fas fa-puzzle-piece"></i>
                                 Puzzles
                             </a>
-                            <a href="#" class="dropdown-item">
+                            <a href="games.html?category=mundo-abierto" class="dropdown-item">
                                 <i class="fas fa-globe"></i>
                                 Mundo Abierto
                             </a>
-                            <a href="#" class="dropdown-item">
+                            <a href="games.html?category=indie" class="dropdown-item">
                                 <i class="fas fa-heart"></i>
                                 Indie
                             </a>
@@ -1126,17 +1213,37 @@
                             Noticias
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a href="about.html" class="nav-link">
-                            <i class="fas fa-info-circle"></i>
-                            Acerca de
+                                        <li class="nav-item dropdown">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-gavel"></i>
+                            Legal
+                            <i class="fas fa-chevron-down"></i>
                         </a>
+                        <div class="dropdown-content">
+                            <a href="about.html" class="dropdown-item">
+                                <i class="fas fa-info-circle"></i>
+                                Acerca de
+                            </a>
+                            <a href="dmca.html" class="dropdown-item">
+                                <i class="fas fa-shield-alt"></i>
+                                DMCA
+                            </a>
+                        </div>
                     </li>
                 </ul>
                 
                 <button class="mobile-menu-toggle">
                     <i class="fas fa-bars"></i>
                 </button>
+                
+                <a href="https://discord.gg/h6wMkwSvj4" target="_blank" class="discord-btn" title="Únete a nuestro Discord">
+                    <i class="fab fa-discord"></i>
+                </a>
+                
+                <div id="kofi-widget-container">
+                    <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script>
+                    <script type='text/javascript'>kofiwidget2.init('Apóyanos', '#619e27', 'U7U71KW6U1');kofiwidget2.draw();</script>
+                </div>
             </nav>
         </div>
     </header>
@@ -1174,15 +1281,64 @@
                 <div class="games-grid">
                     <div class="game-card loading stagger-1">
                         <div class="game-image">
+                            <img src="https://i.imgur.com/IpXmPIi.jpeg" alt="PEAK">
+                            <div class="game-overlay"></div>
+                        </div>
+                        <div class="game-info">
+                            <h3 class="game-title">PEAK</h3>
+                            <div class="game-categories">
+                                <span class="game-category">Acción</span>
+                                <span class="game-category">Aventura</span>
+                                <span class="game-category">Indie</span>
+                            </div>
+                            <p class="game-description">
+                                Un emocionante juego de acción y aventura que combina exploración, combate dinámico y narrativa envolvente en un mundo lleno de desafíos únicos.
+                            </p>
+                            <div class="game-actions">
+                                <a href="games/peak/peak.html" class="btn btn-primary game-btn">
+                                    <i class="fas fa-download"></i>
+                                    Descargar
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="game-card loading stagger-2">
+                        <div class="game-image">
+                            <img src="https://i.imgur.com/EXbst5F.png" alt="Hollow Knight: Silksong">
+                            <div class="game-overlay"></div>
+                        </div>
+                        <div class="game-info">
+                            <h3 class="game-title">Hollow Knight: Silksong</h3>
+                            <div class="game-categories">
+                                <span class="game-category">Acción</span>
+                                <span class="game-category">Aventura</span>
+                                <span class="game-category">Plataformas</span>
+                                <span class="game-category">Indie</span>
+                            </div>
+                            <p class="game-description">
+                                La secuela muy esperada de Hollow Knight. Juega como Hornet, la princesa-protectora de Hallownest, en una aventura épica a través del reino de Pharloom.
+                            </p>
+                            <div class="game-actions">
+                                <a href="games/hollow-knight-silksong/hollow-knight-silksong.html" class="btn btn-primary game-btn">
+                                    <i class="fas fa-download"></i>
+                                    Descargar
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="game-card loading stagger-3">
+                        <div class="game-image">
                             <img src="https://i.imgur.com/tNdNUZm.png" alt="Undertale">
                             <div class="game-overlay"></div>
                         </div>
                         <div class="game-info">
                             <h3 class="game-title">Undertale</h3>
                             <div class="game-categories">
+                                <span class="game-category">Aventura</span>
                                 <span class="game-category">RPG</span>
                                 <span class="game-category">Indie</span>
-                                <span class="game-category">Aventura</span>
                             </div>
                             <p class="game-description">
                                 Un RPG único donde no tienes que destruir a nadie. Cada encuentro puede resolverse de forma pacífica. Lucha o ten piedad, la elección es tuya.
@@ -1196,75 +1352,10 @@
                         </div>
                     </div>
 
-                    <div class="game-card loading stagger-2">
-                        <div class="game-image">
-                            <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Próximamente">
-                            <div class="game-overlay"></div>
-                        </div>
-                        <div class="game-info">
-                            <h3 class="game-title">Próximamente</h3>
-                            <div class="game-categories">
-                                <span class="game-category">Nuevo</span>
-                            </div>
-                            <p class="game-description">
-                                Estamos trabajando en traerte más contenido de calidad premium. ¡Vuelve pronto para descubrir nuevas aventuras!
-                            </p>
-                            <div class="game-actions">
-                                <a href="#" class="btn btn-secondary game-btn">
-                                    <i class="fas fa-clock"></i>
-                                    Próximamente
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="game-card loading stagger-3">
-                        <div class="game-image">
-                            <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Próximamente">
-                            <div class="game-overlay"></div>
-                        </div>
-                        <div class="game-info">
-                            <h3 class="game-title">Próximamente</h3>
-                            <div class="game-categories">
-                                <span class="game-category">Nuevo</span>
-                            </div>
-                            <p class="game-description">
-                                Una experiencia gaming única te espera. Prepárate para sumergirte en mundos extraordinarios muy pronto.
-                            </p>
-                            <div class="game-actions">
-                                <a href="#" class="btn btn-secondary game-btn">
-                                    <i class="fas fa-clock"></i>
-                                    Próximamente
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="game-card loading stagger-4">
-                        <div class="game-image">
-                            <img src="https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Próximamente">
-                            <div class="game-overlay"></div>
-                        </div>
-                        <div class="game-info">
-                            <h3 class="game-title">Próximamente</h3>
-                            <div class="game-categories">
-                                <span class="game-category">Nuevo</span>
-                            </div>
-                            <p class="game-description">
-                                El futuro del gaming está llegando a GameZone. Mantente conectado para no perderte ninguna novedad.
-                            </p>
-                            <div class="game-actions">
-                                <a href="#" class="btn btn-secondary game-btn">
-                                    <i class="fas fa-clock"></i>
-                                    Próximamente
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                                    </div>
 
                 <div style="text-align: center; margin-top: 3rem;">
-                    <a href="#" class="btn btn-primary">
+                    <a href="games.html" class="btn btn-primary">
                         <i class="fas fa-th"></i>
                         Ver Todos los Juegos
                     </a>
@@ -1304,21 +1395,12 @@
                     <h3>Enlaces Rápidos</h3>
                     <ul class="footer-links">
                         <li><a href="#top">Inicio</a></li>
-                        <li><a href="#games">Juegos</a></li>
+                        <li><a href="games.html">Juegos</a></li>
                         <li><a href="noticias.html">Noticias</a></li>
                     </ul>
                 </div>
                 
-                <div class="footer-section">
-                    <h3>Soporte</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Contacto</a></li>
-                        <li><a href="#">Solicitar Contenido</a></li>
-                        <li><a href="#">Ayuda</a></li>
-                        <li><a href="#">FAQ</a></li>
-                    </ul>
-                </div>
-                
+                                
                 <div class="footer-section">
                     <h3>Legal</h3>
                     <ul class="footer-links">
@@ -1446,8 +1528,30 @@
             });
         }
 
+        // Random Background Image Function
+        function setRandomHeroBackground() {
+            const backgroundImages = [
+                'https://i.imgur.com/SPkMzvW.jpeg',
+                'https://i.imgur.com/0CyvWYn.png',
+                'https://i.imgur.com/6sCpVpc.jpeg'
+            ];
+            
+            // Select a random image from the array
+            const randomIndex = Math.floor(Math.random() * backgroundImages.length);
+            const selectedImage = backgroundImages[randomIndex];
+            
+            // Apply the background image to the hero section
+            const heroSection = document.querySelector('.hero');
+            if (heroSection) {
+                heroSection.style.backgroundImage = `linear-gradient(135deg, rgba(10, 10, 10, 0.8), rgba(26, 26, 26, 0.6)), url('${selectedImage}')`;
+            }
+        }
+
         // Initialize everything when DOM is loaded
         document.addEventListener('DOMContentLoaded', function() {
+            // Set random background image first
+            setRandomHeroBackground();
+            
             createParticles();
             setupIntersectionObserver();
             setupSmoothScrolling();
@@ -1715,8 +1819,374 @@
             }
         }
 
+        // Konami Code Secret Access System
+        class KonamiCodeDetector {
+            constructor() {
+                this.konamiSequence = [
+                    'ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown',
+                    'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight',
+                    'KeyB', 'KeyA'
+                ];
+                this.userInput = [];
+                this.isActivated = false;
+                this.init();
+            }
+
+            init() {
+                document.addEventListener('keydown', (e) => {
+                    this.handleKeyPress(e.code);
+                });
+
+                // Add visual hints
+                this.addSecretHints();
+            }
+
+            handleKeyPress(keyCode) {
+                // Add the key to user input
+                this.userInput.push(keyCode);
+
+                // Keep only the last 10 keys (length of Konami code)
+                if (this.userInput.length > this.konamiSequence.length) {
+                    this.userInput.shift();
+                }
+
+                // Check if the sequence matches
+                if (this.userInput.length === this.konamiSequence.length) {
+                    if (this.checkSequence()) {
+                        this.activateSecret();
+                    }
+                }
+            }
+
+            checkSequence() {
+                for (let i = 0; i < this.konamiSequence.length; i++) {
+                    if (this.userInput[i] !== this.konamiSequence[i]) {
+                        return false;
+                    }
+                }
+                return true;
+            }
+
+            activateSecret() {
+                if (this.isActivated) return;
+                this.isActivated = true;
+
+                // Visual effects
+                this.showSecretActivation();
+
+                // Redirect to secret page after effects
+                setTimeout(() => {
+                    window.location.href = 'secret.html';
+                }, 4000);
+            }
+
+            showSecretActivation() {
+                // Play secret sound
+                this.playSecretSound();
+
+                // Create epic overlay with multiple layers
+                const overlay = document.createElement('div');
+                overlay.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: linear-gradient(45deg, rgba(0, 0, 0, 0.95), rgba(26, 26, 26, 0.98));
+                    z-index: 9999;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-direction: column;
+                    animation: epicFadeIn 0.8s ease;
+                `;
+
+                // Create matrix-style background effect
+                const matrixBg = document.createElement('div');
+                matrixBg.style.cssText = `
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: repeating-linear-gradient(
+                        0deg,
+                        transparent,
+                        transparent 2px,
+                        rgba(110, 185, 43, 0.03) 2px,
+                        rgba(110, 185, 43, 0.03) 4px
+                    );
+                    animation: matrixScroll 2s linear infinite;
+                `;
+
+                // Create main title
+                const mainTitle = document.createElement('div');
+                mainTitle.style.cssText = `
+                    font-family: 'SnesItalic', 'Inter', sans-serif;
+                    font-size: clamp(2.5rem, 8vw, 5rem);
+                    color: #6eb92b;
+                    text-align: center;
+                    margin-bottom: 1rem;
+                    text-shadow: 
+                        0 0 10px rgba(110, 185, 43, 0.8),
+                        0 0 20px rgba(110, 185, 43, 0.6),
+                        0 0 30px rgba(110, 185, 43, 0.4);
+                    letter-spacing: 3px;
+                    font-weight: 700;
+                `;
+                mainTitle.textContent = 'KONAMI CODE';
+
+                // Create subtitle
+                const subtitle = document.createElement('div');
+                subtitle.style.cssText = `
+                    font-family: 'SnesItalic', 'Inter', sans-serif;
+                    font-size: clamp(1.5rem, 4vw, 2.5rem);
+                    color: #7bc93f;
+                    text-align: center;
+                    margin-bottom: 2rem;
+                    text-shadow: 0 0 15px rgba(123, 201, 63, 0.6);
+                    animation: epicPulse 1.5s ease-in-out infinite;
+                    letter-spacing: 2px;
+                    font-weight: 600;
+                `;
+                subtitle.textContent = 'ACTIVATED';
+
+                // Create access message
+                const accessMsg = document.createElement('div');
+                accessMsg.style.cssText = `
+                    font-family: 'JetBrains Mono', monospace;
+                    font-size: 1.2rem;
+                    color: #b0b0b0;
+                    text-align: center;
+                    margin-bottom: 2rem;
+                    animation: typewriter 1s ease 1s both;
+                    letter-spacing: 1px;
+                `;
+                accessMsg.textContent = '> ACCESSING SECRET AREA...';
+
+                // Create epic loading bar
+                const loadingContainer = document.createElement('div');
+                loadingContainer.style.cssText = `
+                    width: 400px;
+                    height: 8px;
+                    background: rgba(110, 185, 43, 0.2);
+                    border-radius: 4px;
+                    margin: 2rem 0;
+                    position: relative;
+                    overflow: hidden;
+                    border: 1px solid rgba(110, 185, 43, 0.3);
+                `;
+
+                const loadingBar = document.createElement('div');
+                loadingBar.style.cssText = `
+                    width: 0%;
+                    height: 100%;
+                    background: linear-gradient(90deg, #6eb92b, #7bc93f, #6eb92b);
+                    border-radius: 4px;
+                    animation: epicLoad 2s ease-in-out;
+                    box-shadow: 0 0 10px rgba(110, 185, 43, 0.6);
+                `;
+
+                loadingContainer.appendChild(loadingBar);
+
+                // Create status text
+                const statusText = document.createElement('div');
+                statusText.style.cssText = `
+                    font-family: 'JetBrains Mono', monospace;
+                    font-size: 0.9rem;
+                    color: #6eb92b;
+                    text-align: center;
+                    margin-top: 1rem;
+                    opacity: 0.9;
+                `;
+                statusText.textContent = 'INITIALIZING...';
+
+                // Assemble the overlay
+                overlay.appendChild(matrixBg);
+                overlay.appendChild(mainTitle);
+                overlay.appendChild(subtitle);
+                overlay.appendChild(accessMsg);
+                overlay.appendChild(loadingContainer);
+                overlay.appendChild(statusText);
+                document.body.appendChild(overlay);
+
+                // Add epic CSS animations
+                const style = document.createElement('style');
+                style.textContent = `
+                    @keyframes epicFadeIn {
+                        0% { 
+                            opacity: 0; 
+                            transform: scale(0.8);
+                        }
+                        100% { 
+                            opacity: 1; 
+                            transform: scale(1);
+                        }
+                    }
+                    
+                                        
+                    @keyframes epicPulse {
+                        0%, 100% { 
+                            opacity: 0.8; 
+                            transform: translateY(0px);
+                        }
+                        50% { 
+                            opacity: 1; 
+                            transform: translateY(-5px);
+                        }
+                    }
+                    
+                    @keyframes typewriter {
+                        0% { 
+                            width: 0; 
+                            opacity: 0;
+                        }
+                        1% {
+                            opacity: 1;
+                        }
+                        100% { 
+                            width: 100%; 
+                            opacity: 1;
+                        }
+                    }
+                    
+                    @keyframes epicLoad {
+                        0% { width: 0%; }
+                        20% { width: 15%; }
+                        40% { width: 35%; }
+                        60% { width: 60%; }
+                        80% { width: 85%; }
+                        100% { width: 100%; }
+                    }
+                    
+                    @keyframes matrixScroll {
+                        0% { transform: translateY(0); }
+                        100% { transform: translateY(20px); }
+                    }
+                `;
+                document.head.appendChild(style);
+
+                // Epic screen effects sequence
+                this.createScreenEffects();
+
+                // Update status text over time
+                setTimeout(() => {
+                    statusText.textContent = 'LOADING MODULES...';
+                }, 800);
+                
+                setTimeout(() => {
+                    statusText.textContent = 'DECRYPTING DATA...';
+                }, 1600);
+                
+                setTimeout(() => {
+                    statusText.textContent = 'VERIFYING CREDENTIALS...';
+                }, 2400);
+                
+                setTimeout(() => {
+                    statusText.textContent = 'ACCESS GRANTED';
+                    statusText.style.color = '#7bc93f';
+                }, 3200);
+
+                // Console messages
+                console.log('%c██╗  ██╗ ██████╗ ███╗   █��╗ █████╗ ███╗   ███╗██╗', 'color: #6eb92b; font-family: monospace;');
+                console.log('%c██║ ██╔╝██╔═══██╗████╗  ��█║██╔══██╗████╗ ████║██║', 'color: #6eb92b; font-family: monospace;');
+                console.log('%c█████╔╝ ██║   ██║██╔██╗ ██║███████║██╔████╔██║██║', 'color: #6eb92b; font-family: monospace;');
+                console.log('%c██╔═██╗ ██║   ██║██║╚██╗██║██╔══██║██║╚██╔╝██║██║', 'color: #6eb92b; font-family: monospace;');
+                console.log('%c██║  ██╗╚██████╔╝██║ ╚████║██║  ██║██║ ╚═╝ ██║██║', 'color: #6eb92b; font-family: monospace;');
+                console.log('%c╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚═╝  ╚═╝╚═╝     ╚═╝╚═╝', 'color: #6eb92b; font-family: monospace;');
+                console.log('%c                                                    ', 'color: #6eb92b;');
+                console.log('%c            CODE ACTIVATED - ACCESS GRANTED        ', 'color: #7bc93f; font-size: 16px; font-weight: bold;');
+            }
+
+            playSecretSound() {
+                try {
+                    const audio = new Audio('sounds/secret.mp3');
+                    audio.volume = 0.7;
+                    audio.play().catch(e => {
+                        console.log('Audio playback failed (user interaction required):', e);
+                    });
+                } catch (error) {
+                    console.log('Audio file not found or failed to load:', error);
+                }
+            }
+
+            createScreenEffects() {
+                // Multiple screen flash effects
+                const effects = [
+                    { delay: 0, filter: 'brightness(2) hue-rotate(120deg)', duration: 100 },
+                    { delay: 300, filter: 'brightness(1.5) saturate(2) hue-rotate(90deg)', duration: 150 },
+                    { delay: 800, filter: 'brightness(1.8) contrast(1.5) hue-rotate(60deg)', duration: 100 },
+                    { delay: 1200, filter: 'brightness(2.2) hue-rotate(180deg)', duration: 200 },
+                ];
+
+                effects.forEach(effect => {
+                    setTimeout(() => {
+                        document.body.style.filter = effect.filter;
+                        setTimeout(() => {
+                            document.body.style.filter = 'none';
+                        }, effect.duration);
+                    }, effect.delay);
+                });
+
+                // Final epic flash
+                setTimeout(() => {
+                    document.body.style.filter = 'brightness(3) saturate(0) contrast(2)';
+                    setTimeout(() => {
+                        document.body.style.filter = 'brightness(2) hue-rotate(120deg)';
+                        setTimeout(() => {
+                            document.body.style.filter = 'none';
+                        }, 100);
+                    }, 50);
+                }, 1800);
+            }
+
+            addSecretHints() {
+                // Add subtle hints for observant users
+                const hints = [
+                    'Algunos secretos se desbloquean con códigos clásicos...',
+                    'Los verdaderos gamers conocen ciertos códigos especiales...',
+                    '↑↑↓↓←→←→BA - ¿Te suena familiar?'
+                ];
+
+                // Add hint to console after page load
+                setTimeout(() => {
+                    const randomHint = hints[Math.floor(Math.random() * hints.length)];
+                    console.log(`%c💡 Pista: ${randomHint}`, 'color: #6eb92b; font-style: italic;');
+                }, 3000);
+
+                // Add Easter egg in footer
+                const footer = document.querySelector('.footer-bottom p');
+                if (footer) {
+                    footer.addEventListener('dblclick', () => {
+                        const hint = document.createElement('div');
+                        hint.style.cssText = `
+                            position: fixed;
+                            bottom: 20px;
+                            right: 20px;
+                            background: rgba(110, 185, 43, 0.9);
+                            color: white;
+                            padding: 1rem;
+                            border-radius: 10px;
+                            font-size: 0.9rem;
+                            z-index: 1000;
+                            animation: fadeInUp 0.5s ease;
+                        `;
+                        hint.textContent = '🎮 Pista: Prueba el código Konami clásico...';
+                        document.body.appendChild(hint);
+
+                        setTimeout(() => {
+                            hint.remove();
+                        }, 4000);
+                    });
+                }
+            }
+        }
+
         // Initialize systems when DOM is loaded
         document.addEventListener('DOMContentLoaded', function() {
+            // Initialize Konami Code detector
+            const konamiDetector = new KonamiCodeDetector();
+            
             // Initialize notification system
             const notificationSystem = new NotificationSystem();
             
@@ -1727,6 +2197,7 @@
             // Make systems globally available for testing
             window.gameZoneNotifications = notificationSystem;
             window.gameZoneNews = newsManager;
+            window.konamiDetector = konamiDetector;
 
             // Setup search form
             document.getElementById('searchForm').addEventListener('submit', function(e) {
@@ -1748,6 +2219,12 @@
                     link: "#"
                 });
             }
+
+            // Add welcome message with hint
+            setTimeout(() => {
+                console.log('%c🎮 Bienvenido a GameZone! 🎮', 'color: #6eb92b; font-size: 18px; font-weight: bold;');
+                console.log('%cLos verdaderos gamers saben que algunos sitios tienen secretos ocultos...', 'color: #7bc93f; font-size: 12px; font-style: italic;');
+            }, 1000);
         });
 
         // Add CSS for subscribed button state

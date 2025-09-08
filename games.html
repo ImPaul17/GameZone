@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Acerca de GameZone - Tu portal de juegos para PC</title>
+    <title>Juegos - GameZone | Tu portal de juegos para PC</title>
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -325,46 +325,6 @@
             font-size: 1.2rem;
         }
 
-        /* Ko-fi Button */
-        .kofi-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.6rem 1.2rem;
-            background: #ff5f5f;
-            color: white;
-            text-decoration: none;
-            border-radius: 25px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(255, 95, 95, 0.3);
-            border: 2px solid transparent;
-            flex-shrink: 0;
-        }
-
-        .kofi-btn:hover {
-            background: #ff4444;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 95, 95, 0.4);
-        }
-
-        .kofi-btn i {
-            font-size: 1rem;
-        }
-
-        .kofi-icon {
-            width: 16px;
-            height: 16px;
-            background: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #ff5f5f;
-            font-size: 0.8rem;
-        }
-
         /* Main Content */
         .main {
             padding-top: 80px;
@@ -415,300 +375,214 @@
             margin: 0 auto;
         }
 
-        /* About Hero Section */
-        .about-hero {
-            background: var(--bg-secondary);
-            border-radius: 30px;
-            padding: 6rem 2rem;
-            margin: 4rem 0;
+        /* Games Hero Section */
+        .games-hero {
+            background: linear-gradient(135deg, rgba(10, 10, 10, 0.8), rgba(26, 26, 26, 0.6));
+            padding: 6rem 0 4rem;
             text-align: center;
             position: relative;
             overflow: hidden;
+            background-size: cover;
+            background-position: center;
         }
 
-        .about-hero::before {
+        .games-hero::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(circle at center, rgba(110, 185, 43, 0.1) 0%, transparent 70%);
+            background: radial-gradient(circle at center, transparent 0%, rgba(10, 10, 10, 0.3) 100%);
         }
 
-        .about-hero-content {
+        .games-hero-content {
             position: relative;
             z-index: 2;
         }
 
-        .about-hero-title {
+        .games-hero-title {
             font-family: 'SnesItalic', 'Inter', sans-serif;
-            font-size: clamp(3rem, 6vw, 5rem);
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            color: var(--primary-color);
-            letter-spacing: 1px;
-        }
-
-        .about-hero-text {
-            font-size: 1.4rem;
-            color: var(--text-secondary);
-            margin-bottom: 3rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.7;
-        }
-
-        .about-hero-icon {
-            width: 150px;
-            height: 150px;
-            margin: 2rem auto 3rem;
-            animation: float 3s ease-in-out infinite;
-        }
-
-        .about-hero-icon img {
-            width: 100%;
-            height: 100%;
-            filter: drop-shadow(0 0 20px rgba(110, 185, 43, 0.5));
-        }
-
-        /* About Content */
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            margin: 4rem 0;
-            align-items: center;
-        }
-
-        .about-text {
-            background: var(--bg-secondary);
-            padding: 3rem;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .about-text h3 {
-            font-family: 'SnesItalic', 'Inter', sans-serif;
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            color: var(--primary-color);
-        }
-
-        .about-text p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-            text-align: justify;
-        }
-
-        .about-text p:last-child {
-            margin-bottom: 0;
-        }
-
-        .about-image {
-            text-align: center;
-        }
-
-        .about-image img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 15px;
-            box-shadow: var(--shadow-medium);
-            transition: transform 0.3s ease;
-        }
-
-        .about-image img:hover {
-            transform: scale(1.05);
-        }
-
-        /* Features Section */
-        .features-section {
-            background: var(--bg-tertiary);
-            border-radius: 20px;
-            padding: 4rem 2rem;
-            margin: 4rem 0;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .feature-card {
-            background: var(--bg-secondary);
-            padding: 2.5rem;
-            border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.3s ease;
-            text-align: center;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--border-color);
-            box-shadow: var(--shadow-medium);
-        }
-
-        .feature-icon {
-            font-size: 3rem;
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-            display: block;
-        }
-
-        .feature-title {
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: var(--text-primary);
-        }
-
-        .feature-text {
-            color: var(--text-secondary);
-            font-size: 1rem;
-            line-height: 1.6;
-        }
-
-        /* Stats Section */
-        .stats-section {
-            background: var(--bg-secondary);
-            border-radius: 20px;
-            padding: 4rem 2rem;
-            margin: 4rem 0;
-            text-align: center;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .stat-card {
-            padding: 2rem;
-        }
-
-        .stat-number {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 3rem;
+            font-size: clamp(3rem, 8vw, 5rem);
             font-weight: 800;
+            margin-bottom: 1.5rem;
             color: var(--primary-color);
-            margin-bottom: 0.5rem;
-            text-shadow: 0 0 10px rgba(110, 185, 43, 0.3);
+            letter-spacing: 2px;
         }
 
-        .stat-label {
-            font-size: 1.1rem;
+        .games-hero-subtitle {
+            font-size: 1.5rem;
             color: var(--text-secondary);
-            font-weight: 500;
+            margin-bottom: 2rem;
         }
 
-        /* Team Section */
-        .team-section {
-            margin: 4rem 0;
-        }
-
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .team-card {
+        /* Filter Section */
+        .filter-section {
             background: var(--bg-secondary);
-            padding: 2rem;
-            border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            text-align: center;
-            transition: all 0.3s ease;
+            padding: 2rem 0;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 80px;
+            z-index: 100;
         }
 
-        .team-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--border-color);
-            box-shadow: var(--shadow-medium);
-        }
-
-        .team-avatar {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            background: var(--gradient-primary);
-            margin: 0 auto 1rem;
+        .filter-container {
             display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
-            color: white;
         }
 
-        .team-name {
-            font-size: 1.2rem;
+        .filter-btn {
+            padding: 0.75rem 1.5rem;
+            background: var(--bg-tertiary);
+            border: 2px solid var(--border-color);
+            border-radius: 25px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--gradient-primary);
+            color: white;
+            border-color: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(110, 185, 43, 0.3);
+        }
+
+        /* Games Grid */
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 3rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Responsive adjustments for games grid */
+        @media (max-width: 1200px) {
+            .games-grid {
+                grid-template-columns: repeat(2, 1fr);
+                max-width: 800px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .games-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+            }
+        }
+
+        .game-card {
+            background: var(--bg-secondary);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: var(--shadow-light);
+        }
+
+        .game-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-heavy);
+            border-color: var(--border-color);
+        }
+
+        .game-image {
+            position: relative;
+            overflow: hidden;
+            height: 200px;
+        }
+
+        .game-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .game-card:hover .game-image img {
+            transform: scale(1.1);
+        }
+
+        .game-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .game-card:hover .game-overlay {
+            opacity: 1;
+        }
+
+        .game-info {
+            padding: 1.5rem;
+        }
+
+        .game-title {
+            font-size: 1.3rem;
             font-weight: 600;
             margin-bottom: 0.5rem;
             color: var(--text-primary);
         }
 
-        .team-role {
-            color: var(--primary-color);
-            font-weight: 500;
+        .game-categories {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
             margin-bottom: 1rem;
         }
 
-        .team-description {
+        .game-category {
+            padding: 0.25rem 0.75rem;
+            background: rgba(110, 185, 43, 0.2);
+            color: var(--primary-color);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border: 1px solid rgba(110, 185, 43, 0.3);
+        }
+
+        .game-description {
             color: var(--text-secondary);
             font-size: 0.9rem;
             line-height: 1.5;
-        }
-
-        /* CTA Section */
-        .cta-section {
-            background: var(--bg-secondary);
-            border-radius: 20px;
-            padding: 4rem 2rem;
-            margin: 4rem 0;
-            text-align: center;
-            position: relative;
+            margin-bottom: 1.5rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            line-clamp: 3;
             overflow: hidden;
         }
 
-        .cta-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at center, rgba(110, 185, 43, 0.1) 0%, transparent 70%);
+        .game-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
         }
 
-        .cta-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .cta-title {
-            font-family: 'SnesItalic', 'Inter', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--primary-color);
-        }
-
-        .cta-text {
-            font-size: 1.2rem;
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+        .game-btn {
+            flex: 1;
+            justify-content: center;
+            padding: 0.75rem 1.5rem;
+            font-size: 0.9rem;
         }
 
         .btn {
@@ -738,6 +612,18 @@
             box-shadow: 0 8px 30px rgba(110, 185, 43, 0.4);
         }
 
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 2px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(110, 185, 43, 0.1);
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
         .btn::before {
             content: '';
             position: absolute;
@@ -751,6 +637,50 @@
 
         .btn:hover::before {
             left: 100%;
+        }
+
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin: 4rem 0;
+        }
+
+        .pagination-btn {
+            padding: 0.75rem 1rem;
+            background: var(--bg-secondary);
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            min-width: 45px;
+            text-align: center;
+        }
+
+        .pagination-btn:hover,
+        .pagination-btn.active {
+            background: var(--gradient-primary);
+            color: white;
+            border-color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        .pagination-btn:disabled,
+        .pagination-btn.disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
+        .pagination-btn.disabled:hover {
+            background: var(--bg-secondary);
+            color: var(--text-secondary);
+            border-color: var(--border-color);
+            transform: none;
         }
 
         /* Footer */
@@ -812,18 +742,14 @@
             }
         }
 
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0px);
-            }
-            50% {
-                transform: translateY(-20px);
-            }
-        }
-
         .fade-in-up {
             animation: fadeInUp 0.8s ease forwards;
         }
+
+        .stagger-1 { animation-delay: 0.1s; }
+        .stagger-2 { animation-delay: 0.2s; }
+        .stagger-3 { animation-delay: 0.3s; }
+        .stagger-4 { animation-delay: 0.4s; }
 
         /* Loading Animation */
         .loading {
@@ -876,6 +802,20 @@
         }
 
         /* Responsive Design */
+        @media (max-width: 1024px) {
+            .header-content {
+                flex-wrap: wrap;
+                height: auto;
+                padding: 1rem 2rem;
+            }
+
+            .search-container {
+                order: 3;
+                width: 100%;
+                margin-top: 1rem;
+            }
+        }
+
         @media (max-width: 768px) {
             .nav-menu {
                 display: none;
@@ -885,65 +825,35 @@
                 display: block;
             }
 
-            .about-hero {
-                padding: 4rem 1rem;
+            .games-hero-title {
+                font-size: 3rem;
             }
 
-            .about-hero-title {
-                font-size: 2.5rem;
-            }
-
-            .about-hero-text {
+            .games-hero-subtitle {
                 font-size: 1.2rem;
             }
 
-            .about-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .about-text {
-                padding: 2rem;
-            }
-
-            .features-grid,
-            .stats-grid,
-            .team-grid {
+            .games-grid {
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
             }
 
-            .container {
+            .filter-container {
+                justify-content: flex-start;
+                overflow-x: auto;
                 padding: 0 1rem;
+            }
+
+            .filter-btn {
+                flex-shrink: 0;
             }
 
             .section {
                 padding: 3rem 0;
             }
-        }
 
-        @media (max-width: 480px) {
-            .header-content {
-                padding: 1rem;
-            }
-
-            .logo-text {
-                font-size: 2.2rem;
-            }
-
-            .search-input {
-                font-size: 0.9rem;
-                padding: 0.6rem 2.8rem 0.6rem 0.8rem;
-            }
-
-            .search-btn {
-                width: 30px;
-                height: 30px;
-                right: 0.4rem;
-            }
-
-            .search-btn i {
-                font-size: 0.9rem;
+            .container {
+                padding: 0 1rem;
             }
         }
     </style>
@@ -977,7 +887,7 @@
                         </a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a href="games.html" class="nav-link">
+                        <a href="games.html" class="nav-link active">
                             <i class="fas fa-gamepad"></i>
                             Juegos
                             <i class="fas fa-chevron-down"></i>
@@ -1076,100 +986,173 @@
 
     <!-- Main Content -->
     <main class="main">
-        <!-- About Hero Section -->
-        <section class="about-hero loading">
-            <div class="about-hero-content">
-                <h1 class="about-hero-title">Acerca de GameZone</h1>
-                <p class="about-hero-text">
-                    GameZone es tu sitio de confianza para descubrir y descargar los mejores juegos para PC, con una amplia colección siempre actualizada. Te ofrecemos enlaces rápidos, seguros y totalmente gratuitos para que disfrutes de tu experiencia gamer sin complicaciones.
-                </p>
-                <div class="about-hero-icon">
-                    <img src="images/snescontroller.svg" alt="Gaming Controller">
+        <!-- Games Hero Section -->
+        <section class="games-hero">
+            <div class="container">
+                <div class="games-hero-content">
+                    <h1 class="games-hero-title">Todos los Juegos</h1>
+                    <p class="games-hero-subtitle">Descubre nuestra colección completa de juegos para PC</p>
                 </div>
             </div>
         </section>
 
-        <!-- About Content -->
+        <!-- Filter Section -->
+        <section class="filter-section">
+            <div class="container">
+                <div class="filter-container">
+                    <button class="filter-btn active" data-category="all">
+                        <i class="fas fa-th"></i>
+                        Todos
+                    </button>
+                    <button class="filter-btn" data-category="accion">
+                        <i class="fas fa-fist-raised"></i>
+                        Acción
+                    </button>
+                    <button class="filter-btn" data-category="aventura">
+                        <i class="fas fa-map"></i>
+                        Aventura
+                    </button>
+                    <button class="filter-btn" data-category="rpg">
+                        <i class="fas fa-dragon"></i>
+                        RPG
+                    </button>
+                    <button class="filter-btn" data-category="estrategia">
+                        <i class="fas fa-chess"></i>
+                        Estrategia
+                    </button>
+                    <button class="filter-btn" data-category="simulacion">
+                        <i class="fas fa-car"></i>
+                        Simulación
+                    </button>
+                    <button class="filter-btn" data-category="deportes">
+                        <i class="fas fa-futbol"></i>
+                        Deportes
+                    </button>
+                    <button class="filter-btn" data-category="arcade">
+                        <i class="fas fa-gamepad"></i>
+                        Arcade
+                    </button>
+                    <button class="filter-btn" data-category="plataformas">
+                        <i class="fas fa-running"></i>
+                        Plataformas
+                    </button>
+                    <button class="filter-btn" data-category="shooters">
+                        <i class="fas fa-crosshairs"></i>
+                        Shooters
+                    </button>
+                    <button class="filter-btn" data-category="puzzles">
+                        <i class="fas fa-puzzle-piece"></i>
+                        Puzzles
+                    </button>
+                    <button class="filter-btn" data-category="mundo-abierto">
+                        <i class="fas fa-globe"></i>
+                        Mundo Abierto
+                    </button>
+                    <button class="filter-btn" data-category="indie">
+                        <i class="fas fa-heart"></i>
+                        Indie
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Games Section -->
         <section class="section">
             <div class="container">
-                <div class="about-content">
-                    <div class="about-text loading">
-                        <h3>Quienes Somos</h3>
-                        <p>En GameZone queremos dejar totalmente claro que no alojamos, copiamos ni distribuimos videojuegos en nuestro sitio web. Tampoco subimos contenido a servidores externos ni fomentamos la piratería.</p>
-                        
-                        <p>Nuestro portal funciona únicamente como un índice de enlaces que ya se encuentran disponibles públicamente en Internet, recopilando de manera organizada fuentes de alojamiento populares como Google, RARBG, ELAMIGOS, Online-Fix, DailyMotion, Facebook, OvaGames, VK, KAT, ThePirate, SkidrowReloaded, Mega.nz y YouTube, entre otros.</p>
-                        
-                        <p>El objetivo de GameZone es facilitar el acceso a estos enlaces ya existentes en la red, actuando solo como un directorio informativo. Si algún enlace infringe derechos de autor, el contenido debe ser eliminado directamente desde la fuente donde está alojado.</p>
+                <div class="games-grid" id="gamesGrid">
+                    <!-- PEAK Game Card -->
+                    <div class="game-card loading stagger-1" data-categories="accion aventura indie">
+                        <div class="game-image">
+                            <img src="https://i.imgur.com/IpXmPIi.jpeg" alt="PEAK">
+                            <div class="game-overlay"></div>
+                        </div>
+                        <div class="game-info">
+                            <h3 class="game-title">PEAK</h3>
+                            <div class="game-categories">
+                                <span class="game-category">Acción</span>
+                                <span class="game-category">Aventura</span>
+                                <span class="game-category">Indie</span>
+                            </div>
+                            <p class="game-description">
+                                Un emocionante juego de acción y aventura que combina exploración, combate dinámico y narrativa envolvente en un mundo lleno de desafíos únicos.
+                            </p>
+                            <div class="game-actions">
+                                <a href="games/peak/peak.html" class="btn btn-primary game-btn">
+                                    <i class="fas fa-download"></i>
+                                    Descargar
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                    
-                    <div class="about-image loading">
-                        <img src="https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Gaming Developer">
-                    </div>
-                </div>
-            </div>
-        </section>
 
-        <!-- Features Section -->
-        <section class="features-section loading">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Por Que Elegir GameZone</h2>
-                    <p class="section-subtitle">Descubre las razones que nos convierten en la mejor opción para descargar juegos</p>
+                    <!-- Hollow Knight: Silksong Game Card -->
+                    <div class="game-card loading stagger-2" data-categories="accion aventura plataformas indie">
+                        <div class="game-image">
+                            <img src="https://i.imgur.com/EXbst5F.png" alt="Hollow Knight: Silksong">
+                            <div class="game-overlay"></div>
+                        </div>
+                        <div class="game-info">
+                            <h3 class="game-title">Hollow Knight: Silksong</h3>
+                            <div class="game-categories">
+                                <span class="game-category">Acción</span>
+                                <span class="game-category">Aventura</span>
+                                <span class="game-category">Plataformas</span>
+                                <span class="game-category">Indie</span>
+                            </div>
+                            <p class="game-description">
+                                La secuela muy esperada de Hollow Knight. Juega como Hornet, la princesa-protectora de Hallownest, en una aventura épica a través del reino de Pharloom.
+                            </p>
+                            <div class="game-actions">
+                                <a href="games/hollow-knight-silksong/hollow-knight-silksong.html" class="btn btn-primary game-btn">
+                                    <i class="fas fa-download"></i>
+                                    Descargar
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Undertale Game Card -->
+                    <div class="game-card loading stagger-3" data-categories="aventura rpg indie">
+                        <div class="game-image">
+                            <img src="https://i.imgur.com/tNdNUZm.png" alt="Undertale">
+                            <div class="game-overlay"></div>
+                        </div>
+                        <div class="game-info">
+                            <h3 class="game-title">Undertale</h3>
+                            <div class="game-categories">
+                                <span class="game-category">Aventura</span>
+                                <span class="game-category">RPG</span>
+                                <span class="game-category">Indie</span>
+                            </div>
+                            <p class="game-description">
+                                Un RPG único donde no tienes que destruir a nadie. Cada encuentro puede resolverse de forma pacífica. Lucha o ten piedad, la elección es tuya.
+                            </p>
+                            <div class="game-actions">
+                                <a href="games/undertale/undertale.html" class="btn btn-primary game-btn">
+                                    <i class="fas fa-download"></i>
+                                    Descargar
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                                    </div>
+
+                <!-- Pagination -->
+                <div class="pagination">
+                    <a href="#" class="pagination-btn disabled" id="prevBtn">
+                        <i class="fas fa-chevron-left"></i>
+                    </a>
+                    <a href="#" class="pagination-btn active">1</a>
+                    <a href="#" class="pagination-btn disabled" id="nextBtn">
+                        <i class="fas fa-chevron-right"></i>
+                    </a>
                 </div>
                 
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <i class="fas fa-download feature-icon"></i>
-                        <h3 class="feature-title">Descargas Ultra Rápidas</h3>
-                        <p class="feature-text">Nuestros servidores optimizados garantizan velocidades de descarga excepcionales, para que puedas empezar a jugar en minutos, no en horas.</p>
-                    </div>
-                    
-                    <div class="feature-card">
-                        <i class="fas fa-shield-alt feature-icon"></i>
-                        <h3 class="feature-title">100% Seguro y Confiable</h3>
-                        <p class="feature-text">Todos nuestros archivos son escaneados y verificados. Tu seguridad es nuestra prioridad, garantizamos descargas libres de malware.</p>
-                    </div>
-                    
-                    <div class="feature-card">
-                        <i class="fas fa-mouse-pointer feature-icon"></i>
-                        <h3 class="feature-title">Interfaz Intuitiva</h3>
-                        <p class="feature-text">Diseñada pensando en ti. Navega, busca y descarga con facilidad gracias a nuestra interfaz limpia y moderna.</p>
-                    </div>
-                    
-                    <div class="feature-card">
-                        <i class="fas fa-clock feature-icon"></i>
-                        <h3 class="feature-title">Actualizaciones Constantes</h3>
-                        <p class="feature-text">Siempre tenemos los últimos lanzamientos y actualizaciones. Mantente al día con lo más nuevo del mundo gaming.</p>
-                    </div>
-                    
-                    <div class="feature-card">
-                        <i class="fas fa-headset feature-icon"></i>
-                        <h3 class="feature-title">Soporte 24/7</h3>
-                        <p class="feature-text">Nuestro equipo está siempre disponible para ayudarte. ¿Tienes algún problema? Estamos aquí para solucionarlo.</p>
-                    </div>
-                    
-                    <div class="feature-card">
-                        <i class="fas fa-heart feature-icon"></i>
-                        <h3 class="feature-title">Recopilación Gratuita</h3>
-                        <p class="feature-text">Solo nos encargamos de recopilar enlaces. Por eso, todos nuestros servicios son completamente gratuitos.</p>
-                    </div>
+                <!-- Games Info -->
+                <div id="gamesInfo" style="text-align: center; margin-top: 1rem; color: var(--text-muted); font-size: 0.9rem;">
+                    Mostrando 3 de 3 juegos disponibles
                 </div>
-            </div>
-        </section>
-
-        
-        <!-- CTA Section -->
-        <section class="cta-section loading">
-            <div class="cta-content">
-                <h2 class="cta-title">Listo para la Aventura</h2>
-                <p class="cta-text">
-                    Únete a miles de gamers que ya confían en GameZone para sus descargas. 
-                    Descubre tu próximo juego favorito hoy mismo.
-                </p>
-                <a href="index.html" class="btn btn-primary">
-                    <i class="fas fa-play"></i>
-                    Explorar Juegos
-                </a>
             </div>
         </section>
     </main>
@@ -1254,10 +1237,113 @@
             });
         }
 
+        // Update games counter
+        function updateGamesCounter() {
+            const gameCards = document.querySelectorAll('.game-card');
+            const totalGames = gameCards.length;
+            const visibleGames = Array.from(gameCards).filter(card => 
+                card.style.display !== 'none' && 
+                getComputedStyle(card).display !== 'none'
+            ).length;
+            
+            const gamesInfo = document.getElementById('gamesInfo');
+            if (gamesInfo) {
+                if (visibleGames === 0) {
+                    gamesInfo.textContent = 'No se encontraron juegos para esta categoría';
+                } else if (visibleGames === totalGames) {
+                    gamesInfo.textContent = `Mostrando ${visibleGames} de ${totalGames} juegos disponibles`;
+                } else {
+                    gamesInfo.textContent = `Mostrando ${visibleGames} de ${totalGames} juegos disponibles`;
+                }
+            }
+        }
+
+        // Filter System
+        function setupFilterSystem() {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const gameCards = document.querySelectorAll('.game-card');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Remove active class from all buttons
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    // Add active class to clicked button
+                    btn.classList.add('active');
+
+                    const category = btn.dataset.category;
+
+                    gameCards.forEach(card => {
+                        if (category === 'all') {
+                            card.style.display = 'block';
+                            setTimeout(() => {
+                                card.style.opacity = '1';
+                                card.style.transform = 'translateY(0)';
+                            }, 100);
+                        } else {
+                            const cardCategories = card.dataset.categories;
+                            if (cardCategories && cardCategories.includes(category)) {
+                                card.style.display = 'block';
+                                setTimeout(() => {
+                                    card.style.opacity = '1';
+                                    card.style.transform = 'translateY(0)';
+                                }, 100);
+                            } else {
+                                card.style.opacity = '0';
+                                card.style.transform = 'translateY(20px)';
+                                setTimeout(() => {
+                                    card.style.display = 'none';
+                                }, 300);
+                            }
+                        }
+                    });
+
+                    // Update counter after filter animation completes
+                    setTimeout(() => {
+                        updateGamesCounter();
+                    }, 400);
+                });
+            });
+        }
+
+        // URL Parameter Handling
+        function handleURLParameters() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const category = urlParams.get('category');
+
+            if (category) {
+                const filterBtn = document.querySelector(`[data-category="${category}"]`);
+                if (filterBtn) {
+                    filterBtn.click();
+                }
+            }
+        }
+
+        // Random Background Image Function
+        function setRandomHeroBackground() {
+            const backgroundImages = [
+                'https://i.imgur.com/SPkMzvW.jpeg',
+                'https://i.imgur.com/0CyvWYn.png',
+                'https://i.imgur.com/6sCpVpc.jpeg'
+            ];
+            
+            const randomIndex = Math.floor(Math.random() * backgroundImages.length);
+            const selectedImage = backgroundImages[randomIndex];
+            
+            const heroSection = document.querySelector('.games-hero');
+            if (heroSection) {
+                heroSection.style.backgroundImage = `linear-gradient(135deg, rgba(10, 10, 10, 0.8), rgba(26, 26, 26, 0.6)), url('${selectedImage}')`;
+            }
+        }
+
         // Initialize everything when DOM is loaded
         document.addEventListener('DOMContentLoaded', function() {
+            // Set random background image
+            setRandomHeroBackground();
+            
             createParticles();
             setupIntersectionObserver();
+            setupFilterSystem();
+            handleURLParameters();
 
             // Setup search form
             document.getElementById('searchForm').addEventListener('submit', function(e) {
@@ -1280,6 +1366,9 @@
                         el.classList.add('loaded');
                     }, index * 100);
                 });
+                
+                // Update games counter after initial load
+                updateGamesCounter();
             }, 500);
         });
 
@@ -1294,93 +1383,6 @@
         }
 
         window.addEventListener('scroll', requestTick);
-
-        // Copy Email Function
-        async function copyEmail() {
-            const email = 'infogamezonesite@gmail.com';
-            
-            try {
-                // Try using the modern Clipboard API
-                await navigator.clipboard.writeText(email);
-                showNotification('Email copiado al portapapeles!', 'success');
-            } catch (err) {
-                // Fallback for older browsers
-                const textArea = document.createElement('textarea');
-                textArea.value = email;
-                textArea.style.position = 'fixed';
-                textArea.style.left = '-999999px';
-                textArea.style.top = '-999999px';
-                document.body.appendChild(textArea);
-                textArea.focus();
-                textArea.select();
-                
-                try {
-                    document.execCommand('copy');
-                    showNotification('Email copiado al portapapeles!', 'success');
-                } catch (err) {
-                    showNotification('No se pudo copiar. Email: ' + email, 'error');
-                }
-                
-                document.body.removeChild(textArea);
-            }
-        }
-
-        // Show Notification Function
-        function showNotification(message, type = 'success') {
-            // Remove existing notification if any
-            const existingNotification = document.querySelector('.notification');
-            if (existingNotification) {
-                existingNotification.remove();
-            }
-
-            // Create notification element
-            const notification = document.createElement('div');
-            notification.className = `notification ${type}`;
-            notification.innerHTML = `
-                <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'}"></i>
-                <span>${message}</span>
-            `;
-
-            // Add styles
-            notification.style.cssText = `
-                position: fixed;
-                top: 20px;
-                right: 20px;
-                background: ${type === 'success' ? 'var(--primary-color)' : 'var(--secondary-color)'};
-                color: white;
-                padding: 1rem 1.5rem;
-                border-radius: 12px;
-                box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-                z-index: 10000;
-                display: flex;
-                align-items: center;
-                gap: 0.75rem;
-                font-weight: 600;
-                font-size: 0.95rem;
-                transform: translateX(100%);
-                transition: all 0.3s ease;
-                backdrop-filter: blur(10px);
-                border: 1px solid rgba(255, 255, 255, 0.1);
-            `;
-
-            // Add to page
-            document.body.appendChild(notification);
-
-            // Animate in
-            setTimeout(() => {
-                notification.style.transform = 'translateX(0)';
-            }, 100);
-
-            // Remove after 3 seconds
-            setTimeout(() => {
-                notification.style.transform = 'translateX(100%)';
-                setTimeout(() => {
-                    if (notification.parentNode) {
-                        notification.parentNode.removeChild(notification);
-                    }
-                }, 300);
-            }, 3000);
-        }
     </script>
 </body>
 </html>

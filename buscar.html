@@ -291,6 +291,74 @@
             cursor: pointer;
         }
 
+        /* Discord Button */
+        .discord-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: #6eb92b;
+            color: white;
+            text-decoration: none;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(110, 185, 43, 0.3);
+            border: 2px solid transparent;
+            flex-shrink: 0;
+        }
+
+        .discord-btn:hover {
+            background: #5a9823;
+            transform: translateY(-2px) scale(1.1);
+            box-shadow: 0 6px 20px rgba(110, 185, 43, 0.4);
+        }
+
+        .discord-btn i {
+            font-size: 1.2rem;
+        }
+
+        /* Ko-fi Button */
+        .kofi-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.2rem;
+            background: #ff5f5f;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 95, 95, 0.3);
+            border: 2px solid transparent;
+            flex-shrink: 0;
+        }
+
+        .kofi-btn:hover {
+            background: #ff4444;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 95, 95, 0.4);
+        }
+
+        .kofi-btn i {
+            font-size: 1rem;
+        }
+
+        .kofi-icon {
+            width: 16px;
+            height: 16px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ff5f5f;
+            font-size: 0.8rem;
+        }
+
         /* Main Content */
         .main {
             padding-top: 80px;
@@ -340,7 +408,7 @@
 
         .results-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
             margin-bottom: 3rem;
             max-width: 1200px;
@@ -348,22 +416,18 @@
             margin-right: auto;
         }
 
-        /* Ensure exactly 3 columns on larger screens */
-        @media (min-width: 1200px) {
-            .results-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        @media (min-width: 900px) and (max-width: 1199px) {
+        /* Responsive adjustments for results grid */
+        @media (max-width: 1200px) {
             .results-grid {
                 grid-template-columns: repeat(2, 1fr);
+                max-width: 800px;
             }
         }
 
-        @media (max-width: 899px) {
+        @media (max-width: 768px) {
             .results-grid {
                 grid-template-columns: 1fr;
+                max-width: 400px;
             }
         }
 
@@ -656,57 +720,57 @@
                         </a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a href="#" class="nav-link">
+                        <a href="games.html" class="nav-link">
                             <i class="fas fa-gamepad"></i>
                             Juegos
                             <i class="fas fa-chevron-down"></i>
                         </a>
                         <div class="dropdown-content">
-                            <a href="#" class="dropdown-item">
+                            <a href="games.html?category=accion" class="dropdown-item">
                                 <i class="fas fa-fist-raised"></i>
                                 Acción
                             </a>
-                            <a href="#" class="dropdown-item">
+                            <a href="games.html?category=aventura" class="dropdown-item">
                                 <i class="fas fa-map"></i>
                                 Aventura
                             </a>
-                            <a href="#" class="dropdown-item">
+                            <a href="games.html?category=rpg" class="dropdown-item">
                                 <i class="fas fa-dragon"></i>
                                 RPG
                             </a>
-                            <a href="#" class="dropdown-item">
+                            <a href="games.html?category=estrategia" class="dropdown-item">
                                 <i class="fas fa-chess"></i>
                                 Estrategia
                             </a>
-                            <a href="#" class="dropdown-item">
+                            <a href="games.html?category=simulacion" class="dropdown-item">
                                 <i class="fas fa-car"></i>
                                 Simulación
                             </a>
-                            <a href="#" class="dropdown-item">
+                            <a href="games.html?category=deportes" class="dropdown-item">
                                 <i class="fas fa-futbol"></i>
                                 Deportes
                             </a>
-                            <a href="#" class="dropdown-item">
+                            <a href="games.html?category=arcade" class="dropdown-item">
                                 <i class="fas fa-gamepad"></i>
                                 Arcade
                             </a>
-                            <a href="#" class="dropdown-item">
+                            <a href="games.html?category=plataformas" class="dropdown-item">
                                 <i class="fas fa-running"></i>
                                 Plataformas
                             </a>
-                            <a href="#" class="dropdown-item">
+                            <a href="games.html?category=shooters" class="dropdown-item">
                                 <i class="fas fa-crosshairs"></i>
                                 Shooters
                             </a>
-                            <a href="#" class="dropdown-item">
+                            <a href="games.html?category=puzzles" class="dropdown-item">
                                 <i class="fas fa-puzzle-piece"></i>
                                 Puzzles
                             </a>
-                            <a href="#" class="dropdown-item">
+                            <a href="games.html?category=mundo-abierto" class="dropdown-item">
                                 <i class="fas fa-globe"></i>
                                 Mundo Abierto
                             </a>
-                            <a href="#" class="dropdown-item">
+                            <a href="games.html?category=indie" class="dropdown-item">
                                 <i class="fas fa-heart"></i>
                                 Indie
                             </a>
@@ -718,17 +782,37 @@
                             Noticias
                         </a>
                     </li>
-                    <li class="nav-item">
+                                        <li class="nav-item dropdown">
                         <a href="#" class="nav-link">
-                            <i class="fas fa-shopping-cart"></i>
-                            Pedidos
+                            <i class="fas fa-gavel"></i>
+                            Legal
+                            <i class="fas fa-chevron-down"></i>
                         </a>
+                        <div class="dropdown-content">
+                            <a href="about.html" class="dropdown-item">
+                                <i class="fas fa-info-circle"></i>
+                                Acerca de
+                            </a>
+                            <a href="dmca.html" class="dropdown-item">
+                                <i class="fas fa-shield-alt"></i>
+                                DMCA
+                            </a>
+                        </div>
                     </li>
                 </ul>
                 
                 <button class="mobile-menu-toggle">
                     <i class="fas fa-bars"></i>
                 </button>
+                
+                <a href="https://discord.gg/h6wMkwSvj4" target="_blank" class="discord-btn" title="Únete a nuestro Discord">
+                    <i class="fab fa-discord"></i>
+                </a>
+                
+                <div id="kofi-widget-container">
+                    <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script>
+                    <script type='text/javascript'>kofiwidget2.init('Apóyanos', '#619e27', 'U7U71KW6U1');kofiwidget2.draw();</script>
+                </div>
             </nav>
         </div>
     </header>
@@ -767,21 +851,12 @@
                     <h3>Enlaces Rápidos</h3>
                     <ul class="footer-links">
                         <li><a href="index.html">Inicio</a></li>
-                        <li><a href="index.html#games">Juegos</a></li>
+                        <li><a href="games.html">Juegos</a></li>
                         <li><a href="noticias.html">Noticias</a></li>
                     </ul>
                 </div>
                 
-                <div class="footer-section">
-                    <h3>Soporte</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Contacto</a></li>
-                        <li><a href="#">Solicitar Contenido</a></li>
-                        <li><a href="#">Ayuda</a></li>
-                        <li><a href="#">FAQ</a></li>
-                    </ul>
-                </div>
-                
+                                
                 <div class="footer-section">
                     <h3>Legal</h3>
                     <ul class="footer-links">
@@ -803,12 +878,26 @@
 
         // Game configuration - Add new games here
         const gameConfigs = {
+            'peak': {
+                title: "PEAK",
+                categories: ["Acción", "Aventura", "Indie"],
+                description: "Un emocionante juego de acción y aventura que combina exploración, combate dinámico y narrativa envolvente en un mundo lleno de desafíos únicos.",
+                image: "https://i.imgur.com/IpXmPIi.jpeg",
+                keywords: ["peak", "accion", "aventura", "indie", "combate", "exploracion"]
+            },
+            'hollow-knight-silksong': {
+                title: "Hollow Knight: Silksong",
+                categories: ["Acción", "Aventura", "Plataformas", "Indie"],
+                description: "La secuela muy esperada de Hollow Knight. Juega como Hornet, la princesa-protectora de Hallownest, en una aventura épica a través del reino de Pharloom.",
+                image: "https://i.imgur.com/EXbst5F.png",
+                keywords: ["hollow", "knight", "silksong", "hornet", "metroidvania", "plataformas", "team cherry"]
+            },
             'undertale': {
                 title: "Undertale",
-                categories: ["RPG", "Indie", "Aventura"],
+                categories: ["Aventura", "RPG", "Indie"],
                 description: "Un RPG único donde no tienes que destruir a nadie. Cada encuentro puede resolverse de forma pacífica. Lucha o ten piedad, la elección es tuya.",
                 image: "https://i.imgur.com/tNdNUZm.png",
-                keywords: ["undertale"]
+                keywords: ["undertale", "toby fox", "rpg", "indie"]
             }
             // Add more games here as you create them
             // 'minecraft': {
@@ -858,30 +947,70 @@
                 gamesDatabase = await discoverGames();
                 console.log(`Discovered ${gamesDatabase.length} games:`, gamesDatabase.map(g => g.title));
                 
-                // If no games were discovered, add fallback
+                // If no games were discovered, add fallback with both games
                 if (gamesDatabase.length === 0) {
-                    gamesDatabase = [{
-                        id: 1,
-                        title: "Undertale",
-                        categories: ["RPG", "Indie", "Aventura"],
-                        description: "Un RPG único donde no tienes que destruir a nadie. Cada encuentro puede resolverse de forma pacífica. Lucha o ten piedad, la elección es tuya.",
-                        image: "https://i.imgur.com/tNdNUZm.png",
-                        link: "games/undertale/undertale.html",
-                        keywords: ["undertale"]
-                    }];
+                    gamesDatabase = [
+                        {
+                            id: 1,
+                            title: "PEAK",
+                            categories: ["Acción", "Aventura", "Indie"],
+                            description: "Un emocionante juego de acción y aventura que combina exploración, combate dinámico y narrativa envolvente en un mundo lleno de desafíos únicos.",
+                            image: "https://i.imgur.com/IpXmPIi.jpeg",
+                            link: "games/peak/peak.html",
+                            keywords: ["peak", "accion", "aventura", "indie", "combate", "exploracion"]
+                        },
+                        {
+                            id: 2,
+                            title: "Hollow Knight: Silksong",
+                            categories: ["Acción", "Aventura", "Plataformas", "Indie"],
+                            description: "La secuela muy esperada de Hollow Knight. Juega como Hornet, la princesa-protectora de Hallownest, en una aventura épica a través del reino de Pharloom.",
+                            image: "https://i.imgur.com/EXbst5F.png",
+                            link: "games/hollow-knight-silksong/hollow-knight-silksong.html",
+                            keywords: ["hollow", "knight", "silksong", "hornet", "metroidvania", "plataformas", "team cherry"]
+                        },
+                        {
+                            id: 3,
+                            title: "Undertale",
+                            categories: ["Aventura", "RPG", "Indie"],
+                            description: "Un RPG único donde no tienes que destruir a nadie. Cada encuentro puede resolverse de forma pacífica. Lucha o ten piedad, la elección es tuya.",
+                            image: "https://i.imgur.com/tNdNUZm.png",
+                            link: "games/undertale/undertale.html",
+                            keywords: ["undertale", "toby fox", "rpg", "indie"]
+                        }
+                    ];
                 }
             } catch (error) {
                 console.error('Error discovering games:', error);
-                // Fallback to at least show Undertale if discovery fails
-                gamesDatabase = [{
-                    id: 1,
-                    title: "Undertale",
-                    categories: ["RPG", "Indie", "Aventura"],
-                    description: "Un RPG único donde no tienes que destruir a nadie. Cada encuentro puede resolverse de forma pacífica. Lucha o ten piedad, la elección es tuya.",
-                    image: "https://i.imgur.com/tNdNUZm.png",
-                    link: "games/undertale/undertale.html",
-                    keywords: ["undertale"]
-                }];
+                // Fallback to show both games if discovery fails
+                gamesDatabase = [
+                    {
+                        id: 1,
+                        title: "PEAK",
+                        categories: ["Acción", "Aventura", "Indie"],
+                        description: "Un emocionante juego de acción y aventura que combina exploración, combate dinámico y narrativa envolvente en un mundo lleno de desafíos únicos.",
+                        image: "https://i.imgur.com/IpXmPIi.jpeg",
+                        link: "games/peak/peak.html",
+                        keywords: ["peak", "accion", "aventura", "indie", "combate", "exploracion"]
+                    },
+                    {
+                        id: 2,
+                        title: "Hollow Knight: Silksong",
+                        categories: ["Acción", "Aventura", "Plataformas", "Indie"],
+                        description: "La secuela muy esperada de Hollow Knight. Juega como Hornet, la princesa-protectora de Hallownest, en una aventura épica a través del reino de Pharloom.",
+                        image: "https://i.imgur.com/EXbst5F.png",
+                        link: "games/hollow-knight-silksong/hollow-knight-silksong.html",
+                        keywords: ["hollow", "knight", "silksong", "hornet", "metroidvania", "plataformas", "team cherry"]
+                    },
+                    {
+                        id: 3,
+                        title: "Undertale",
+                        categories: ["Aventura", "RPG", "Indie"],
+                        description: "Un RPG único donde no tienes que destruir a nadie. Cada encuentro puede resolverse de forma pacífica. Lucha o ten piedad, la elección es tuya.",
+                        image: "https://i.imgur.com/tNdNUZm.png",
+                        link: "games/undertale/undertale.html",
+                        keywords: ["undertale", "toby fox", "rpg", "indie"]
+                    }
+                ];
             }
         }
 
