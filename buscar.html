@@ -878,6 +878,13 @@
 
         // Game configuration - Add new games here
         const gameConfigs = {
+            'grand-theft-auto-v-enhanced': {
+                title: "Grand Theft Auto V Enhanced",
+                categories: ["Acción", "Aventura", "Mundo Abierto"],
+                description: "La experiencia definitiva de Los Santos llega con mejoras visuales espectaculares, nuevos contenidos y optimizaciones de última generación. Vive el crimen organizado como nunca antes.",
+                image: "https://i.imgur.com/IvU1JC5.jpeg",
+                keywords: ["gta", "grand", "theft", "auto", "enhanced", "los santos", "rockstar", "mundo abierto", "crimen", "accion"]
+            },
             'peak': {
                 title: "PEAK",
                 categories: ["Acción", "Aventura", "Indie"],
@@ -947,11 +954,20 @@
                 gamesDatabase = await discoverGames();
                 console.log(`Discovered ${gamesDatabase.length} games:`, gamesDatabase.map(g => g.title));
                 
-                // If no games were discovered, add fallback with both games
+                // If no games were discovered, add fallback with all games
                 if (gamesDatabase.length === 0) {
                     gamesDatabase = [
                         {
                             id: 1,
+                            title: "Grand Theft Auto V Enhanced",
+                            categories: ["Acción", "Aventura", "Mundo Abierto"],
+                            description: "La experiencia definitiva de Los Santos llega con mejoras visuales espectaculares, nuevos contenidos y optimizaciones de última generación. Vive el crimen organizado como nunca antes.",
+                            image: "https://i.imgur.com/IvU1JC5.jpeg",
+                            link: "games/grand-theft-auto-v-enhanced/grand-theft-auto-v-enhanced.html",
+                            keywords: ["gta", "grand", "theft", "auto", "enhanced", "los santos", "rockstar", "mundo abierto", "crimen", "accion"]
+                        },
+                        {
+                            id: 2,
                             title: "PEAK",
                             categories: ["Acción", "Aventura", "Indie"],
                             description: "Un emocionante juego de acción y aventura que combina exploración, combate dinámico y narrativa envolvente en un mundo lleno de desafíos únicos.",
@@ -960,7 +976,7 @@
                             keywords: ["peak", "accion", "aventura", "indie", "combate", "exploracion"]
                         },
                         {
-                            id: 2,
+                            id: 3,
                             title: "Hollow Knight: Silksong",
                             categories: ["Acción", "Aventura", "Plataformas", "Indie"],
                             description: "La secuela muy esperada de Hollow Knight. Juega como Hornet, la princesa-protectora de Hallownest, en una aventura épica a través del reino de Pharloom.",
@@ -969,7 +985,7 @@
                             keywords: ["hollow", "knight", "silksong", "hornet", "metroidvania", "plataformas", "team cherry"]
                         },
                         {
-                            id: 3,
+                            id: 4,
                             title: "Undertale",
                             categories: ["Aventura", "RPG", "Indie"],
                             description: "Un RPG único donde no tienes que destruir a nadie. Cada encuentro puede resolverse de forma pacífica. Lucha o ten piedad, la elección es tuya.",
@@ -981,10 +997,19 @@
                 }
             } catch (error) {
                 console.error('Error discovering games:', error);
-                // Fallback to show both games if discovery fails
+                // Fallback to show all games if discovery fails
                 gamesDatabase = [
                     {
                         id: 1,
+                        title: "Grand Theft Auto V Enhanced",
+                        categories: ["Acción", "Aventura", "Mundo Abierto"],
+                        description: "La experiencia definitiva de Los Santos llega con mejoras visuales espectaculares, nuevos contenidos y optimizaciones de última generación. Vive el crimen organizado como nunca antes.",
+                        image: "https://i.imgur.com/IvU1JC5.jpeg",
+                        link: "games/grand-theft-auto-v-enhanced/grand-theft-auto-v-enhanced.html",
+                        keywords: ["gta", "grand", "theft", "auto", "enhanced", "los santos", "rockstar", "mundo abierto", "crimen", "accion"]
+                    },
+                    {
+                        id: 2,
                         title: "PEAK",
                         categories: ["Acción", "Aventura", "Indie"],
                         description: "Un emocionante juego de acción y aventura que combina exploración, combate dinámico y narrativa envolvente en un mundo lleno de desafíos únicos.",
@@ -993,7 +1018,7 @@
                         keywords: ["peak", "accion", "aventura", "indie", "combate", "exploracion"]
                     },
                     {
-                        id: 2,
+                        id: 3,
                         title: "Hollow Knight: Silksong",
                         categories: ["Acción", "Aventura", "Plataformas", "Indie"],
                         description: "La secuela muy esperada de Hollow Knight. Juega como Hornet, la princesa-protectora de Hallownest, en una aventura épica a través del reino de Pharloom.",
@@ -1002,7 +1027,7 @@
                         keywords: ["hollow", "knight", "silksong", "hornet", "metroidvania", "plataformas", "team cherry"]
                     },
                     {
-                        id: 3,
+                        id: 4,
                         title: "Undertale",
                         categories: ["Aventura", "RPG", "Indie"],
                         description: "Un RPG único donde no tienes que destruir a nadie. Cada encuentro puede resolverse de forma pacífica. Lucha o ten piedad, la elección es tuya.",
