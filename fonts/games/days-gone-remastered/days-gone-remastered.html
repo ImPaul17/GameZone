@@ -1,0 +1,2447 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Days Gone Remastered - GameZone</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../../favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png">
+    <link rel="manifest" href="../../site.webmanifest">
+            
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @font-face {
+            font-family: 'SnesItalic';
+            src: url('../../fonts/SnesItalic.ttf') format('truetype');
+            font-weight: normal;
+            font-style: italic;
+            font-display: swap;
+        }
+
+        :root {
+            --primary-color: #6eb92b;
+            --primary-dark: #5a9823;
+            --primary-light: #7bc93f;
+            --secondary-color: #e60012;
+            --accent-yellow: #ffe100;
+            --accent-blue: #00a7eb;
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #1a1a1a;
+            --bg-tertiary: #2a2a2a;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0b0;
+            --text-muted: #808080;
+            --border-color: rgba(110, 185, 43, 0.2);
+            --shadow-light: 0 4px 20px rgba(0, 0, 0, 0.1);
+            --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.2);
+            --shadow-heavy: 0 15px 50px rgba(0, 0, 0, 0.3);
+            --gradient-primary: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            --gradient-hero: linear-gradient(135deg, rgba(10, 10, 10, 0.9), rgba(26, 26, 26, 0.8));
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-secondary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--gradient-primary);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-dark);
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .header.scrolled {
+            background: rgba(10, 10, 10, 0.98);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+            gap: 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-text {
+            font-family: 'SnesItalic', 'Inter', sans-serif;
+            font-size: 2.6rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-shadow: 0 0 10px rgba(110, 185, 43, 0.3);
+            letter-spacing: 1px;
+        }
+
+        .search-container {
+            flex: 1;
+            max-width: 500px;
+            position: relative;
+        }
+
+        .search-form {
+            position: relative;
+            width: 100%;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 0.75rem 3rem 0.75rem 1rem;
+            background: var(--bg-tertiary);
+            border: 2px solid var(--border-color);
+            border-radius: 25px;
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        .search-input:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(110, 185, 43, 0.1);
+            background: var(--bg-secondary);
+        }
+
+        .search-input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .search-btn {
+            position: absolute;
+            right: 0.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--gradient-primary);
+            border: none;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .search-btn:hover {
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 4px 15px rgba(110, 185, 43, 0.4);
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            flex-shrink: 0;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color);
+            background: rgba(110, 185, 43, 0.1);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-link:hover::after {
+            width: 80%;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1rem 0;
+            min-width: 200px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .dropdown:hover .dropdown-content {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-item {
+            display: block;
+            padding: 0.75rem 1.5rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .dropdown-item:hover {
+            color: var(--text-primary);
+            background: rgba(110, 185, 43, 0.1);
+            border-left-color: var(--primary-color);
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Discord Button */
+        .discord-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: #6eb92b;
+            color: white;
+            text-decoration: none;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(110, 185, 43, 0.3);
+            border: 2px solid transparent;
+            flex-shrink: 0;
+        }
+
+        .discord-btn:hover {
+            background: #5a9823;
+            transform: translateY(-2px) scale(1.1);
+            box-shadow: 0 6px 20px rgba(110, 185, 43, 0.4);
+        }
+
+        .discord-btn i {
+            font-size: 1.2rem;
+        }
+
+        /* Ko-fi Button */
+        .kofi-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.2rem;
+            background: #ff5f5f;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 95, 95, 0.3);
+            border: 2px solid transparent;
+            flex-shrink: 0;
+        }
+
+        .kofi-btn:hover {
+            background: #ff4444;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 95, 95, 0.4);
+        }
+
+        .kofi-btn i {
+            font-size: 1rem;
+        }
+
+        .kofi-icon {
+            width: 16px;
+            height: 16px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ff5f5f;
+            font-size: 0.8rem;
+        }
+
+        /* Main Content */
+        .main {
+            padding-top: 80px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Game Hero Section */
+        .game-hero {
+            position: relative;
+            height: 60vh;
+            min-height: 500px;
+            background: linear-gradient(135deg, rgba(10, 10, 10, 0.8), rgba(26, 26, 26, 0.6)),
+                        url('https://i.imgur.com/A02xhyB.jpeg') center/cover;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .game-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, transparent 0%, rgba(10, 10, 10, 0.4) 100%);
+        }
+
+        .game-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        .game-title {
+            font-family: 'SnesItalic', 'Inter', sans-serif;
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+            letter-spacing: 1px;
+        }
+
+        .game-categories {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .game-category {
+            padding: 0.5rem 1rem;
+            background: rgba(110, 185, 43, 0.2);
+            color: var(--primary-color);
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border: 1px solid rgba(110, 185, 43, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .game-description {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .game-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+            box-shadow: 0 4px 20px rgba(110, 185, 43, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(110, 185, 43, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 2px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(110, 185, 43, 0.1);
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        /* Content Sections */
+        .section {
+            padding: 2.5rem 0;
+        }
+
+        .section-title {
+            font-family: 'SnesItalic', 'Inter', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+            letter-spacing: 1px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+        }
+
+        /* Game Info Grid */
+        .game-info-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .game-info-main {
+            background: var(--bg-secondary);
+            border-radius: 15px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            min-height: fit-content;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .game-content {
+            line-height: 1.7;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .game-content p {
+            margin-bottom: 1rem;
+            text-align: justify;
+            hyphens: auto;
+            word-wrap: break-word;
+            flex-shrink: 0;
+        }
+
+        .game-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Dynamic content adaptation based on text length */
+        .game-content:has(p:nth-child(1):only-child) {
+            /* Single paragraph - compact layout */
+            gap: 0.5rem;
+        }
+
+        .game-content:has(p:nth-child(2)) {
+            /* Multiple paragraphs - standard spacing */
+            gap: 1rem;
+        }
+
+        .game-content:has(p:nth-child(4)) {
+            /* Many paragraphs - increased spacing for readability */
+            gap: 1.5rem;
+        }
+
+        /* Adjust padding based on content length */
+        .game-info-main:has(.game-content p:nth-child(1):only-child) {
+            /* Less padding for short content */
+            padding: 1.5rem;
+        }
+
+        .game-info-main:has(.game-content p:nth-child(4)) {
+            /* More padding for extensive content */
+            padding: 2.5rem;
+        }
+
+        /* Text size adaptation */
+        .game-content p {
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        /* Larger text for short content */
+        .game-content:has(p:nth-child(1):only-child) p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        /* Smaller text for very long content */
+        .game-content:has(p:nth-child(6)) p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Responsive text sizing */
+        @media (max-width: 768px) {
+            .game-content p {
+                font-size: 0.95rem;
+                line-height: 1.6;
+            }
+            
+            .game-content:has(p:nth-child(1):only-child) p {
+                font-size: 1rem;
+                line-height: 1.7;
+            }
+            
+            .game-content:has(p:nth-child(6)) p {
+                font-size: 0.9rem;
+                line-height: 1.5;
+            }
+            
+            .game-info-main:has(.game-content p:nth-child(1):only-child) {
+                padding: 1.25rem;
+            }
+            
+            .game-info-main:has(.game-content p:nth-child(4)) {
+                padding: 2rem;
+            }
+        }
+
+        /* Fallback for browsers that don't support :has() */
+        @supports not selector(:has(*)) {
+            .game-content.short-content {
+                gap: 0.5rem;
+            }
+            
+            .game-content.short-content p {
+                font-size: 1.1rem;
+                line-height: 1.8;
+            }
+            
+            .game-content.long-content {
+                gap: 1.5rem;
+            }
+            
+            .game-content.long-content p {
+                font-size: 0.95rem;
+                line-height: 1.6;
+            }
+            
+            .game-info-main.short-content {
+                padding: 1.5rem;
+            }
+            
+            .game-info-main.long-content {
+                padding: 2.5rem;
+            }
+        }
+
+        .game-info-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .info-card {
+            background: var(--bg-secondary);
+            border-radius: 15px;
+            padding: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .info-card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .specs-list {
+            list-style: none;
+        }
+
+        .specs-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .specs-list li:last-child {
+            border-bottom: none;
+        }
+
+        .specs-label {
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .specs-value {
+            color: var(--text-primary);
+            text-align: right;
+        }
+
+        /* Metacritic Score Card */
+        .metacritic-card {
+            position: relative;
+        }
+
+        .metacritic-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .metacritic-header h3 {
+            margin-bottom: 0;
+        }
+
+        .metacritic-badges {
+            position: absolute;
+            top: -0.5rem;
+            right: -0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .metacritic-logo,
+        .must-play-badge {
+            width: 35px;
+            height: 35px;
+            background: #000000;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 6px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .metacritic-logo {
+            border: 2px solid #ffffff;
+        }
+
+        .must-play-badge {
+            border: 2px solid #d9ad26;
+            display: none;
+        }
+
+        .metacritic-card.has-must-play .must-play-badge {
+            display: flex;
+        }
+
+        .metacritic-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: brightness(0) invert(1);
+        }
+
+        .must-play-badge img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .metacritic-content {
+            text-align: center;
+        }
+
+        .score-container {
+            margin-bottom: 1rem;
+        }
+
+        .user-score {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .score-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            text-shadow: 0 0 10px rgba(110, 185, 43, 0.3);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .score-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .metacritic-footer {
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .metacritic-footer span {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* Score color variations based on rating */
+        .score-excellent .score-number {
+            color: #66cc33;
+            text-shadow: 0 0 10px rgba(102, 204, 51, 0.3);
+        }
+
+        .score-good .score-number {
+            color: #ffcc33;
+            text-shadow: 0 0 10px rgba(255, 204, 51, 0.3);
+        }
+
+        .score-mixed .score-number {
+            color: #ff6600;
+            text-shadow: 0 0 10px rgba(255, 102, 0, 0.3);
+        }
+
+        .score-poor .score-number {
+            color: #ff0000;
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+        }
+
+        /* Legendary (gold) */
+        .score-legendary .score-number {
+            color: #d9ad26;
+            text-shadow: 0 0 6px rgba(217, 173, 38, 0.45),
+                         0 0 14px rgba(217, 173, 38, 0.30),
+                         0 0 22px rgba(217, 173, 38, 0.20);
+            position: relative;
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            box-shadow: 0 0 0 2px rgba(217, 173, 38, 0.35), inset 0 0 12px rgba(217, 173, 38, 0.25);
+            background:
+                radial-gradient(ellipse at center, rgba(217, 173, 38, 0.12) 0%, rgba(217, 173, 38, 0.06) 60%, transparent 70%),
+                linear-gradient(90deg, rgba(217, 173, 38, 0) 0%, rgba(217, 173, 38, 0.25) 50%, rgba(217, 173, 38, 0) 100%);
+            background-size: auto, 200% 100%;
+            background-position: center, -200% 0;
+            animation: goldShimmer 3s linear infinite;
+        }
+
+        .score-legendary .score-number::before {
+            content: '♛';
+            position: absolute;
+            top: -1.1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.05rem;
+            color: #d9ad26;
+            text-shadow: 0 0 8px rgba(217, 173, 38, 0.45);
+            opacity: 0.95;
+        }
+
+        /* Hover effect for metacritic card */
+        .metacritic-card:hover .metacritic-logo,
+        .metacritic-card:hover .must-play-badge {
+            transform: scale(1.1);
+            transition: transform 0.3s ease;
+        }
+
+        .metacritic-card:hover .score-number {
+            transform: scale(1.05);
+            transition: transform 0.3s ease;
+        }
+
+        /* Requirements Section */
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .requirement-card {
+            background: var(--bg-secondary);
+            border-radius: 15px;
+            padding: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .requirement-card h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Media Section */
+        .media-section {
+            background: var(--bg-secondary);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .trailer-container {
+            position: relative;
+            width: 100%;
+            max-width: 700px;
+            height: 400px;
+            margin: 0 auto 2rem;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow-medium);
+        }
+
+        .trailer-placeholder {
+            aspect-ratio: 16/9;
+            background: var(--bg-tertiary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px dashed var(--border-color);
+        }
+
+        .trailer-placeholder i {
+            font-size: 3rem;
+            color: var(--text-muted);
+        }
+
+        /* Screenshots Gallery */
+        .screenshots-grid {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .screenshot {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            width: 280px;
+            height: 160px;
+            background: var(--bg-tertiary);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: var(--shadow-light);
+        }
+
+        .screenshot:hover {
+            transform: scale(1.05);
+            border-color: var(--primary-color);
+            box-shadow: 0 8px 25px rgba(110, 185, 43, 0.3);
+        }
+
+        .screenshot img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .screenshot:hover img {
+            transform: scale(1.1);
+        }
+
+        .screenshot i {
+            font-size: 1.5rem;
+            color: var(--text-muted);
+        }
+
+        /* Image Modal/Carousel */
+        .image-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 3000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .image-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .image-modal-content {
+            position: relative;
+            max-width: 90vw;
+            max-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-image {
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 15px;
+            box-shadow: var(--shadow-heavy);
+            transform: scale(0.8);
+            transition: transform 0.3s ease;
+        }
+
+        .image-modal.active .modal-image {
+            transform: scale(1);
+        }
+
+        .modal-close-btn {
+            position: absolute;
+            top: -50px;
+            right: -10px;
+            background: rgba(0, 0, 0, 0.7);
+            border: none;
+            color: white;
+            font-size: 2rem;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .modal-close-btn:hover {
+            background: var(--primary-color);
+            transform: scale(1.1);
+        }
+
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.7);
+            border: none;
+            color: white;
+            font-size: 2rem;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .carousel-nav:hover {
+            background: var(--primary-color);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-prev {
+            left: -80px;
+        }
+
+        .carousel-next {
+            right: -80px;
+        }
+
+        .image-counter {
+            position: absolute;
+            bottom: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Responsive adjustments for screenshots */
+        @media (max-width: 768px) {
+            .screenshot {
+                width: 240px;
+                height: 135px;
+            }
+
+            .screenshots-grid {
+                gap: 1rem;
+            }
+
+            .carousel-prev {
+                left: -60px;
+            }
+
+            .carousel-next {
+                right: -60px;
+            }
+
+            .carousel-nav {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+
+            .modal-close-btn {
+                top: -40px;
+                right: -5px;
+                width: 40px;
+                height: 40px;
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .screenshot {
+                width: 200px;
+                height: 112px;
+            }
+
+            .carousel-prev,
+            .carousel-next {
+                display: none;
+            }
+
+            .image-counter {
+                bottom: -40px;
+                font-size: 0.8rem;
+                padding: 0.4rem 0.8rem;
+            }
+        }
+
+        /* Download Section */
+        .download-section {
+            background: var(--bg-secondary);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .download-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, rgba(110, 185, 43, 0.1) 0%, transparent 70%);
+        }
+
+        .download-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .download-options {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+
+        .download-btn {
+            padding: 1.2rem 2.5rem;
+            font-size: 1rem;
+            min-width: 180px;
+        }
+
+        /* Installation Steps */
+        .installation-steps {
+            margin-top: 2rem;
+        }
+
+        .steps-list {
+            list-style: none;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .step-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .step-item:last-child {
+            border-bottom: none;
+        }
+
+        .step-number {
+            background: var(--gradient-primary);
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            flex-shrink: 0;
+            font-size: 0.9rem;
+        }
+
+        .step-text {
+            color: var(--text-secondary);
+            line-height: 1.5;
+            font-size: 0.95rem;
+        }
+
+        .installation-note {
+            margin-top: 1.5rem;
+            padding: 1.2rem;
+            background: rgba(110, 185, 43, 0.1);
+            border: 1px solid rgba(110, 185, 43, 0.3);
+            border-radius: 10px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .installation-note p {
+            color: var(--text-secondary);
+            margin: 0;
+            font-size: 0.85rem;
+        }
+
+        .installation-note strong {
+            color: var(--primary-color);
+        }
+
+        /* Download Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: var(--bg-secondary);
+            border-radius: 20px;
+            padding: 3rem;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-heavy);
+            transform: scale(0.8);
+            transition: transform 0.3s ease;
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: scale(1);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .modal-close:hover {
+            color: var(--text-primary);
+        }
+
+        .modal-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+            text-align: center;
+        }
+
+        .modal-description {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .download-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .download-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            padding: 1rem 2rem;
+            background: var(--gradient-primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(110, 185, 43, 0.3);
+        }
+
+        .download-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(110, 185, 43, 0.4);
+        }
+
+        .download-link i {
+            font-size: 1.2rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--bg-secondary);
+            padding: 4rem 0 2rem;
+            margin-top: 5rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-muted);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes goldShimmer {
+            0% { background-position: center, -200% 0; }
+            100% { background-position: center, 200% 0; }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .loading {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .loading.loaded {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .game-info-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-wrap: wrap;
+                height: auto;
+                padding: 1rem 2rem;
+                gap: 1rem;
+            }
+
+            .search-container {
+                order: 3;
+                flex-basis: 100%;
+                max-width: none;
+                margin-top: 1rem;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .game-hero {
+                height: 50vh;
+                min-height: 400px;
+            }
+
+            .game-title {
+                font-size: 2.5rem;
+            }
+
+            .game-actions {
+                flex-direction: column;
+            }
+
+            .download-options {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .requirements-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .screenshots-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .section {
+                padding: 3rem 0;
+            }
+
+            .main {
+                padding-top: 120px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-content {
+                padding: 1rem;
+            }
+
+            .logo-text {
+                font-size: 2.2rem;
+            }
+
+            .search-input {
+                font-size: 0.9rem;
+                padding: 0.6rem 2.8rem 0.6rem 0.8rem;
+            }
+
+            .search-btn {
+                width: 30px;
+                height: 30px;
+                right: 0.4rem;
+            }
+
+            .search-btn i {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="header-content">
+            <a href="../../index.html" class="logo">
+                <span class="logo-text">GameZone</span>
+            </a>
+            
+            <div class="search-container">
+                <form class="search-form" id="searchForm">
+                    <input type="text" class="search-input" id="searchInput" placeholder="Buscar juegos..." required>
+                    <button type="submit" class="search-btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+            </div>
+            
+            <nav class="nav">
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="../../index.html" class="nav-link">
+                            <i class="fas fa-home"></i>
+                            Inicio
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="../../games.html" class="nav-link">
+                            <i class="fas fa-gamepad"></i>
+                            Juegos
+                            <i class="fas fa-chevron-down"></i>
+                        </a>
+                        <div class="dropdown-content">
+                            <a href="../../games.html?category=accion" class="dropdown-item">
+                                <i class="fas fa-fist-raised"></i>
+                                Acción
+                            </a>
+                            <a href="../../games.html?category=aventura" class="dropdown-item">
+                                <i class="fas fa-map"></i>
+                                Aventura
+                            </a>
+                            <a href="../../games.html?category=rpg" class="dropdown-item">
+                                <i class="fas fa-dragon"></i>
+                                RPG
+                            </a>
+                            <a href="../../games.html?category=estrategia" class="dropdown-item">
+                                <i class="fas fa-chess"></i>
+                                Estrategia
+                            </a>
+                            <a href="../../games.html?category=simulacion" class="dropdown-item">
+                                <i class="fas fa-car"></i>
+                                Simulación
+                            </a>
+                            <a href="../../games.html?category=deportes" class="dropdown-item">
+                                <i class="fas fa-futbol"></i>
+                                Deportes
+                            </a>
+                            <a href="../../games.html?category=arcade" class="dropdown-item">
+                                <i class="fas fa-gamepad"></i>
+                                Arcade
+                            </a>
+                            <a href="../../games.html?category=plataformas" class="dropdown-item">
+                                <i class="fas fa-running"></i>
+                                Plataformas
+                            </a>
+                            <a href="../../games.html?category=shooters" class="dropdown-item">
+                                <i class="fas fa-crosshairs"></i>
+                                Shooters
+                            </a>
+                            <a href="../../games.html?category=puzzles" class="dropdown-item">
+                                <i class="fas fa-puzzle-piece"></i>
+                                Puzzles
+                            </a>
+                            <a href="../../games.html?category=mundo-abierto" class="dropdown-item">
+                                <i class="fas fa-globe"></i>
+                                Mundo Abierto
+                            </a>
+                            <a href="../../games.html?category=indie" class="dropdown-item">
+                                <i class="fas fa-heart"></i>
+                                Indie
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../../noticias.html" class="nav-link">
+                            <i class="fas fa-newspaper"></i>
+                            Noticias
+                        </a>
+                    </li>
+                                        <li class="nav-item dropdown">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-gavel"></i>
+                            Legal
+                            <i class="fas fa-chevron-down"></i>
+                        </a>
+                        <div class="dropdown-content">
+                            <a href="../../about.html" class="dropdown-item">
+                                <i class="fas fa-info-circle"></i>
+                                Acerca de
+                            </a>
+                            <a href="../../dmca.html" class="dropdown-item">
+                                <i class="fas fa-shield-alt"></i>
+                                DMCA
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+                
+                <button class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <a href="https://discord.gg/GQkaYRvWME" target="_blank" class="discord-btn" title="Únete a nuestro Discord">
+                    <i class="fab fa-discord"></i>
+                </a>
+                
+                <div id="kofi-widget-container">
+                    <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script>
+                    <script type='text/javascript'>kofiwidget2.init('Apóyanos', '#619e27', 'U7U71KW6U1');kofiwidget2.draw();</script>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Game Hero Section -->
+        <section class="game-hero">
+            <div class="container">
+                <div class="game-hero-content loading">
+                    <h1 class="game-title">Days Gone Remastered</h1>
+                    <div class="game-categories">
+                        <span class="game-category">Acción</span>
+                        <span class="game-category">Aventura</span>
+                    </div>
+                    <p class="game-description">
+                        Una versión remasterizada del aclamado survival postapocalíptico de mundo abierto, con gráficos mejorados y optimizaciones de nueva generación.
+                    </p>
+                    <div class="game-actions">
+                        <a href="#download" class="btn btn-primary">
+                            <i class="fas fa-download"></i>
+                            Descargar Ahora
+                        </a>
+                        <a href="#trailer" class="btn btn-secondary">
+                            <i class="fas fa-play"></i>
+                            Ver Trailer
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Game Information -->
+        <section class="section">
+            <div class="container">
+                <div class="game-info-grid">
+                    <!-- Main Content -->
+                    <div class="game-info-main loading">
+                        <h2 class="section-title">Acerca del Juego</h2>
+                        <div class="game-content">
+                            <p>Days Gone Remastered es la evolución definitiva de uno de los títulos de supervivencia más intensos y recordados de PlayStation. Ambientado en un mundo abierto postapocalíptico, esta versión mejorada trae consigo no solo un apartado gráfico renovado, sino también mejoras de rendimiento que hacen que cada momento sea más inmersivo y fluido.</p>
+                            
+                            <p>En este título encarnas a Deacon St. John, un cazarrecompensas y motociclista nómada que recorre un mundo devastado por una pandemia que ha transformado a la humanidad en criaturas feroces y letales. La remasterización conserva la esencia del original, pero potencia la experiencia con texturas de alta resolución, iluminación más realista y soporte para hardware actual.</p>
+                            
+                            <p>El sistema de juego se mantiene fiel a su propuesta: exploración en un vasto mundo abierto, gestión de recursos escasos, crafteo de armas improvisadas y combates tensos contra hordas masivas de infectados. La moto, compañera inseparable de Deacon, se convierte en un elemento clave tanto para la movilidad como para la supervivencia.</p>
+                            
+                            <p>La narrativa se centra en la lucha por la esperanza, la pérdida y la resiliencia en tiempos de oscuridad. A lo largo de la aventura, conocerás personajes entrañables y tomarás decisiones que marcarán tu destino en una tierra donde la traición y el peligro acechan en cada esquina.</p>
+                            
+                            <p>Days Gone Remastered no solo revive la experiencia del original, sino que la lleva un paso más allá. Con soporte para resoluciones 4K, tasas de refresco elevadas y tiempos de carga reducidos, esta versión está diseñada para ofrecer la experiencia definitiva tanto a los jugadores veteranos como a los nuevos sobrevivientes.</p>
+                        </div>
+                    </div>
+
+                    <!-- Sidebar -->
+                    <div class="game-info-sidebar">
+                        <!-- Technical Specs -->
+                        <div class="info-card loading">
+                            <h3><i class="fas fa-cog"></i> Ficha Técnica</h3>
+                            <ul class="specs-list">
+                                <li>
+                                    <span class="specs-label">Desarrollador:</span>
+                                    <span class="specs-value">Bend Studio</span>
+                                </li>
+                                <li>
+                                    <span class="specs-label">Editor:</span>
+                                    <span class="specs-value">PlayStation Publishing LLC</span>
+                                </li>
+                                <li>
+                                    <span class="specs-label">Fecha de Lanzamiento:</span>
+                                    <span class="specs-value">25 Abr 2025</span>
+                                </li>
+                                <li>
+                                    <span class="specs-label">Género:</span>
+                                    <span class="specs-value">Acción, Aventura</span>
+                                </li>
+                                <li>
+                                    <span class="specs-label">Plataforma:</span>
+                                    <span class="specs-value">PC (Windows)</span>
+                                </li>
+                                <li>
+                                    <span class="specs-label">Idiomas:</span>
+                                    <span class="specs-value">Múltiples idiomas</span>
+                                </li>
+                                <li>
+                                    <span class="specs-label">Tamaño:</span>
+                                    <span class="specs-value">33 GB</span>
+                                </li>
+                                <li>
+                                    <span class="specs-label">Formato:</span>
+                                    <span class="specs-value">ISO ELAMIGOS (Crack by Codex/RUNE)</span>
+                                </li>
+                                <li>
+                                    <span class="specs-label">Versión:</span>
+                                    <span class="specs-value">v1.13</span>
+                                </li>
+                                <li>
+                                    <span class="specs-label">Nota adicional:</span>
+                                    <span class="specs-value">Pack Voces Latino Disponible</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Metacritic Score -->
+                        <div class="info-card loading">
+                            <div class="metacritic-card" data-must-play="on">
+                                <div class="metacritic-header">
+                                    <h3><i class="fas fa-star"></i> Valoración</h3>
+                                    <div class="metacritic-badges">
+                                        <div class="must-play-badge" title="Must-Play">
+                                            <img src="../../logos/must-play.svg" alt="Must-Play">
+                                        </div>
+                                        <a class="metacritic-logo" href="https://www.metacritic.com/game/days-gone-remastered/" target="_blank" rel="noopener noreferrer" title="Ver en Metacritic">
+                                            <img src="../../logos/metacritic.svg" alt="Metacritic">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="metacritic-content">
+                                    <div class="score-container">
+                                        <div class="user-score">
+                                            <span class="score-number">78</span>
+                                            <span class="score-label">Metascore</span>
+                                        </div>
+                                    </div>
+                                    <div class="metacritic-footer">
+                                        <span>Metacritic</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Quick Download -->
+                        <div class="info-card loading">
+                            <h3><i class="fas fa-download"></i> Descarga Rápida</h3>
+                            <p style="color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 0.9rem;">
+                                Descarga directa y segura
+                            </p>
+                            <a href="#download" class="btn btn-primary" style="width: 100%; justify-content: center;">
+                                <i class="fas fa-download"></i>
+                                Descargar
+                            </a>
+                        </div>
+
+                                            </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- System Requirements -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title loading">Requisitos del Sistema</h2>
+                <div class="requirements-grid">
+                    <div class="requirement-card loading">
+                        <h4>
+                            <i class="fas fa-desktop"></i>
+                            Requisitos Mínimos
+                        </h4>
+                        <ul class="specs-list">
+                            <li>
+                                <span class="specs-label">Requiere:</span>
+                                <span class="specs-value">Procesador y sistema operativo de 64 bits</span>
+                            </li>
+                            <li>
+                                <span class="specs-label">SO:</span>
+                                <span class="specs-value">Windows 10 64-bits</span>
+                            </li>
+                            <li>
+                                <span class="specs-label">Procesador:</span>
+                                <span class="specs-value">Intel Core i7-4770K @ 3.5GHz o Ryzen 5 1500X @ 3.5GHz</span>
+                            </li>
+                            <li>
+                                <span class="specs-label">Memoria:</span>
+                                <span class="specs-value">16 GB de RAM</span>
+                            </li>
+                            <li>
+                                <span class="specs-label">Gráficos:</span>
+                                <span class="specs-value">Nvidia GeForce GTX 1060 (6 GB) o AMD Radeon RX 580 (8 GB)</span>
+                            </li>
+                            <li>
+                                <span class="specs-label">DirectX:</span>
+                                <span class="specs-value">Versión 11</span>
+                            </li>
+                            <li>
+                                <span class="specs-label">Almacenamiento:</span>
+                                <span class="specs-value">70 GB de espacio disponible</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="requirement-card loading">
+                        <h4>
+                            <i class="fas fa-rocket"></i>
+                            Requisitos Recomendados
+                        </h4>
+                        <ul class="specs-list">
+                            <li style="justify-content: center; border-bottom: none;">
+                                <span class="specs-value" style="width: 100%; text-align: center; font-style: italic; color: var(--text-muted);">(No Especificados)</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Media Section -->
+        <section class="section" id="trailer">
+            <div class="container">
+                <div class="media-section loading">
+                    <h2 class="section-title">Trailer y Capturas</h2>
+                    
+                    <!-- Trailer -->
+                    <div class="trailer-container">
+                        <iframe 
+                            width="100%" 
+                            height="100%" 
+                            src="https://www.youtube.com/embed/9kDA3MlLyDQ" 
+                            title="Days Gone Remastered - Trailer Principal" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            referrerpolicy="strict-origin-when-cross-origin" 
+                            allowfullscreen
+                            style="border-radius: 15px;">
+                        </iframe>
+                    </div>
+
+                    <!-- Screenshots -->
+                    <h3 style="margin-bottom: 2rem; color: var(--primary-color); font-size: 1.5rem; text-align: center;">
+                        <i class="fas fa-images"></i>
+                        Capturas de Pantalla
+                    </h3>
+                    <div class="screenshots-grid">
+                        <div class="screenshot" onclick="openImageModal(0)">
+                            <img src="https://i.imgur.com/8GRQLRK.png" alt="Days Gone Remastered - Screenshot 1" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="screenshot" onclick="openImageModal(1)">
+                            <img src="https://i.imgur.com/kBsH23A.png" alt="Days Gone Remastered - Screenshot 2" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="screenshot" onclick="openImageModal(2)">
+                            <img src="https://i.imgur.com/thTH4OS.png" alt="Days Gone Remastered - Screenshot 3" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="screenshot" onclick="openImageModal(3)">
+                            <img src="https://i.imgur.com/6bEGwgT.png" alt="Days Gone Remastered - Screenshot 4" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Steam Purchase Section -->
+        <section class="section">
+            <div class="container">
+                <div class="download-section loading">
+                    <div class="download-content">
+                        <h2 class="section-title">
+                            <i class="fab fa-steam"></i>
+                            Comprar Original
+                        </h2>
+                        <p style="font-size: 1.2rem; color: var(--text-secondary); margin-bottom: 2rem;">
+                            Apoya al desarrollador comprando la versión oficial en Steam
+                        </p>
+
+                        <div class="download-options">
+                            <a href="https://store.steampowered.com/app/1259420/Days_Gone/" target="_blank" class="btn download-btn" style="background: #1b2838; color: white; border: 2px solid #66c0f4; text-decoration: none;">
+                                <i class="fab fa-steam"></i>
+                                Comprar en Steam
+                            </a>
+                        </div>
+
+                        <div class="installation-note" style="margin-top: 2rem;">
+                            <p><strong>¿Por qué comprar la versión original?</strong> Al adquirir Days Gone Remastered en Steam, apoyas directamente a Bend Studio y PlayStation Publishing LLC, además de obtener actualizaciones automáticas, logros de Steam, soporte oficial y la garantía de disfrutar siempre de la versión más optimizada y completa.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Download Section -->
+        <section class="section" id="download">
+            <div class="container">
+                <div class="download-section loading">
+                    <div class="download-content">
+                        <h2 class="section-title">Descarga e Instalación</h2>
+                        <p style="font-size: 1.2rem; color: var(--text-secondary); margin-bottom: 2rem;">
+                            Descarga Days Gone Remastered de forma gratuita y segura
+                        </p>
+
+                        <div class="download-options">
+                            <button class="btn btn-primary download-btn" onclick="openDownloadModal()">
+                                <i class="fas fa-download"></i>
+                                Enlaces de descarga
+                            </button>
+                            <button class="btn btn-secondary download-btn" onclick="openLatinoModal()">
+                                <i class="fas fa-language"></i>
+                                Pack Latino
+                            </button>
+                        </div>
+
+                        <!-- Installation Steps -->
+                        <div class="installation-steps">
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-bottom: 2rem;">
+                                <!-- Instrucciones de Instalación -->
+                                <div>
+                                    <h3 style="margin-bottom: 2rem; color: var(--primary-color); font-size: 1.5rem;">
+                                        <i class="fas fa-list-ol"></i>
+                                        Instrucciones de Instalación
+                                    </h3>
+                                    <ol class="steps-list">
+                                        <li class="step-item">
+                                            <span class="step-number">1</span>
+                                            <span class="step-text">Descomprimir carpeta RAR</span>
+                                        </li>
+                                        <li class="step-item">
+                                            <span class="step-number">2</span>
+                                            <span class="step-text">Montar el Archivo ISO con «Daemon Tools o similar»</span>
+                                        </li>
+                                        <li class="step-item">
+                                            <span class="step-number">3</span>
+                                            <span class="step-text">Ejecutar el SETUP.EXE e instalar</span>
+                                        </li>
+                                        <li class="step-item">
+                                            <span class="step-number">4</span>
+                                            <span class="step-text">Ejecutar el juego como Administrador</span>
+                                        </li>
+                                        <li class="step-item">
+                                            <span class="step-number">5</span>
+                                            <span class="step-text">Jugar</span>
+                                        </li>
+                                    </ol>
+                                </div>
+
+                                <!-- Instrucciones de Updates -->
+                                <div>
+                                    <h3 style="margin-bottom: 2rem; color: var(--primary-color); font-size: 1.5rem;">
+                                        <i class="fas fa-arrow-up"></i>
+                                        Para Instalar el Update
+                                    </h3>
+                                    <ol class="steps-list">
+                                        <li class="step-item">
+                                            <span class="step-number">1</span>
+                                            <span class="step-text">Descargar y descomprimir el archivo</span>
+                                        </li>
+                                        <li class="step-item">
+                                            <span class="step-number">2</span>
+                                            <span class="step-text">Ejecutar el SETUP.EXE e instalar en su juego base</span>
+                                        </li>
+                                        <li class="step-item">
+                                            <span class="step-number">3</span>
+                                            <span class="step-text">Ejecutar el juego como Administrador</span>
+                                        </li>
+                                        <li class="step-item">
+                                            <span class="step-number">4</span>
+                                            <span class="step-text">Jugar</span>
+                                        </li>
+                                    </ol>
+                                </div>
+                            </div>
+                            
+                            <div class="installation-note">
+                                <p><strong>Importante:</strong> Esta es la versión Remastered, que incluye mejoras gráficas y optimizaciones de rendimiento. Viene para instalar el Update 1.13 y el Pack Latino para personas de habla latina, el cual se instala con los .exe que incluye.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>GameZone</h3>
+                    <p>Tu portal definitivo para los mejores juegos de PC. Descubre, juega y disfruta.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="../../index.html">Inicio</a></li>
+                        <li><a href="../../games.html">Juegos</a></li>
+                        <li><a href="../../noticias.html">Noticias</a></li>
+                    </ul>
+                </div>
+                
+                                
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="../../dmca.html">DMCA</a></li>
+                        <li><a href="../../about.html">Acerca de</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 GameZone. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Download Modal -->
+    <div class="modal-overlay" id="downloadModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeDownloadModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            <h3 class="modal-title">Enlaces de Descarga</h3>
+            <p class="modal-description">Elige tu plataforma de descarga preferida</p>
+            <div class="download-links">
+                <h4 style="color: var(--primary-color); margin-bottom: 1rem; font-size: 1.1rem; text-align: left;">
+                    <i class="fas fa-gamepad"></i>
+                    Juego Base:
+                </h4>
+                <a href="https://madiashare.com/downloads?d=1layvgj2aicpmcdlwz7y" class="download-link" target="_blank">
+                    <i class="fas fa-magnet"></i>
+                    Torrent
+                </a>
+                
+                <h4 style="color: var(--primary-color); margin: 1.5rem 0 1rem 0; font-size: 1.1rem; text-align: left;">
+                    <i class="fas fa-arrow-up"></i>
+                    Updates:
+                </h4>
+                <a href="https://www.mediafire.com/file/wk3alj792jx6efz/Da1ysGo8n-Update1.13-elamigos.rar/file" class="download-link" target="_blank">
+                    <i class="fas fa-fire"></i>
+                    Update 1.13 Mediafire
+                </a>
+                <a href="https://drive.marketcat.io/drive/s/tPPp8zm89jN21PIdy8b090iPSoAKwA" class="download-link" target="_blank">
+                    <i class="fas fa-cloud"></i>
+                    Update 1.13 Drive
+                </a>
+                                                                            </div>
+        </div>
+    </div>
+
+    <!-- Pack Latino Modal -->
+    <div class="modal-overlay" id="latinoModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeLatinoModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            <h3 class="modal-title">Pack Voces Latinas (Español Latino)</h3>
+            <p class="modal-description">Descarga los Textos y Voces por separado</p>
+            <div class="download-links">
+                <h4 style="color: var(--primary-color); margin-bottom: 1rem; font-size: 1.1rem; text-align: left;">
+                    <i class="fas fa-language"></i>
+                    Textos
+                </h4>
+                <a href="https://www.mediafire.com/file/0thwmqsy55aest4" class="download-link" target="_blank">
+                    <i class="fas fa-fire"></i>
+                    Textos - Mediafire
+                </a>
+                <a href="https://drive.marketcat.io/drive/s/4diIypOjU5I5ZFM0g54uj63T3gP2uF" class="download-link" target="_blank">
+                    <i class="fas fa-cloud"></i>
+                    Textos - Drive
+                </a>
+                <h4 style="color: var(--primary-color); margin: 1.5rem 0 1rem 0; font-size: 1.1rem; text-align: left;">
+                    <i class="fas fa-microphone"></i>
+                    Voces
+                </h4>
+                <a href="https://mega.nz/file/ZgJkSSJT#nOJHa8UYmIoJHe2hgv-owPkgvaSf7T8cLnOnUOCxU1s" class="download-link" target="_blank">
+                    <i class="fas fa-cloud"></i>
+                    Voces - Mega
+                </a>
+                <a href="https://www.mediafire.com/file/86fpgrmpbbyukux/L4T4MVO1C3v1.08.rar/file" class="download-link" target="_blank">
+                    <i class="fas fa-fire"></i>
+                    Voces - Mediafire
+                </a>
+                <a href="https://drive.marketcat.io/drive/s/AUcSiLozBbfxmJjvyIsDPISwgnxp33" class="download-link" target="_blank">
+                    <i class="fas fa-cloud"></i>
+                    Voces - Drive
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Image Modal/Carousel -->
+    <div class="image-modal" id="imageModal">
+        <div class="image-modal-content">
+            <button class="modal-close-btn" onclick="closeImageModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            <button class="carousel-nav carousel-prev" onclick="previousImage()">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <img class="modal-image" id="modalImage" src="" alt="">
+            <button class="carousel-nav carousel-next" onclick="nextImage()">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            <div class="image-counter" id="imageCounter">1 / 2</div>
+        </div>
+    </div>
+
+    <script>
+        // Header Scroll Effect
+        function handleHeaderScroll() {
+            const header = document.getElementById('header');
+            const scrollY = window.scrollY;
+
+            if (scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        }
+
+        // Intersection Observer for Animations
+        function setupIntersectionObserver() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('loaded');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            document.querySelectorAll('.loading').forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        // Smooth Scrolling for Anchor Links
+        function setupSmoothScrolling() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        }
+
+        // Content Adaptation Function
+        function adaptContentLayout() {
+            const gameContent = document.querySelector('.game-content');
+            const gameInfoMain = document.querySelector('.game-info-main');
+            
+            if (!gameContent || !gameInfoMain) return;
+            
+            const paragraphs = gameContent.querySelectorAll('p');
+            const paragraphCount = paragraphs.length;
+            
+            // Remove existing classes
+            gameContent.classList.remove('short-content', 'long-content');
+            gameInfoMain.classList.remove('short-content', 'long-content');
+            
+            // Apply classes based on content length
+            if (paragraphCount === 1) {
+                gameContent.classList.add('short-content');
+                gameInfoMain.classList.add('short-content');
+            } else if (paragraphCount >= 4) {
+                gameContent.classList.add('long-content');
+                gameInfoMain.classList.add('long-content');
+            }
+            
+            // Additional adaptation based on text length
+            let totalTextLength = 0;
+            paragraphs.forEach(p => {
+                totalTextLength += p.textContent.length;
+            });
+            
+            // Adjust font size based on total text length
+            if (totalTextLength < 200 && paragraphCount === 1) {
+                gameContent.style.setProperty('--content-font-size', '1.1rem');
+                gameContent.style.setProperty('--content-line-height', '1.8');
+            } else if (totalTextLength > 1000) {
+                gameContent.style.setProperty('--content-font-size', '0.95rem');
+                gameContent.style.setProperty('--content-line-height', '1.6');
+            } else {
+                gameContent.style.setProperty('--content-font-size', '1rem');
+                gameContent.style.setProperty('--content-line-height', '1.7');
+            }
+        }
+
+        // Metascore classification utilities
+        function updateMetascoreCard() {
+            const container = document.querySelector('.metacritic-content .user-score');
+            if (!container) return;
+            const labelEl = container.querySelector('.score-label');
+            const numberEl = container.querySelector('.score-number');
+
+            // Determine score from the number element only
+            let score = NaN;
+            if (numberEl) {
+                const raw = numberEl.textContent.trim().replace(',', '.');
+                const val = parseFloat(raw);
+                if (!isNaN(val)) {
+                    score = val <= 10 ? Math.round(val * 10) : Math.round(val);
+                }
+            }
+            if (isNaN(score)) return;
+
+            score = Math.max(0, Math.min(100, score));
+            if (numberEl) numberEl.textContent = String(score);
+
+            container.classList.remove('score-legendary', 'score-excellent', 'score-good', 'score-mixed', 'score-poor');
+
+            let cls = 'score-poor';
+            if (score >= 90) cls = 'score-legendary';
+            else if (score >= 75) cls = 'score-excellent';
+            else if (score >= 60) cls = 'score-good';
+            else if (score >= 50) cls = 'score-mixed';
+            else cls = 'score-poor';
+
+            container.classList.add(cls);
+        }
+
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            setupIntersectionObserver();
+            setupSmoothScrolling();
+            adaptContentLayout();
+
+            // Add scroll event listener
+            window.addEventListener('scroll', handleHeaderScroll);
+
+            // Setup search form
+            document.getElementById('searchForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const searchInput = document.getElementById('searchInput');
+                const query = searchInput.value.trim();
+                
+                if (query) {
+                    window.location.href = `../../buscar.html?q=${encodeURIComponent(query)}`;
+                }
+            });
+
+            // Add loading class removal with delay for initial elements
+            setTimeout(() => {
+                document.querySelectorAll('.loading').forEach((el, index) => {
+                    setTimeout(() => {
+                        el.classList.add('loaded');
+                    }, index * 100);
+                });
+            }, 500);
+            
+            // Re-adapt layout after content is loaded
+            setTimeout(adaptContentLayout, 1000);
+
+            // Apply metascore color class based on numeric score
+            updateMetascoreCard();
+
+            // Must-Play badge via HTML attribute or class
+            (function() {
+                const metacriticCard = document.querySelector('.metacritic-card');
+                if (!metacriticCard) return;
+                const attr = (metacriticCard.getAttribute('data-must-play') || '').toLowerCase();
+                const on = attr === 'on' || attr === 'true' || attr === '1' || metacriticCard.classList.contains('has-must-play');
+                metacriticCard.classList.toggle('has-must-play', off);
+            })();
+        });
+
+        // Performance optimization: Throttle scroll events
+        let ticking = false;
+        function requestTick() {
+            if (!ticking) {
+                requestAnimationFrame(handleHeaderScroll);
+                ticking = true;
+                setTimeout(() => ticking = false, 16);
+            }
+        }
+
+        window.addEventListener('scroll', requestTick);
+
+        // Download Modal Functions
+        function openDownloadModal() {
+            const modal = document.getElementById('downloadModal');
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeDownloadModal() {
+            const modal = document.getElementById('downloadModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function openLatinoModal() {
+            const modal = document.getElementById('latinoModal');
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLatinoModal() {
+            const modal = document.getElementById('latinoModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        
+        // Close modal when clicking outside
+        document.getElementById('downloadModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeDownloadModal();
+            }
+        });
+        document.getElementById('latinoModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeLatinoModal();
+            }
+        });
+        
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeDownloadModal();
+                closeLatinoModal();
+                closeImageModal();
+            }
+        });
+
+        // Image Modal/Carousel Functions
+        const images = [
+            {
+                src: 'https://i.imgur.com/8GRQLRK.png',
+                alt: 'Days Gone Remastered - Screenshot 1'
+            },
+            {
+                src: 'https://i.imgur.com/kBsH23A.png',
+                alt: 'Days Gone Remastered - Screenshot 2'
+            },
+            {
+                src: 'https://i.imgur.com/thTH4OS.png',
+                alt: 'Days Gone Remastered - Screenshot 3'
+            },
+            {
+                src: 'https://i.imgur.com/6bEGwgT.png',
+                alt: 'Days Gone Remastered - Screenshot 4'
+            }
+        ];
+
+        let currentImageIndex = 0;
+
+        function openImageModal(index) {
+            currentImageIndex = index;
+            const modal = document.getElementById('imageModal');
+            const modalImage = document.getElementById('modalImage');
+            const imageCounter = document.getElementById('imageCounter');
+            
+            modalImage.src = images[currentImageIndex].src;
+            modalImage.alt = images[currentImageIndex].alt;
+            imageCounter.textContent = `${currentImageIndex + 1} / ${images.length}`;
+            
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeImageModal() {
+            const modal = document.getElementById('imageModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function nextImage() {
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            updateModalImage();
+        }
+
+        function previousImage() {
+            currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+            updateModalImage();
+        }
+
+        function updateModalImage() {
+            const modalImage = document.getElementById('modalImage');
+            const imageCounter = document.getElementById('imageCounter');
+            
+            modalImage.src = images[currentImageIndex].src;
+            modalImage.alt = images[currentImageIndex].alt;
+            imageCounter.textContent = `${currentImageIndex + 1} / ${images.length}`;
+        }
+
+        // Close image modal when clicking outside
+        document.getElementById('imageModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeImageModal();
+            }
+        });
+
+        // Keyboard navigation for image modal
+        document.addEventListener('keydown', function(e) {
+            const modal = document.getElementById('imageModal');
+            if (modal.classList.contains('active')) {
+                switch(e.key) {
+                    case 'ArrowLeft':
+                        previousImage();
+                        break;
+                    case 'ArrowRight':
+                        nextImage();
+                        break;
+                    case 'Escape':
+                        closeImageModal();
+                        break;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

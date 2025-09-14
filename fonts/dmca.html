@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DMCA - GameZone</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @font-face {
+            font-family: 'SnesItalic';
+            src: url('fonts/SnesItalic.ttf') format('truetype');
+            font-weight: normal;
+            font-style: italic;
+            font-display: swap;
+        }
+
+        :root {
+            --primary-color: #6eb92b;
+            --primary-dark: #5a9823;
+            --primary-light: #7bc93f;
+            --secondary-color: #e60012;
+            --accent-yellow: #ffe100;
+            --accent-blue: #00a7eb;
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #1a1a1a;
+            --bg-tertiary: #2a2a2a;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0b0;
+            --text-muted: #808080;
+            --border-color: rgba(110, 185, 43, 0.2);
+            --shadow-light: 0 4px 20px rgba(0, 0, 0, 0.1);
+            --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.2);
+            --shadow-heavy: 0 15px 50px rgba(0, 0, 0, 0.3);
+            --gradient-primary: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            --gradient-hero: linear-gradient(135deg, rgba(10, 10, 10, 0.9), rgba(26, 26, 26, 0.8));
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-secondary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--gradient-primary);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-dark);
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .header.scrolled {
+            background: rgba(10, 10, 10, 0.98);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+            gap: 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-text {
+            font-family: 'SnesItalic', 'Inter', sans-serif;
+            font-size: 2.6rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-shadow: 0 0 10px rgba(110, 185, 43, 0.3);
+            letter-spacing: 1px;
+        }
+
+        .search-container {
+            flex: 1;
+            max-width: 500px;
+            position: relative;
+        }
+
+        .search-form {
+            position: relative;
+            width: 100%;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 0.75rem 3rem 0.75rem 1rem;
+            background: var(--bg-tertiary);
+            border: 2px solid var(--border-color);
+            border-radius: 25px;
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        .search-input:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(110, 185, 43, 0.1);
+            background: var(--bg-secondary);
+        }
+
+        .search-input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .search-btn {
+            position: absolute;
+            right: 0.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--gradient-primary);
+            border: none;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .search-btn:hover {
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 4px 15px rgba(110, 185, 43, 0.4);
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            flex-shrink: 0;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color);
+            background: rgba(110, 185, 43, 0.1);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-link:hover::after {
+            width: 80%;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1rem 0;
+            min-width: 200px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .dropdown:hover .dropdown-content {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-item {
+            display: block;
+            padding: 0.75rem 1.5rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .dropdown-item:hover {
+            color: var(--text-primary);
+            background: rgba(110, 185, 43, 0.1);
+            border-left-color: var(--primary-color);
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Discord Button */
+        .discord-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: #6eb92b;
+            color: white;
+            text-decoration: none;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(110, 185, 43, 0.3);
+            border: 2px solid transparent;
+            flex-shrink: 0;
+        }
+
+        .discord-btn:hover {
+            background: #5a9823;
+            transform: translateY(-2px) scale(1.1);
+            box-shadow: 0 6px 20px rgba(110, 185, 43, 0.4);
+        }
+
+        .discord-btn i {
+            font-size: 1.2rem;
+        }
+
+        /* Ko-fi Button */
+        .kofi-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.2rem;
+            background: #ff5f5f;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 95, 95, 0.3);
+            border: 2px solid transparent;
+            flex-shrink: 0;
+        }
+
+        .kofi-btn:hover {
+            background: #ff4444;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 95, 95, 0.4);
+        }
+
+        .kofi-btn i {
+            font-size: 1rem;
+        }
+
+        .kofi-icon {
+            width: 16px;
+            height: 16px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ff5f5f;
+            font-size: 0.8rem;
+        }
+
+        /* Main Content */
+        .main {
+            padding-top: 80px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section {
+            padding: 4rem 0;
+        }
+
+        /* DMCA Hero Section */
+        .dmca-hero {
+            background: var(--bg-secondary);
+            border-radius: 30px;
+            padding: 4rem 2rem;
+            margin: 3rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dmca-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, rgba(110, 185, 43, 0.1) 0%, transparent 70%);
+        }
+
+        .dmca-hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .dmca-hero-title {
+            font-family: 'SnesItalic', 'Inter', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+            letter-spacing: 1px;
+        }
+
+        .dmca-hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .dmca-hero-icon {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 2rem;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+            box-shadow: 0 10px 30px rgba(110, 185, 43, 0.3);
+        }
+
+        /* Content Section */
+        .dmca-content {
+            background: var(--bg-secondary);
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 2rem 0;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .dmca-content h2 {
+            font-family: 'SnesItalic', 'Inter', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: var(--primary-color);
+            position: relative;
+            display: inline-block;
+        }
+
+        .dmca-content h2::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+        }
+
+        .dmca-text {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            text-align: justify;
+            hyphens: auto;
+        }
+
+        .dmca-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .dmca-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        .dmca-text strong {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: var(--bg-tertiary);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin: 2rem 0;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .contact-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .contact-text {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-size: 1rem;
+        }
+
+        .contact-email {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2rem;
+            background: var(--gradient-primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(110, 185, 43, 0.3);
+            font-size: 1rem;
+        }
+
+        .contact-email:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(110, 185, 43, 0.4);
+        }
+
+        .contact-email i {
+            font-size: 1.2rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--bg-secondary);
+            padding: 4rem 0 2rem;
+            margin-top: 5rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-muted);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .loading {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .loading.loaded {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .dmca-hero {
+                padding: 3rem 1.5rem;
+            }
+
+            .dmca-content {
+                padding: 2rem;
+            }
+
+            .contact-section {
+                padding: 2rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .section {
+                padding: 3rem 0;
+            }
+
+            .dmca-text {
+                font-size: 0.95rem;
+                text-align: left;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .dmca-hero {
+                padding: 2rem 1rem;
+            }
+
+            .dmca-content {
+                padding: 1.5rem;
+            }
+
+            .contact-section {
+                padding: 1.5rem;
+            }
+
+            .contact-email {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="header-content">
+            <a href="index.html" class="logo">
+                <span class="logo-text">GameZone</span>
+            </a>
+            
+            <div class="search-container">
+                <form class="search-form" id="searchForm">
+                    <input type="text" class="search-input" id="searchInput" placeholder="Buscar juegos..." required>
+                    <button type="submit" class="search-btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+            </div>
+            
+            <nav class="nav">
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">
+                            <i class="fas fa-home"></i>
+                            Inicio
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="games.html" class="nav-link">
+                            <i class="fas fa-gamepad"></i>
+                            Juegos
+                            <i class="fas fa-chevron-down"></i>
+                        </a>
+                        <div class="dropdown-content">
+                            <a href="games.html?category=accion" class="dropdown-item">
+                                <i class="fas fa-fist-raised"></i>
+                                Acción
+                            </a>
+                            <a href="games.html?category=aventura" class="dropdown-item">
+                                <i class="fas fa-map"></i>
+                                Aventura
+                            </a>
+                            <a href="games.html?category=rpg" class="dropdown-item">
+                                <i class="fas fa-dragon"></i>
+                                RPG
+                            </a>
+                            <a href="games.html?category=estrategia" class="dropdown-item">
+                                <i class="fas fa-chess"></i>
+                                Estrategia
+                            </a>
+                            <a href="games.html?category=simulacion" class="dropdown-item">
+                                <i class="fas fa-car"></i>
+                                Simulación
+                            </a>
+                            <a href="games.html?category=deportes" class="dropdown-item">
+                                <i class="fas fa-futbol"></i>
+                                Deportes
+                            </a>
+                            <a href="games.html?category=arcade" class="dropdown-item">
+                                <i class="fas fa-gamepad"></i>
+                                Arcade
+                            </a>
+                            <a href="games.html?category=plataformas" class="dropdown-item">
+                                <i class="fas fa-running"></i>
+                                Plataformas
+                            </a>
+                            <a href="games.html?category=shooters" class="dropdown-item">
+                                <i class="fas fa-crosshairs"></i>
+                                Shooters
+                            </a>
+                            <a href="games.html?category=puzzles" class="dropdown-item">
+                                <i class="fas fa-puzzle-piece"></i>
+                                Puzzles
+                            </a>
+                            <a href="games.html?category=mundo-abierto" class="dropdown-item">
+                                <i class="fas fa-globe"></i>
+                                Mundo Abierto
+                            </a>
+                            <a href="games.html?category=indie" class="dropdown-item">
+                                <i class="fas fa-heart"></i>
+                                Indie
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="noticias.html" class="nav-link">
+                            <i class="fas fa-newspaper"></i>
+                            Noticias
+                        </a>
+                    </li>
+                                        <li class="nav-item dropdown">
+                        <a href="#" class="nav-link active">
+                            <i class="fas fa-gavel"></i>
+                            Legal
+                            <i class="fas fa-chevron-down"></i>
+                        </a>
+                        <div class="dropdown-content">
+                            <a href="about.html" class="dropdown-item">
+                                <i class="fas fa-info-circle"></i>
+                                Acerca de
+                            </a>
+                            <a href="dmca.html" class="dropdown-item">
+                                <i class="fas fa-shield-alt"></i>
+                                DMCA
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+                
+                <button class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <a href="https://discord.gg/GQkaYRvWME" target="_blank" class="discord-btn" title="Únete a nuestro Discord">
+                    <i class="fab fa-discord"></i>
+                </a>
+                
+                <div id="kofi-widget-container">
+                    <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script>
+                    <script type='text/javascript'>kofiwidget2.init('Apóyanos', '#619e27', 'U7U71KW6U1');kofiwidget2.draw();</script>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- DMCA Hero Section -->
+        <section class="dmca-hero loading">
+            <div class="dmca-hero-content">
+                <div class="dmca-hero-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h1 class="dmca-hero-title">DMCA</h1>
+                <p class="dmca-hero-subtitle">
+                    Digital Millennium Copyright Act - Politica de Derechos de Autor
+                </p>
+            </div>
+        </section>
+
+        <!-- Content Section -->
+        <section class="section">
+            <div class="container">
+                <div class="dmca-content loading">
+                    <h2>Politica de Derechos de Autor</h2>
+                    <div class="dmca-text">
+                        <p>En <strong>GameZone</strong> queremos dejar constancia de que no alojamos, copiamos ni distribuimos videojuegos, archivos, cracks, parches o cualquier otro contenido protegido por derechos de autor. Nuestro sitio no sube material a servicios externos ni facilita la carga de archivos en ningún servidor. GameZone funciona exclusivamente como un índice o directorio de enlaces que ya se encuentran públicamente en Internet. Nos limitamos a catalogar y enlazar contenidos ubicados en plataformas y servicios de terceros, con fines informativos y de organización. GameZone no es responsable del contenido almacenado en dichos sitios externos ni del uso que los usuarios hagan de esos enlaces. Los avisos de infracción relativos a material específico deben dirigirse al proveedor de alojamiento o al sitio web de terceros donde el contenido está realmente almacenado.</p>
+
+                        <p>Respetamos la Digital Millennium Copyright Act (DMCA) y la normativa internacional y local en materia de propiedad intelectual. Toda la información y los hipervínculos publicados en GameZone se orientan al cumplimiento de los derechos previstos en el artículo 31 del RD 1/1996 (Texto Refundido de la Ley de Propiedad Intelectual – LPI), con especial referencia a su art. 31.2, y en concordancia con lo establecido en el art. 100.2 del mismo cuerpo legal. Asimismo, y conforme a los derechos morales reconocidos por el art. 14 LPI, GameZone se reserva el derecho de vetar, limitar o retirar cualquier entrada, enlace o referencia publicada en el sitio.</p>
+
+                        <p>Aunque GameZone no aloja archivos, podemos despublicar o eliminar entradas y/o enlaces de nuestro sitio si el titular de derechos así lo solicita y presenta la información suficiente. Para agilizar la revisión, la notificación debería incluir: identificación de la obra protegida, la URL exacta dentro de GameZone donde aparece el enlace que deseas impugnar, datos de contacto verificables del reclamante (nombre, entidad, dirección, correo y teléfono), una declaración de buena fe indicando que el uso no está autorizado por el titular, su agente o la ley, una declaración de exactitud y de estar autorizado para actuar en nombre del titular de derechos, y firma del titular o de su representante autorizado (puede ser electrónica). Tras recibir una notificación válida, revisaremos el caso y, de corresponder, retiraremos o desindexaremos el o los enlaces del sitio.</p>
+
+                        <p>GameZone no garantiza la disponibilidad, legalidad, integridad ni seguridad del contenido al que apuntan los enlaces de terceros. No somos responsables del uso indebido que los usuarios puedan hacer de la información o enlaces publicados. En ningún caso, el titular del sitio o sus colaboradores podrán ser considerados responsables directa o indirectamente por daños, perjuicios, usos incorrectos o interpretaciones derivadas de la información y servicios incluidos en GameZone. GameZone no almacena, distribuye ni vende archivos, programas o juegos.</p>
+
+                        <p>Si consideras que algún enlace publicado en GameZone apunta a contenido que infringe tus derechos de autor, por favor contacta primero con el sitio de terceros que aloja el contenido para solicitar su retirada de Internet. Adicionalmente, puedes escribirnos para solicitar la desindexación del enlace en nuestro portal: <strong>infogamezonesite@gmail.com</strong>.</p>
+                    </div>
+                </div>
+
+                <!-- Contact Section -->
+                <div class="contact-section loading">
+                    <h3 class="contact-title">¿Necesitas reportar una infracción?</h3>
+                    <p class="contact-text">
+                        Si consideras que algún contenido enlazado infringe tus derechos de autor, contáctanos
+                    </p>
+                    <a href="#" onclick="copyEmail(); return false;" class="contact-email">
+                        <i class="fas fa-envelope"></i>
+                        infogamezonesite@gmail.com
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>GameZone</h3>
+                    <p>Tu portal definitivo para los mejores juegos de PC. Descubre, juega y disfruta.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="games.html">Juegos</a></li>
+                        <li><a href="noticias.html">Noticias</a></li>
+                    </ul>
+                </div>
+                
+                                
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="dmca.html">DMCA</a></li>
+                        <li><a href="about.html">Acerca de</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 GameZone. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Header Scroll Effect
+        function handleHeaderScroll() {
+            const header = document.getElementById('header');
+            const scrollY = window.scrollY;
+
+            if (scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        }
+
+        // Intersection Observer for Animations
+        function setupIntersectionObserver() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('loaded');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            document.querySelectorAll('.loading').forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            setupIntersectionObserver();
+
+            // Setup search form
+            document.getElementById('searchForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const searchInput = document.getElementById('searchInput');
+                const query = searchInput.value.trim();
+                
+                if (query) {
+                    window.location.href = `buscar.html?q=${encodeURIComponent(query)}`;
+                }
+            });
+
+            // Add scroll event listener
+            window.addEventListener('scroll', handleHeaderScroll);
+
+            // Add loading class removal with delay for initial elements
+            setTimeout(() => {
+                document.querySelectorAll('.loading').forEach((el, index) => {
+                    setTimeout(() => {
+                        el.classList.add('loaded');
+                    }, index * 100);
+                });
+            }, 500);
+        });
+
+        // Performance optimization: Throttle scroll events
+        let ticking = false;
+        function requestTick() {
+            if (!ticking) {
+                requestAnimationFrame(handleHeaderScroll);
+                ticking = true;
+                setTimeout(() => ticking = false, 16);
+            }
+        }
+
+        window.addEventListener('scroll', requestTick);
+
+        // Copy Email Function
+        async function copyEmail() {
+            const email = 'infogamezonesite@gmail.com';
+            
+            try {
+                // Try using the modern Clipboard API
+                await navigator.clipboard.writeText(email);
+                showNotification('Email copiado al portapapeles!', 'success');
+            } catch (err) {
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = email;
+                textArea.style.position = 'fixed';
+                textArea.style.left = '-999999px';
+                textArea.style.top = '-999999px';
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
+                
+                try {
+                    document.execCommand('copy');
+                    showNotification('Email copiado al portapapeles!', 'success');
+                } catch (err) {
+                    showNotification('No se pudo copiar. Email: ' + email, 'error');
+                }
+                
+                document.body.removeChild(textArea);
+            }
+        }
+
+        // Show Notification Function
+        function showNotification(message, type = 'success') {
+            // Remove existing notification if any
+            const existingNotification = document.querySelector('.notification');
+            if (existingNotification) {
+                existingNotification.remove();
+            }
+
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.innerHTML = `
+                <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'}"></i>
+                <span>${message}</span>
+            `;
+
+            // Add styles
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: ${type === 'success' ? 'var(--primary-color)' : 'var(--secondary-color)'};
+                color: white;
+                padding: 1rem 1.5rem;
+                border-radius: 12px;
+                box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+                z-index: 10000;
+                display: flex;
+                align-items: center;
+                gap: 0.75rem;
+                font-weight: 600;
+                font-size: 0.95rem;
+                transform: translateX(100%);
+                transition: all 0.3s ease;
+                backdrop-filter: blur(10px);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+            `;
+
+            // Add to page
+            document.body.appendChild(notification);
+
+            // Animate in
+            setTimeout(() => {
+                notification.style.transform = 'translateX(0)';
+            }, 100);
+
+            // Remove after 3 seconds
+            setTimeout(() => {
+                notification.style.transform = 'translateX(100%)';
+                setTimeout(() => {
+                    if (notification.parentNode) {
+                        notification.parentNode.removeChild(notification);
+                    }
+                }, 300);
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
