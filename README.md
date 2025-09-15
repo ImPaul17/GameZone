@@ -14,7 +14,7 @@ Repositorio de presentación de GameZone, un sitio web estático sobre videojueg
 
 Acceso en línea (recomendado):
 
-- bit.ly/gamezonesite
+- https://bit.ly/gamezonesite
 - https://impaul17.github.io/GameZone/
 
 También puedes abrirlo en local (opcional):
