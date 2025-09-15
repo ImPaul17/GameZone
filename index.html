@@ -560,12 +560,21 @@
                 grid-template-columns: repeat(2, 1fr);
                 max-width: 800px;
             }
+            .news-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, calc((800px - 2rem) / 2)));
+            }
         }
 
         @media (max-width: 768px) {
             .games-grid {
                 grid-template-columns: 1fr;
                 max-width: 400px;
+            }
+            .news-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+                margin-left: auto;
+                margin-right: auto;
             }
         }
 
@@ -1067,9 +1076,10 @@
 
         .news-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, calc((1200px - 4rem) / 3)));
             gap: 2rem;
             margin-top: 2rem;
+            justify-content: center;
         }
 
         .news-card {
@@ -1270,6 +1280,80 @@
             </div>
         </section>
 
+        <!-- News Section (moved above games) -->
+        <section class="news-section loading" id="news">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Noticias Gaming</h2>
+                    <p class="section-subtitle">Últimas novedades, noticias y nuestros afiliados</p>
+                </div>
+                <div class="news-grid">
+                    <div class="game-card loading">
+                        <div class="game-image" style="position: relative;">
+                            <img src="https://i.imgur.com/7B0JcKv.png" alt="G2A Promoción">
+                            <div class="pinned-badge" title="Anclada" style="position: absolute; top: 10px; left: 10px; background: rgba(0, 0, 0, 0.75); color: #ffd54f; border: 1px solid rgba(255, 213, 79, 0.5); padding: 6px 10px; border-radius: 16px; display: inline-flex; align-items: center; gap: 6px; font-weight: 700; z-index: 2; font-size: 0.85rem;">
+                                <i class="fas fa-thumbtack"></i>
+                                Anclada
+                            </div>
+                            <div class="game-overlay"></div>
+                        </div>
+                        <div class="game-info">
+                            <h3 class="game-title">Consigue tus juegos OFICIALES en G2A</h3>
+                            <div class="game-categories">
+                                <span class="game-category">Afiliado</span>
+                                <span class="game-category">Oficial</span>
+                                <span class="game-category">Promo</span>
+                                <span class="game-category">Barato</span>
+                            </div>
+                            <p class="game-description">
+                                Compra claves 100% oficiales a través de GameZone y apoya el proyecto. Las mejores ofertas del mercado en G2A.
+                            </p>
+                            <div class="game-actions">
+                                <a href="https://www.g2a.com/n/reflink-gamezone" target="_blank" rel="noopener noreferrer nofollow sponsored" class="btn btn-primary game-btn">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    Ir a G2A
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="game-card loading">
+                        <div class="game-image" style="position: relative;">
+                            <img src="https://i.imgur.com/7PJR1OK.png" alt="G2A Plus">
+                            <div class="pinned-badge" title="Anclada" style="position: absolute; top: 10px; left: 10px; background: rgba(0, 0, 0, 0.75); color: #ffd54f; border: 1px solid rgba(255, 213, 79, 0.5); padding: 6px 10px; border-radius: 16px; display: inline-flex; align-items: center; gap: 6px; font-weight: 700; z-index: 2; font-size: 0.85rem;">
+                                <i class="fas fa-thumbtack"></i>
+                                Anclada
+                            </div>
+                            <div class="game-overlay"></div>
+                        </div>
+                        <div class="game-info">
+                            <h3 class="game-title">Ofertas exclusivas, paga menos y gana más con G2A Plus</h3>
+                            <div class="game-categories">
+                                <span class="game-category">Afiliado</span>
+                                <span class="game-category">Oficial</span>
+                                <span class="game-category">Plus</span>
+                                <span class="game-category">Suscripción</span>
+                            </div>
+                            <p class="game-description">
+                                Desbloquea descuentos adicionales, ventajas y promociones exclusivas con G2A Plus, ayudando a GameZone en el proceso.
+                            </p>
+                            <div class="game-actions">
+                                <a href="https://www.g2a.com/n/gamezoneplus" target="_blank" rel="noopener noreferrer nofollow sponsored" class="btn btn-primary game-btn">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    Ir a G2A Plus
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 2rem;">
+                    <a href="#" class="btn btn-primary" id="notifyBtn">
+                        <i class="fas fa-bell"></i>
+                        Notificarme
+                    </a>
+                </div>
+            </div>
+        </section>
+
         <!-- Games Section -->
         <section class="section" id="games">
             <div class="container">
@@ -1281,6 +1365,29 @@
                 <div class="games-grid">
                     <div class="game-card loading stagger-1">
                         <div class="game-image">
+                            <img src="https://i.imgur.com/HkmqE8l.jpeg" alt="Red Dead Redemption 2">
+                            <div class="game-overlay"></div>
+                        </div>
+                        <div class="game-info">
+                            <h3 class="game-title">Red Dead Redemption 2</h3>
+                            <div class="game-categories">
+                                <span class="game-category">Acción</span>
+                                <span class="game-category">Aventura</span>
+                                <span class="game-category">Mundo Abierto</span>
+                            </div>
+                            <p class="game-description">
+                                Una epopeya de mundo abierto que retrata con crudeza el fin del Salvaje Oeste, con narrativa madura, mundo reactivo y una producción técnica monumental.
+                            </p>
+                            <div class="game-actions">
+                                <a href="games/red-dead-redemption-2/red-dead-redemption-2.html" class="btn btn-primary game-btn">
+                                    <i class="fas fa-download"></i>
+                                    Descargar
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="game-card loading stagger-1">
+                        <div class="game-image">
                             <img src="https://i.imgur.com/A02xhyB.jpeg" alt="Days Gone Remastered">
                             <div class="game-overlay"></div>
                         </div>
@@ -1289,6 +1396,7 @@
                             <div class="game-categories">
                                 <span class="game-category">Acción</span>
                                 <span class="game-category">Aventura</span>
+                                <span class="game-category">Mundo Abierto</span>
                             </div>
                             <p class="game-description">
                                 Una versión remasterizada del aclamado survival postapocalíptico de mundo abierto, con gráficos mejorados y optimizaciones de nueva generación.
@@ -1455,24 +1563,7 @@
             </div>
         </section>
 
-        <!-- Featured Section -->
-        <section class="featured loading">
-            <div class="featured-content">
-                <h2 class="featured-title">Noticias Gaming</h2>
-                <p class="featured-text">
-                    Mantente al día con las últimas noticias, reseñas y actualizaciones del mundo gaming.
-                    Próximamente tendremos contenido exclusivo para ti.
-                </p>
-                <div class="featured-icon">
-                    <img src="images/snescontroller.svg" alt="Gaming Controller">
-                </div>
-                <a href="#" class="btn btn-primary" id="notifyBtn">
-                    <i class="fas fa-bell"></i>
-                    Notificarme
-                </a>
-            </div>
-        </section>
-
+        
         <!-- Support Section -->
         <section class="featured loading" style="background: var(--bg-tertiary); margin-top: 3rem;">
             <div class="featured-content">
