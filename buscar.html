@@ -479,6 +479,73 @@
             opacity: 1;
         }
 
+        /* Hall of Fame TOP Badge */
+        .top-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: linear-gradient(135deg, #ffd700, #ffed4e, #ffd700);
+            color: #1a1a1a;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            z-index: 3;
+            box-shadow: 
+                0 4px 15px rgba(255, 215, 0, 0.4),
+                0 0 20px rgba(255, 215, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            border: 2px solid #ffed4e;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+            animation: topBadgeGlow 2s ease-in-out infinite alternate;
+            backdrop-filter: blur(10px);
+        }
+
+        @keyframes topBadgeGlow {
+            0% {
+                box-shadow: 
+                    0 4px 15px rgba(255, 215, 0, 0.4),
+                    0 0 20px rgba(255, 215, 0, 0.3),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            }
+            100% {
+                box-shadow: 
+                    0 6px 20px rgba(255, 215, 0, 0.6),
+                    0 0 30px rgba(255, 215, 0, 0.5),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+            }
+        }
+
+        .top-badge::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(135deg, #ffd700, #ffed4e, #ffd700);
+            border-radius: 22px;
+            z-index: -1;
+            opacity: 0.7;
+            filter: blur(4px);
+        }
+
+        /* Hall of Fame Card Border */
+        .game-card.hall-of-fame {
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            box-shadow: 
+                var(--shadow-light),
+                0 0 20px rgba(255, 215, 0, 0.1);
+        }
+
+        .game-card.hall-of-fame:hover {
+            border-color: rgba(255, 215, 0, 0.5);
+            box-shadow: 
+                var(--shadow-heavy),
+                0 0 30px rgba(255, 215, 0, 0.2);
+        }
+
         .game-info {
             padding: 1.5rem;
         }
@@ -594,6 +661,149 @@
             margin-bottom: 2rem;
             color: var(--primary-color);
             text-align: center;
+        }
+
+        /* Search Suggestions Styles */
+        .search-suggestions {
+            background: rgba(110, 185, 43, 0.1);
+            border: 1px solid var(--primary-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .search-suggestions p {
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .suggestion-btn {
+            display: inline-block;
+            margin: 0.25rem;
+            padding: 0.5rem 1rem;
+            background: var(--bg-tertiary);
+            border: 2px solid var(--border-color);
+            border-radius: 20px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .suggestion-btn:hover {
+            background: var(--gradient-primary);
+            color: white;
+            border-color: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(110, 185, 43, 0.3);
+        }
+
+        /* Relevance Badges */
+        .relevance-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(110, 185, 43, 0.9);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            z-index: 2;
+            backdrop-filter: blur(10px);
+        }
+
+        .high-relevance {
+            border-color: rgba(110, 185, 43, 0.5);
+        }
+
+        .medium-relevance {
+            border-color: rgba(255, 193, 7, 0.5);
+        }
+
+        .low-relevance {
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Game Developer and Year Styles */
+        .game-developer,
+        .game-year {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            margin: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .game-developer i,
+        .game-year i {
+            opacity: 0.7;
+        }
+
+        /* Search Suggestions Dropdown Scrollbar */
+        .search-suggestions-dropdown::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .search-suggestions-dropdown::-webkit-scrollbar-track {
+            background: var(--bg-secondary);
+        }
+
+        .search-suggestions-dropdown::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 3px;
+        }
+
+        /* Enhanced Search Input Focus State */
+        .search-container:focus-within .search-input {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(110, 185, 43, 0.1);
+        }
+
+        /* Loading State for Search Results */
+        .search-loading {
+            text-align: center;
+            padding: 3rem;
+            color: var(--text-secondary);
+        }
+
+        .search-loading i {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Search Stats Enhancement */
+        .search-stats {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .search-stat-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(110, 185, 43, 0.1);
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        .search-stat-item i {
+            color: var(--primary-color);
         }
 
         /* Footer */
@@ -872,67 +1082,108 @@
         </div>
     </footer>
 
+    <!-- Fuse.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0"></script>
+    
     <script>
-        // Dynamic Game Discovery System
+        // Dynamic Game Discovery System with Fuse.js Integration
         let gamesDatabase = [];
+        let fuse = null;
 
         // Game configuration - Add new games here
         const gameConfigs = {
+            'deltarune': {
+                title: "Deltarune",
+                categories: ["Aventura", "RPG", "Indie"],
+                description: "Una aventura RPG por capítulos del creador de Undertale. Viaja con Kris, Susie y Ralsei para restaurar el equilibrio del Mundo Oscuro, combinando exploración, humor y combates estratégicos donde tus decisiones importan.",
+                image: "https://i.imgur.com/7C3pgMF.png",
+                keywords: ["deltarune", "toby fox", "kris", "susie", "ralsei", "rpg", "indie", "mundo oscuro", "capítulos", "queen", "lancer", "noelle"],
+                developer: "Toby Fox",
+                year: 2018,
+                tags: ["RPG", "indie", "narrativa", "bullet hell", "pacifista"]
+            },
             'red-dead-redemption-2': {
                 title: "Red Dead Redemption 2",
                 categories: ["Acción", "Aventura", "Mundo Abierto"],
                 description: "Una epopeya de mundo abierto que retrata con crudeza el fin del Salvaje Oeste, con narrativa madura, mundo reactivo y una producción técnica monumental.",
                 image: "https://i.imgur.com/HkmqE8l.jpeg",
-                keywords: ["red", "dead", "redemption", "rdr2", "rockstar", "mundo abierto", "accion", "aventura", "vaqueros", "oeste"]
+                keywords: ["red", "dead", "redemption", "rdr2", "rockstar", "mundo abierto", "accion", "aventura", "vaqueros", "oeste", "salvaje oeste", "western"],
+                developer: "Rockstar Games",
+                year: 2018,
+                tags: ["mundo abierto", "western", "narrativa", "acción", "aventura"],
+                hallOfFame: true
             },
             'days-gone-remastered': {
                 title: "Days Gone Remastered",
                 categories: ["Acción", "Aventura", "Mundo Abierto"],
                 description: "Una versión remasterizada del aclamado survival postapocalíptico de mundo abierto, con gráficos mejorados y optimizaciones de nueva generación.",
                 image: "https://i.imgur.com/A02xhyB.jpeg",
-                keywords: ["days", "gone", "remastered", "zombies", "freakers", "mundo abierto", "supervivencia", "accion", "aventura", "bend studio", "sony", "postapocaliptico"]
+                keywords: ["days", "gone", "remastered", "zombies", "freakers", "mundo abierto", "supervivencia", "accion", "aventura", "bend studio", "sony", "postapocaliptico", "survival", "horror"],
+                developer: "Bend Studio",
+                year: 2024,
+                tags: ["survival", "zombies", "mundo abierto", "postapocalíptico", "horror"]
             },
             'wwe-2k25': {
                 title: "WWE 2K25",
                 categories: ["Simulación", "Deportes"],
                 description: "La experiencia de lucha libre más auténtica regresa con WWE 2K25. Vive la emoción del ring con gráficos mejorados, nuevos modos de juego y tu roster favorito de superestrelas de WWE.",
                 image: "https://i.imgur.com/o2aW2ve.jpeg",
-                keywords: ["wwe", "2k25", "lucha", "libre", "wrestling", "simulacion", "deportes", "visual concepts", "2k games", "superestrelas", "ring", "combate", "wwe 2k25"]
+                keywords: ["wwe", "2k25", "lucha", "libre", "wrestling", "simulacion", "deportes", "visual concepts", "2k games", "superestrelas", "ring", "combate", "wwe 2k25", "luchadores"],
+                developer: "Visual Concepts",
+                year: 2025,
+                tags: ["wrestling", "deportes", "simulación", "lucha libre", "WWE"]
             },
             'metal-gear-solid-delta-snake-eater': {
                 title: "Metal Gear Solid Delta: Snake Eater",
                 categories: ["Acción", "Aventura"],
                 description: "La legendaria obra maestra de espionaje regresa completamente remasterizada. Infiltra, sobrevive y descubre la verdad en la jungla soviética.",
                 image: "https://i.imgur.com/opD66Aa.jpeg",
-                keywords: ["metal", "gear", "solid", "delta", "snake", "eater", "konami", "espionaje", "stealth", "accion", "aventura", "big boss", "naked snake"]
+                keywords: ["metal", "gear", "solid", "delta", "snake", "eater", "konami", "espionaje", "stealth", "accion", "aventura", "big boss", "naked snake", "infiltración", "sigilo"],
+                developer: "Konami",
+                year: 2024,
+                tags: ["stealth", "espionaje", "acción", "aventura", "infiltración"]
             },
             'grand-theft-auto-v-enhanced': {
                 title: "Grand Theft Auto V Enhanced",
                 categories: ["Acción", "Aventura", "Mundo Abierto"],
                 description: "La experiencia definitiva de Los Santos llega con mejoras visuales espectaculares, nuevos contenidos y optimizaciones de última generación. Vive el crimen organizado como nunca antes.",
                 image: "https://i.imgur.com/IvU1JC5.jpeg",
-                keywords: ["gta", "grand", "theft", "auto", "enhanced", "los santos", "rockstar", "mundo abierto", "crimen", "accion"]
+                keywords: ["gta", "grand", "theft", "auto", "enhanced", "los santos", "rockstar", "mundo abierto", "crimen", "accion", "gta5", "gtav", "online"],
+                developer: "Rockstar Games",
+                year: 2024,
+                tags: ["mundo abierto", "crimen", "acción", "online", "sandbox"],
+                hallOfFame: true
             },
             'peak': {
                 title: "PEAK",
                 categories: ["Acción", "Aventura", "Indie"],
                 description: "Un emocionante juego de acción y aventura que combina exploración, combate dinámico y narrativa envolvente en un mundo lleno de desafíos únicos.",
                 image: "https://i.imgur.com/IpXmPIi.jpeg",
-                keywords: ["peak", "accion", "aventura", "indie", "combate", "exploracion"]
+                keywords: ["peak", "accion", "aventura", "indie", "combate", "exploracion", "desafíos", "narrativa"],
+                developer: "Indie Developer",
+                year: 2024,
+                tags: ["indie", "acción", "aventura", "exploración", "combate"]
             },
             'hollow-knight-silksong': {
                 title: "Hollow Knight: Silksong",
                 categories: ["Acción", "Aventura", "Plataformas", "Indie"],
                 description: "La secuela muy esperada de Hollow Knight. Juega como Hornet, la princesa-protectora de Hallownest, en una aventura épica a través del reino de Pharloom.",
                 image: "https://i.imgur.com/EXbst5F.png",
-                keywords: ["hollow", "knight", "silksong", "hornet", "metroidvania", "plataformas", "team cherry"]
+                keywords: ["hollow", "knight", "silksong", "hornet", "metroidvania", "plataformas", "team cherry", "indie", "secuela", "pharloom"],
+                developer: "Team Cherry",
+                year: 2024,
+                tags: ["metroidvania", "plataformas", "indie", "aventura", "exploración"],
+                hallOfFame: true
             },
             'undertale': {
                 title: "Undertale",
                 categories: ["Aventura", "RPG", "Indie"],
                 description: "Un RPG único donde no tienes que destruir a nadie. Cada encuentro puede resolverse de forma pacífica. Lucha o ten piedad, la elección es tuya.",
                 image: "https://i.imgur.com/tNdNUZm.png",
-                keywords: ["undertale", "toby fox", "rpg", "indie"]
+                keywords: ["undertale", "toby fox", "rpg", "indie", "pacifista", "monsters", "determinación", "sans", "papyrus"],
+                developer: "Toby Fox",
+                year: 2015,
+                tags: ["RPG", "indie", "narrativa", "pacifista", "único"]
             }
             // Add more games here as you create them
             // 'minecraft': {
@@ -940,7 +1191,10 @@
             //     categories: ["Simulación", "Indie", "Mundo Abierto"],
             //     description: "Un juego de construcción y supervivencia en un mundo infinito de bloques.",
             //     image: "path/to/minecraft/image.jpg",
-            //     keywords: ["minecraft"]
+            //     keywords: ["minecraft"],
+            //     developer: "Mojang Studios",
+            //     year: 2011,
+            //     tags: ["sandbox", "construcción", "supervivencia"]
             // }
         };
 
@@ -964,7 +1218,8 @@
                             description: config.description,
                             image: config.image,
                             link: `games/${gameName}/${gameName}.html`,
-                            keywords: config.keywords
+                            keywords: config.keywords,
+                            hallOfFame: config.hallOfFame || false
                         });
                     }
                 } catch (error) {
@@ -987,12 +1242,22 @@
                     gamesDatabase = [
                         {
                             id: 1,
+                            title: "Deltarune",
+                            categories: ["Aventura", "RPG", "Indie"],
+                            description: "Una aventura RPG por capítulos del creador de Undertale. Viaja con Kris, Susie y Ralsei para restaurar el equilibrio del Mundo Oscuro, combinando exploración, humor y combates estratégicos donde tus decisiones importan.",
+                            image: "https://i.imgur.com/7C3pgMF.png",
+                            link: "games/deltarune/deltarune.html",
+                            keywords: ["deltarune", "toby fox", "kris", "susie", "ralsei", "rpg", "indie", "mundo oscuro", "capítulos", "queen", "lancer", "noelle"]
+                        },
+                        {
+                            id: 1,
                             title: "Red Dead Redemption 2",
                             categories: ["Acción", "Aventura", "Mundo Abierto"],
                             description: "Una epopeya de mundo abierto que retrata con crudeza el fin del Salvaje Oeste, con narrativa madura, mundo reactivo y una producción técnica monumental.",
                             image: "https://i.imgur.com/HkmqE8l.jpeg",
                             link: "games/red-dead-redemption-2/red-dead-redemption-2.html",
-                            keywords: ["red", "dead", "redemption", "rdr2", "rockstar", "mundo abierto", "accion", "aventura", "vaqueros", "oeste"]
+                            keywords: ["red", "dead", "redemption", "rdr2", "rockstar", "mundo abierto", "accion", "aventura", "vaqueros", "oeste"],
+                            hallOfFame: true
                         },
                         {
                             id: 1,
@@ -1028,7 +1293,8 @@
                             description: "La experiencia definitiva de Los Santos llega con mejoras visuales espectaculares, nuevos contenidos y optimizaciones de última generación. Vive el crimen organizado como nunca antes.",
                             image: "https://i.imgur.com/IvU1JC5.jpeg",
                             link: "games/grand-theft-auto-v-enhanced/grand-theft-auto-v-enhanced.html",
-                            keywords: ["gta", "grand", "theft", "auto", "enhanced", "los santos", "rockstar", "mundo abierto", "crimen", "accion"]
+                            keywords: ["gta", "grand", "theft", "auto", "enhanced", "los santos", "rockstar", "mundo abierto", "crimen", "accion"],
+                            hallOfFame: true
                         },
                         {
                             id: 2,
@@ -1046,7 +1312,8 @@
                             description: "La secuela muy esperada de Hollow Knight. Juega como Hornet, la princesa-protectora de Hallownest, en una aventura épica a través del reino de Pharloom.",
                             image: "https://i.imgur.com/EXbst5F.png",
                             link: "games/hollow-knight-silksong/hollow-knight-silksong.html",
-                            keywords: ["hollow", "knight", "silksong", "hornet", "metroidvania", "plataformas", "team cherry"]
+                            keywords: ["hollow", "knight", "silksong", "hornet", "metroidvania", "plataformas", "team cherry"],
+                            hallOfFame: true
                         },
                         {
                             id: 4,
@@ -1063,6 +1330,15 @@
                 console.error('Error discovering games:', error);
                 // Fallback to show all games if discovery fails
                 gamesDatabase = [
+                    {
+                        id: 1,
+                        title: "Deltarune",
+                        categories: ["Aventura", "RPG", "Indie"],
+                        description: "Una aventura RPG por capítulos del creador de Undertale. Viaja con Kris, Susie y Ralsei para restaurar el equilibrio del Mundo Oscuro, combinando exploración, humor y combates estratégicos donde tus decisiones importan.",
+                        image: "https://i.imgur.com/7C3pgMF.png",
+                        link: "games/deltarune/deltarune.html",
+                        keywords: ["deltarune", "toby fox", "kris", "susie", "ralsei", "rpg", "indie", "mundo oscuro", "capítulos", "queen", "lancer", "noelle"]
+                    },
                     {
                         id: 1,
                         title: "Red Dead Redemption 2",
@@ -1139,46 +1415,106 @@
             }
         }
 
-        // Enhanced search functionality with partial matching
+        // Initialize Fuse.js for advanced fuzzy search
+        function initializeFuse() {
+            const fuseOptions = {
+                // Configuración de Fuse.js muy estricta
+                includeScore: true,
+                includeMatches: true,
+                threshold: 0.1, // Muy estricto: solo coincidencias casi exactas
+                location: 0,
+                distance: 20, // Muy reducido para búsquedas precisas
+                maxPatternLength: 32,
+                minMatchCharLength: 3, // Mínimo 3 caracteres
+                keys: [
+                    {
+                        name: 'title',
+                        weight: 0.6 // Peso muy alto para el título
+                    },
+                    {
+                        name: 'keywords',
+                        weight: 0.4 // Peso alto para keywords específicos
+                    }
+                    // Eliminamos completamente categorías, descripción, desarrollador y tags
+                ]
+            };
+
+            fuse = new Fuse(gamesDatabase, fuseOptions);
+            console.log('Fuse.js initialized with', gamesDatabase.length, 'games');
+        }
+
+        // Enhanced search functionality with Fuse.js fuzzy search
         function performSearch(query) {
             if (!query || query.trim() === '') {
-                return gamesDatabase; // Return all games if no query
+                return gamesDatabase.map(game => ({ item: game, score: 0 })); // Return all games if no query
             }
 
-            const searchTerm = query.toLowerCase().trim();
-            console.log(`Searching for: "${searchTerm}"`);
-            console.log(`Available games:`, gamesDatabase);
+            const searchTerm = query.trim();
+            console.log(`Searching with Fuse.js for: "${searchTerm}"`);
             
-            const results = gamesDatabase.filter(game => {
-                // Search in title (partial match)
-                if (game.title.toLowerCase().includes(searchTerm)) {
-                    console.log(`Found match in title: ${game.title}`);
-                    return true;
+            if (!fuse) {
+                console.error('Fuse.js not initialized');
+                return [];
+            }
+
+            // Perform fuzzy search with Fuse.js
+            const fuseResults = fuse.search(searchTerm);
+            console.log(`Fuse.js found ${fuseResults.length} results:`, fuseResults);
+
+            // Si no hay resultados con Fuse.js, intentar búsqueda exacta muy estricta
+            if (fuseResults.length === 0) {
+                console.log('No fuzzy results found, trying very strict fallback search...');
+                
+                // Búsqueda de respaldo súper estricta - solo coincidencias exactas o al inicio
+                const fallbackResults = gamesDatabase.filter(game => {
+                    const searchLower = searchTerm.toLowerCase();
+                    return (
+                        // Solo si el título empieza con el término o lo contiene como palabra completa
+                        game.title.toLowerCase().startsWith(searchLower) ||
+                        game.title.toLowerCase().includes(' ' + searchLower) ||
+                        // Solo keywords que empiecen con el término o sean exactas
+                        game.keywords.some(keyword => 
+                            keyword.toLowerCase() === searchLower || 
+                            keyword.toLowerCase().startsWith(searchLower)
+                        )
+                    );
+                });
+                
+                return fallbackResults.map(game => ({ item: game, score: 0.9 }));
+            }
+
+            return fuseResults;
+        }
+
+        // Get search suggestions based on partial input
+        function getSearchSuggestions(query) {
+            if (!query || query.length < 2) return [];
+            
+            const suggestions = new Set();
+            const searchLower = query.toLowerCase();
+            
+            gamesDatabase.forEach(game => {
+                // Add title suggestions
+                if (game.title.toLowerCase().includes(searchLower)) {
+                    suggestions.add(game.title);
                 }
                 
-                // Search in categories (partial match)
-                if (game.categories.some(category => category.toLowerCase().includes(searchTerm))) {
-                    console.log(`Found match in categories: ${game.categories}`);
-                    return true;
-                }
+                // Add keyword suggestions
+                game.keywords.forEach(keyword => {
+                    if (keyword.toLowerCase().includes(searchLower)) {
+                        suggestions.add(keyword);
+                    }
+                });
                 
-                // Search in description (partial match)
-                if (game.description.toLowerCase().includes(searchTerm)) {
-                    console.log(`Found match in description`);
-                    return true;
-                }
-                
-                // Search in keywords (partial match)
-                if (game.keywords.some(keyword => keyword.toLowerCase().includes(searchTerm))) {
-                    console.log(`Found match in keywords: ${game.keywords}`);
-                    return true;
-                }
-                
-                return false;
+                // Add category suggestions
+                game.categories.forEach(category => {
+                    if (category.toLowerCase().includes(searchLower)) {
+                        suggestions.add(category);
+                    }
+                });
             });
             
-            console.log(`Search results:`, results);
-            return results;
+            return Array.from(suggestions).slice(0, 5); // Limit to 5 suggestions
         }
 
         function displayResults(results, query) {
@@ -1190,6 +1526,16 @@
             resultCount.textContent = results.length;
             
             if (results.length === 0) {
+                // Get search suggestions for better UX
+                const suggestions = getSearchSuggestions(query);
+                const suggestionHTML = suggestions.length > 0 ? 
+                    `<div class="search-suggestions">
+                        <p><strong>¿Quisiste decir?</strong></p>
+                        ${suggestions.map(suggestion => 
+                            `<button class="suggestion-btn" onclick="searchFor('${suggestion}')">${suggestion}</button>`
+                        ).join('')}
+                    </div>` : '';
+
                 resultsContainer.innerHTML = `
                     <div class="no-results">
                         <div class="no-results-icon">
@@ -1200,6 +1546,7 @@
                             No pudimos encontrar juegos que coincidan con "${query}". 
                             Intenta con otros términos de búsqueda o explora nuestras categorías.
                         </p>
+                        ${suggestionHTML}
                         <a href="index.html" class="btn btn-primary">
                             <i class="fas fa-home"></i>
                             Volver al Inicio
@@ -1208,25 +1555,31 @@
                     <div class="suggestions">
                         <h3 class="suggestions-title">Juegos Sugeridos</h3>
                         <div class="results-grid">
-                            ${gamesDatabase.slice(0, 3).map(game => createGameCard(game)).join('')}
+                            ${gamesDatabase.slice(0, 3).map(game => createGameCard(game, 0)).join('')}
                         </div>
                     </div>
                 `;
             } else {
+                // Sort results by score (lower score = better match in Fuse.js)
+                const sortedResults = results.sort((a, b) => (a.score || 0) - (b.score || 0));
+                
                 resultsContainer.innerHTML = `
                     <div class="results-grid">
-                        ${results.map(game => createGameCard(game)).join('')}
+                        ${sortedResults.map(result => createGameCard(result.item, result.score)).join('')}
                     </div>
                 `;
             }
         }
 
-        function createGameCard(game) {
+        function createGameCard(game, score = 0) {
+            const topBadge = game.hallOfFame ? '<div class="top-badge">TOP</div>' : '';
+            const hallOfFameClass = game.hallOfFame ? ' hall-of-fame' : '';
             return `
-                <div class="game-card loading">
+                <div class="game-card loading${hallOfFameClass}" data-score="${score}">
                     <div class="game-image">
-                        <img src="${game.image}" alt="${game.title}">
+                        <img src="${game.image}" alt="${game.title}" loading="lazy">
                         <div class="game-overlay"></div>
+                        ${topBadge}
                     </div>
                     <div class="game-info">
                         <h3 class="game-title">${game.title}</h3>
@@ -1234,6 +1587,8 @@
                             ${game.categories.map(category => `<span class="game-category">${category}</span>`).join('')}
                         </div>
                         <p class="game-description">${game.description}</p>
+                        ${game.developer ? `<p class="game-developer"><i class="fas fa-code"></i> ${game.developer}</p>` : ''}
+                        ${game.year ? `<p class="game-year"><i class="fas fa-calendar"></i> ${game.year}</p>` : ''}
                         <div class="game-actions">
                             <a href="${game.link}" class="btn btn-primary">
                                 <i class="fas fa-download"></i>
@@ -1243,6 +1598,12 @@
                     </div>
                 </div>
             `;
+        }
+
+        // Function to perform search from suggestion buttons
+        function searchFor(term) {
+            document.getElementById('searchInput').value = term;
+            window.location.href = `buscar.html?q=${encodeURIComponent(term)}`;
         }
 
         // Header scroll effect
@@ -1262,6 +1623,9 @@
             // Initialize games database first
             await initializeGamesDatabase();
             
+            // Initialize Fuse.js after games database is ready
+            initializeFuse();
+            
             // Get search query from URL
             const urlParams = new URLSearchParams(window.location.search);
             const query = urlParams.get('q') || '';
@@ -1272,17 +1636,80 @@
                 displayResults(results, query);
             } else {
                 // Show all games if no query
-                displayResults(gamesDatabase, 'todos los juegos');
+                const allGamesResults = gamesDatabase.map(game => ({ item: game, score: 0 }));
+                displayResults(allGamesResults, 'todos los juegos');
                 document.getElementById('searchQuery').innerHTML = 'Mostrando todos los juegos disponibles';
             }
 
-            // Setup search form
-            document.getElementById('searchForm').addEventListener('submit', function(e) {
+            // Setup search form with real-time suggestions
+            const searchInput = document.getElementById('searchInput');
+            const searchForm = document.getElementById('searchForm');
+            
+            // Add search suggestions dropdown
+            const suggestionsContainer = document.createElement('div');
+            suggestionsContainer.className = 'search-suggestions-dropdown';
+            suggestionsContainer.style.cssText = `
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--bg-tertiary);
+                border: 2px solid var(--border-color);
+                border-top: none;
+                border-radius: 0 0 15px 15px;
+                max-height: 200px;
+                overflow-y: auto;
+                z-index: 1000;
+                display: none;
+            `;
+            document.querySelector('.search-container').appendChild(suggestionsContainer);
+
+            // Real-time search suggestions
+            let suggestionTimeout;
+            searchInput.addEventListener('input', function() {
+                clearTimeout(suggestionTimeout);
+                const query = this.value.trim();
+                
+                if (query.length >= 2) {
+                    suggestionTimeout = setTimeout(() => {
+                        const suggestions = getSearchSuggestions(query);
+                        if (suggestions.length > 0) {
+                            suggestionsContainer.innerHTML = suggestions.map(suggestion => 
+                                `<div class="suggestion-item" onclick="searchFor('${suggestion}')" style="
+                                    padding: 0.75rem 1rem;
+                                    cursor: pointer;
+                                    border-bottom: 1px solid rgba(255,255,255,0.1);
+                                    transition: background 0.2s ease;
+                                    color: var(--text-secondary);
+                                " onmouseover="this.style.background='rgba(110,185,43,0.1)'; this.style.color='var(--text-primary)'" 
+                                   onmouseout="this.style.background='transparent'; this.style.color='var(--text-secondary)'">
+                                    <i class="fas fa-search" style="margin-right: 0.5rem; opacity: 0.5;"></i>
+                                    ${suggestion}
+                                </div>`
+                            ).join('');
+                            suggestionsContainer.style.display = 'block';
+                        } else {
+                            suggestionsContainer.style.display = 'none';
+                        }
+                    }, 300);
+                } else {
+                    suggestionsContainer.style.display = 'none';
+                }
+            });
+
+            // Hide suggestions when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.search-container')) {
+                    suggestionsContainer.style.display = 'none';
+                }
+            });
+
+            searchForm.addEventListener('submit', function(e) {
                 e.preventDefault();
-                const searchInput = document.getElementById('searchInput');
                 const query = searchInput.value.trim();
                 
                 if (query) {
+                    suggestionsContainer.style.display = 'none';
                     window.location.href = `buscar.html?q=${encodeURIComponent(query)}`;
                 }
             });
