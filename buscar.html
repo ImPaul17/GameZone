@@ -1543,7 +1543,7 @@
                         </div>
                         <h2 class="no-results-title">No se encontraron resultados</h2>
                         <p class="no-results-text">
-                            No pudimos encontrar juegos que coincidan con "${query}". 
+                            No pudimos encontrar juegos que coincidan con "<span id="noResultsQuery"></span>".
                             Intenta con otros términos de búsqueda o explora nuestras categorías.
                         </p>
                         ${suggestionHTML}
@@ -1559,6 +1559,8 @@
                         </div>
                     </div>
                 `;
+                // A query from the URL is untrusted text, never HTML.
+                document.getElementById('noResultsQuery').textContent = query;
             } else {
                 // Sort results by score (lower score = better match in Fuse.js)
                 const sortedResults = results.sort((a, b) => (a.score || 0) - (b.score || 0));

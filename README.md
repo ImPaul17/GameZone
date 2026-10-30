@@ -1,67 +1,83 @@
 # GameZone
 
-Repositorio de presentación de GameZone, un sitio web estático sobre videojuegos con fichas de títulos, noticias, buscador y una experiencia visual retro. Este repositorio existe para mostrar el proyecto y facilitar su visualización; no está pensado para ser editado por terceros ni como plantilla.
+Portal de videojuegos para PC con **la web pública original conservada** y un panel editorial separado en **React, Next.js y TypeScript**. Next.js aporta el servidor, la persistencia y las integraciones. El catálogo, las fichas y el buscador reciben los datos publicados manteniendo el aspecto, el HTML, el CSS y las rutas `.html` de GameZone.
 
+**No se está rediseñando la web pública.** Los cambios visuales futuros requieren una petición expresa del propietario. Los HTML originales son las páginas y plantillas activas, no una referencia para sustituirlas por otro diseño.
 
-## Estado del repositorio
+## Arrancar en local
 
-- Propósito: exhibición y referencia del proyecto.
-- Contribuciones: no se aceptan Pull Requests ni Issues de terceros.
-- Reutilización: este repositorio no declara una licencia pública. Si deseas reutilizar contenido o código, solicita permiso al autor antes de hacerlo.
+Requiere Node.js 22.14 o posterior. En PowerShell usa `npm.cmd` si la política del sistema bloquea `npm.ps1`.
 
+```powershell
+npm.cmd ci
+node scripts/setup-local.mjs
+npm.cmd run dev
+```
 
-## Cómo visualizar el sitio
+- Web: http://127.0.0.1:3000
+- Panel: http://127.0.0.1:3000/admin
+- Sin Supabase: contraseña `GAMEZONE_ADMIN_PASSWORD` del archivo privado `.env.local`.
+- Con Supabase: acceso por correo de una cuenta con rol editorial.
 
-Acceso en línea (recomendado):
+La preparación genera credenciales aleatorias y nunca sobrescribe una configuración existente. `.env.local`, la base de datos y las cachés están excluidos de Git. El servidor local escucha exclusivamente en loopback; esta configuración no debe publicarse como autenticación de producción.
 
-- https://bit.ly/gamezonesite
-- https://impaul17.github.io/GameZone/
+El catálogo local se inicializa con las nueve fichas del repositorio original. Los cambios persisten en `.data/gamezone.db`, con borrador y versión publicada separados. **No borres ese archivo para actualizar la aplicación**: contiene las ediciones locales. Puedes seleccionar otra base mediante `GAMEZONE_DATABASE_PATH`.
 
-También puedes abrirlo en local (opcional):
-- Abre `index.html` directamente en tu navegador, o
-- Usa un servidor estático para mejor experiencia de desarrollo:
-  - VS Code: extensión "Live Server" → botón "Go Live".
-  - Python 3: `python -m http.server 8080` y abre `http://localhost:8080`.
+## Recorrido editorial
 
+1. Entrar en el panel e importar la URL HTTPS de una publicación de `pivigames.blog`, o crear una ficha manual.
+2. Revisar la propuesta por campo, sus avisos y fuentes. Importar no guarda ni publica por sí solo.
+3. Completar título, slug, resumen, descripción, portada, géneros, plataformas, requisitos, versiones y enlaces.
+4. Guardar el borrador y revisar la vista previa en un iframe con el mismo formato de publicación original, sin ejecutar scripts. Cerrar y volver al panel conserva el trabajo guardado.
+5. Publicar para actualizar la ficha pública, catálogo y buscador. Los cambios posteriores quedan privados hasta volver a publicar.
 
-## Características principales
+La reimportación propone diferencias y preserva los cambios editoriales. Un origen ya vinculado no crea otro juego. Una coincidencia por slug se presenta para revisión antes de vincularla; cambiar de juego o edición exige resolver esa identidad, no fusionarla automáticamente.
 
-- Páginas dedicadas para juegos (carpeta `games/`).
-- Página principal con destacados y navegación.
-- Noticias y secciones informativas.
-- Buscador (`buscar.html`).
-- Recursos visuales y de audio incluidos (logos, iconos, fuentes, sonidos) con estética retro.
+Las fichas existentes utilizan su HTML original. Las nuevas publicaciones se generan con la plantilla original de PEAK y sus estilos. El renderizador del servidor actualiza los campos de contenido y las tarjetas del catálogo; React se utiliza en el panel de administración aparte. El buscador conserva su aspecto original y corrige la interpolación que permitía XSS.
 
+La importación lee HTML/WordPress REST como datos, con límites y validación de red; no ejecuta scripts ni visita los archivos de descarga. Las fechas editoriales y las distribuciones externas permanecen separadas del lanzamiento y los datos oficiales del juego.
 
-## Estructura del proyecto (resumen)
+## Fuentes complementarias
 
-- `index.html` — Página principal del sitio.
-- `games.html` — Índice/listado de juegos.
-- `noticias.html` — Sección de noticias.
-- `buscar.html` — Buscador del sitio.
-- `about.html` — Información del proyecto.
-- `dmca.html` — Aviso/gestión de DMCA.
-- `games/` — Directorio con una página HTML por juego.
-- `images/`, `logos/`, `fonts/`, `sounds/` — Recursos gráficos, tipográficos y de audio.
-- Documentación adicional:
-  - `NOTIFICACIONES_README.md` — Detalles del sistema de notificaciones por email.
-  - `plantilla-juego.md` — Referencia interna usada para crear fichas (no orientada a contribuciones externas).
+El editor admite referencias oficiales manuales. IGDB está preparado como conector opcional: configura `TWITCH_CLIENT_ID` y `TWITCH_CLIENT_SECRET` en servidor, tras resolver sus condiciones de uso. Devuelve candidatos y propuestas que requieren selección y revisión; no modifica automáticamente la publicación. Sin credenciales, el panel informa de ello y permite continuar.
 
+Se comprobaron publicaciones públicas reales de PiviGames. El catálogo ya se ha transferido y verificado contra el proyecto propio de Supabase; los permisos anónimos se han comprobado. IGDB autenticado sigue pendiente de credenciales.
 
-## Sistema de notificaciones (opcional)
+## Pruebas
 
-El proyecto incluye un sistema de suscripción con almacenamiento local. La integración con EmailJS para el envío de correos reales está preparada pero aún no está configurada (próximamente). La web funciona sin EmailJS.
+```powershell
+npm.cmd run lint
+npm.cmd run typecheck
+npm.cmd test
+npm.cmd run build
+$env:PLAYWRIGHT_BROWSERS_PATH = Join-Path (Get-Location) '.data\browsers'
+node node_modules/playwright/cli.js install chromium
+npm.cmd run test:e2e
+```
 
-Consulta la guía completa: [NOTIFICACIONES_README.md](./NOTIFICACIONES_README.md)
+Las pruebas de navegador levantan el build en el puerto 3100 con una base aislada y credenciales temporales. La respuesta de importación se simula en el recorrido de UI para que sea repetible; el parser, el transporte y el almacenamiento tienen pruebas separadas. Las comprobaciones en vivo de PiviGames se realizan aparte. Las capturas locales quedan en `.data/qa/`.
 
+## Producción y trabajo pendiente
 
-## Aviso legal (DMCA)
+La configuración y las migraciones de Supabase están en [supabase/README.md](supabase/README.md). El panel admite acceso local y acceso de editores de Supabase por enlace de correo con PKCE o por código. La sesión se guarda en cookies HttpOnly, se renueva en el servidor y comprueba el rol editorial en cada operación. Solicitar acceso no crea cuentas ni concede roles.
 
-Si eres titular de derechos y deseas solicitar la retirada de contenido, utiliza: [dmca.html](./dmca.html)
+`GAMEZONE_EDITOR_EMAIL_METHOD=link` utiliza la plantilla predeterminada de Supabase y exige abrir el enlace en el mismo navegador donde se solicitó. `code` permite introducir el código cuando el proveedor de correo y la plantilla correspondiente estén configurados. El proyecto propio está vinculado con `ImPaul17/GameZone`, inicialmente con despliegue manual.
 
+Antes de activar Supabase hay que aplicar el SQL, trasladar el catálogo local y configurar el correo y el usuario editor. Prepara las claves en el archivo privado `.env.supabase.local`; no las pegues en el chat ni las añadas a Git. La configuración incompleta no activa el acceso local como sustituto. El acceso por enlace y la lectura del catálogo ya se han probado en local contra el proyecto propio; antes del despliegue público quedan el dominio, el correo para destinatarios externos y las comprobaciones del alojamiento elegido.
 
-## Créditos y recursos
+También quedan las cuentas de visitantes, bibliotecas, comunidad, edición persistente de noticias, historial completo recuperable, newsletter y configuración de dominio/proveedores. `noticias.html` conserva la página original con su mensaje de «próximamente». Esta entrega es el primer recorrido editorial, no la finalización del plan de lanzamiento.
 
-- Tipografía: `fonts/SnesItalic.ttf` (revisa los términos de la fuente antes de reutilizarla).
-- Iconos y logotipos: carpetas `images/` y `logos/`.
-- Integración de correo: [EmailJS](https://www.emailjs.com/).
+Los datos migrados mantienen la procedencia y antigüedad del archivo original; no se presentan como comprobados en 2026. Antes de publicación pública hay que revisar datos, fuentes, medios y enlaces, además de completar autenticación y comprobar el entorno de producción.
+
+## Documentación y recursos
+
+- [Plan y fases](docs/PLAN_MEJORA.md)
+- [Importación y panel](docs/IMPORTACION_PIVIGAMES.md)
+- [Fuentes y prioridad por campo](docs/FUENTES_DATOS_JUEGOS.md)
+- [Estado de implementación](docs/ESTADO_IMPLEMENTACION.md)
+
+Los HTML originales de la raíz y `games/` se sirven como web pública mediante el renderizador de `src/modules/legacy/`. El panel React y las API viven en `src/`; los recursos servidos están en `public/`. `scripts/migrate-legacy.mjs` reconstruye la semilla desde los HTML sin visitar enlaces externos; no modifica una base ya inicializada.
+
+Las URLs originales se mantienen: `/index.html`, `/games.html`, `/buscar.html`, las páginas informativas y `/games/<slug>/<slug>.html`. Los alias nuevos, como `/juegos` o `/juegos/<slug>`, redirigen hacia esas rutas originales. `secret.html` conserva el Snake y su acceso Konami.
+
+Este repositorio conserva su política original: proyecto del autor, sin licencia pública declarada ni autorización general de reutilización. Recursos de terceros conservan sus condiciones; no se añade una licencia a fuentes, sonidos, imágenes o logotipos. La documentación histórica de EmailJS permanece como referencia y no describe el funcionamiento del nuevo panel.

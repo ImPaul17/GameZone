@@ -1,0 +1,1903 @@
+[
+  {
+    "id": "a99f5dfe-2441-4993-a3c6-4b7154e762fd",
+    "draft": {
+      "title": "Days Gone Remastered",
+      "slug": "days-gone-remastered",
+      "summary": "Una versión remasterizada del aclamado survival postapocalíptico de mundo abierto, con gráficos mejorados y optimizaciones de nueva generación.",
+      "description": [
+        "Days Gone Remastered es la evolución definitiva de uno de los títulos de supervivencia más intensos y recordados de PlayStation. Ambientado en un mundo abierto postapocalíptico, esta versión mejorada trae consigo no solo un apartado gráfico renovado, sino también mejoras de rendimiento que hacen que cada momento sea más inmersivo y fluido.",
+        "En este título encarnas a Deacon St. John, un cazarrecompensas y motociclista nómada que recorre un mundo devastado por una pandemia que ha transformado a la humanidad en criaturas feroces y letales. La remasterización conserva la esencia del original, pero potencia la experiencia con texturas de alta resolución, iluminación más realista y soporte para hardware actual.",
+        "El sistema de juego se mantiene fiel a su propuesta: exploración en un vasto mundo abierto, gestión de recursos escasos, crafteo de armas improvisadas y combates tensos contra hordas masivas de infectados. La moto, compañera inseparable de Deacon, se convierte en un elemento clave tanto para la movilidad como para la supervivencia.",
+        "La narrativa se centra en la lucha por la esperanza, la pérdida y la resiliencia en tiempos de oscuridad. A lo largo de la aventura, conocerás personajes entrañables y tomarás decisiones que marcarán tu destino en una tierra donde la traición y el peligro acechan en cada esquina.",
+        "Days Gone Remastered no solo revive la experiencia del original, sino que la lleva un paso más allá. Con soporte para resoluciones 4K, tasas de refresco elevadas y tiempos de carga reducidos, esta versión está diseñada para ofrecer la experiencia definitiva tanto a los jugadores veteranos como a los nuevos sobrevivientes."
+      ],
+      "coverImage": "https://i.imgur.com/A02xhyB.jpeg",
+      "coverAlt": "Days Gone Remastered",
+      "genres": [
+        "Acción",
+        "Aventura",
+        "Mundo Abierto"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "developer": "Bend Studio",
+      "publisher": "PlayStation Publishing LLC",
+      "releaseDate": "",
+      "steamAppId": "1259420",
+      "languages": [
+        "Múltiples idiomas"
+      ],
+      "requirements": [
+        {
+          "platform": "Windows",
+          "minimum": [
+            "Requiere: Procesador y sistema operativo de 64 bits",
+            "SO: Windows 10 64-bits",
+            "Procesador: Intel Core i7-4770K @ 3.5GHz o Ryzen 5 1500X @ 3.5GHz",
+            "Memoria: 16 GB de RAM",
+            "Gráficos: Nvidia GeForce GTX 1060 (6 GB) o AMD Radeon RX 580 (8 GB)",
+            "DirectX: Versión 11",
+            "Almacenamiento: 70 GB de espacio disponible"
+          ],
+          "recommended": [
+            "(No Especificados)"
+          ]
+        }
+      ],
+      "screenshots": [
+        "https://i.imgur.com/8GRQLRK.png",
+        "https://i.imgur.com/kBsH23A.png",
+        "https://i.imgur.com/thTH4OS.png",
+        "https://i.imgur.com/6bEGwgT.png"
+      ],
+      "trailerUrl": "https://www.youtube.com/embed/9kDA3MlLyDQ",
+      "distributions": [
+        {
+          "label": "Enlaces del archivo original",
+          "version": "v1.13",
+          "size": "33 GB",
+          "format": "ISO ELAMIGOS (Crack by Codex/RUNE)",
+          "links": [
+            {
+              "label": "Torrent",
+              "url": "https://madiashare.com/downloads?d=1layvgj2aicpmcdlwz7y",
+              "type": "base"
+            },
+            {
+              "label": "Update 1.13 Mediafire",
+              "url": "https://www.mediafire.com/file/wk3alj792jx6efz/Da1ysGo8n-Update1.13-elamigos.rar/file",
+              "type": "update"
+            },
+            {
+              "label": "Update 1.13 Drive",
+              "url": "https://drive.marketcat.io/drive/s/tPPp8zm89jN21PIdy8b090iPSoAKwA",
+              "type": "update"
+            },
+            {
+              "label": "Textos - Mediafire",
+              "url": "https://www.mediafire.com/file/0thwmqsy55aest4",
+              "type": "base"
+            },
+            {
+              "label": "Textos - Drive",
+              "url": "https://drive.marketcat.io/drive/s/4diIypOjU5I5ZFM0g54uj63T3gP2uF",
+              "type": "base"
+            },
+            {
+              "label": "Voces - Mega",
+              "url": "https://mega.nz/file/ZgJkSSJT#nOJHa8UYmIoJHe2hgv-owPkgvaSf7T8cLnOnUOCxU1s",
+              "type": "base"
+            },
+            {
+              "label": "Voces - Mediafire",
+              "url": "https://www.mediafire.com/file/86fpgrmpbbyukux/L4T4MVO1C3v1.08.rar/file",
+              "type": "base"
+            },
+            {
+              "label": "Voces - Drive",
+              "url": "https://drive.marketcat.io/drive/s/AUcSiLozBbfxmJjvyIsDPISwgnxp33",
+              "type": "base"
+            }
+          ],
+          "installation": []
+        }
+      ],
+      "evidence": [
+        {
+          "field": "archive",
+          "label": "Migrado del archivo de GameZone; datos pendientes de revisión",
+          "value": "Archivo del 25 de septiembre de 2025",
+          "provider": "editorial",
+          "sourceUrl": "https://impaul17.github.io/GameZone/games/days-gone-remastered/days-gone-remastered.html",
+          "retrievedAt": "2025-09-25T00:00:00.000Z",
+          "status": "reported"
+        }
+      ]
+    },
+    "published": {
+      "title": "Days Gone Remastered",
+      "slug": "days-gone-remastered",
+      "summary": "Una versión remasterizada del aclamado survival postapocalíptico de mundo abierto, con gráficos mejorados y optimizaciones de nueva generación.",
+      "description": [
+        "Days Gone Remastered es la evolución definitiva de uno de los títulos de supervivencia más intensos y recordados de PlayStation. Ambientado en un mundo abierto postapocalíptico, esta versión mejorada trae consigo no solo un apartado gráfico renovado, sino también mejoras de rendimiento que hacen que cada momento sea más inmersivo y fluido.",
+        "En este título encarnas a Deacon St. John, un cazarrecompensas y motociclista nómada que recorre un mundo devastado por una pandemia que ha transformado a la humanidad en criaturas feroces y letales. La remasterización conserva la esencia del original, pero potencia la experiencia con texturas de alta resolución, iluminación más realista y soporte para hardware actual.",
+        "El sistema de juego se mantiene fiel a su propuesta: exploración en un vasto mundo abierto, gestión de recursos escasos, crafteo de armas improvisadas y combates tensos contra hordas masivas de infectados. La moto, compañera inseparable de Deacon, se convierte en un elemento clave tanto para la movilidad como para la supervivencia.",
+        "La narrativa se centra en la lucha por la esperanza, la pérdida y la resiliencia en tiempos de oscuridad. A lo largo de la aventura, conocerás personajes entrañables y tomarás decisiones que marcarán tu destino en una tierra donde la traición y el peligro acechan en cada esquina.",
+        "Days Gone Remastered no solo revive la experiencia del original, sino que la lleva un paso más allá. Con soporte para resoluciones 4K, tasas de refresco elevadas y tiempos de carga reducidos, esta versión está diseñada para ofrecer la experiencia definitiva tanto a los jugadores veteranos como a los nuevos sobrevivientes."
+      ],
+      "coverImage": "https://i.imgur.com/A02xhyB.jpeg",
+      "coverAlt": "Days Gone Remastered",
+      "genres": [
+        "Acción",
+        "Aventura",
+        "Mundo Abierto"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "developer": "Bend Studio",
+      "publisher": "PlayStation Publishing LLC",
+      "releaseDate": "",
+      "steamAppId": "1259420",
+      "languages": [
+        "Múltiples idiomas"
+      ],
+      "requirements": [
+        {
+          "platform": "Windows",
+          "minimum": [
+            "Requiere: Procesador y sistema operativo de 64 bits",
+            "SO: Windows 10 64-bits",
+            "Procesador: Intel Core i7-4770K @ 3.5GHz o Ryzen 5 1500X @ 3.5GHz",
+            "Memoria: 16 GB de RAM",
+            "Gráficos: Nvidia GeForce GTX 1060 (6 GB) o AMD Radeon RX 580 (8 GB)",
+            "DirectX: Versión 11",
+            "Almacenamiento: 70 GB de espacio disponible"
+          ],
+          "recommended": [
+            "(No Especificados)"
+          ]
+        }
+      ],
+      "screenshots": [
+        "https://i.imgur.com/8GRQLRK.png",
+        "https://i.imgur.com/kBsH23A.png",
+        "https://i.imgur.com/thTH4OS.png",
+        "https://i.imgur.com/6bEGwgT.png"
+      ],
+      "trailerUrl": "https://www.youtube.com/embed/9kDA3MlLyDQ",
+      "distributions": [
+        {
+          "label": "Enlaces del archivo original",
+          "version": "v1.13",
+          "size": "33 GB",
+          "format": "ISO ELAMIGOS (Crack by Codex/RUNE)",
+          "links": [
+            {
+              "label": "Torrent",
+              "url": "https://madiashare.com/downloads?d=1layvgj2aicpmcdlwz7y",
+              "type": "base"
+            },
+            {
+              "label": "Update 1.13 Mediafire",
+              "url": "https://www.mediafire.com/file/wk3alj792jx6efz/Da1ysGo8n-Update1.13-elamigos.rar/file",
+              "type": "update"
+            },
+            {
+              "label": "Update 1.13 Drive",
+              "url": "https://drive.marketcat.io/drive/s/tPPp8zm89jN21PIdy8b090iPSoAKwA",
+              "type": "update"
+            },
+            {
+              "label": "Textos - Mediafire",
+              "url": "https://www.mediafire.com/file/0thwmqsy55aest4",
+              "type": "base"
+            },
+            {
+              "label": "Textos - Drive",
+              "url": "https://drive.marketcat.io/drive/s/4diIypOjU5I5ZFM0g54uj63T3gP2uF",
+              "type": "base"
+            },
+            {
+              "label": "Voces - Mega",
+              "url": "https://mega.nz/file/ZgJkSSJT#nOJHa8UYmIoJHe2hgv-owPkgvaSf7T8cLnOnUOCxU1s",
+              "type": "base"
+            },
+            {
+              "label": "Voces - Mediafire",
+              "url": "https://www.mediafire.com/file/86fpgrmpbbyukux/L4T4MVO1C3v1.08.rar/file",
+              "type": "base"
+            },
+            {
+              "label": "Voces - Drive",
+              "url": "https://drive.marketcat.io/drive/s/AUcSiLozBbfxmJjvyIsDPISwgnxp33",
+              "type": "base"
+            }
+          ],
+          "installation": []
+        }
+      ],
+      "evidence": [
+        {
+          "field": "archive",
+          "label": "Migrado del archivo de GameZone; datos pendientes de revisión",
+          "value": "Archivo del 25 de septiembre de 2025",
+          "provider": "editorial",
+          "sourceUrl": "https://impaul17.github.io/GameZone/games/days-gone-remastered/days-gone-remastered.html",
+          "retrievedAt": "2025-09-25T00:00:00.000Z",
+          "status": "reported"
+        }
+      ]
+    },
+    "publishedAt": "2025-09-25T00:00:00.000Z",
+    "source": null,
+    "lastImported": null,
+    "revision": 1,
+    "createdAt": "2025-09-25T00:00:00.000Z",
+    "updatedAt": "2025-09-25T00:00:00.000Z"
+  },
+  {
+    "id": "02f2cc0e-1472-4b27-a29c-24c20ba7c88b",
+    "draft": {
+      "title": "Deltarune",
+      "slug": "deltarune",
+      "summary": "Una aventura RPG por capítulos del creador de Undertale. Viaja con Kris, Susie y Ralsei para restaurar el equilibrio del Mundo Oscuro, combinando exploración, humor y combates estratégicos donde tus decisiones importan.",
+      "description": [
+        "Deltarune es un RPG por capítulos creado por Toby Fox que expande y reimagina ideas del universo de Undertale. Ambientado entre el Mundo de la Luz y el misterioso Mundo Oscuro, combina humor, emoción y un diseño narrativo que sorprende constantemente.",
+        "La historia sigue a Kris, un estudiante aparentemente normal, que junto a Susie y el príncipe Ralsei se ve arrastrado a restaurar el equilibrio de diferentes reinos del Mundo Oscuro. A lo largo del viaje conocerás a personajes carismáticos como Lancer, Noelle, Queen y muchos más, con diálogos ingeniosos y momentos memorables.",
+        "El sistema de combate mantiene la mezcla única entre turnos y bullet hell: puedes atacar, DEFENDER, ACTUAR para cambiar el estado de los enemigos y PACIFICARlos sin necesidad de derrotarlos. La gestión del TP, las habilidades de equipo y las sinergias entre personajes elevan la estrategia respecto a Undertale.",
+        "La banda sonora original de Toby Fox —con colaboradores como Lena Raine— destaca con temas como \"The Legend\", \"Checker Dance\", \"BIG SHOT\" y \"Attack of the Killer Queen\", aportando identidad y energía a cada encuentro y escenario.",
+        "Deltarune se publica en capítulos y no requiere haber jugado Undertale para disfrutarlo. Explora, resuelve puzles, entabla amistad con tus oponentes y descubre una historia sobre identidad, amistad y las elecciones que podemos —o no podemos— tomar."
+      ],
+      "coverImage": "https://i.imgur.com/7C3pgMF.png",
+      "coverAlt": "Deltarune",
+      "genres": [
+        "Aventura",
+        "RPG",
+        "Indie"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "developer": "Toby Fox",
+      "publisher": "Toby Fox",
+      "releaseDate": "",
+      "steamAppId": "1671210",
+      "languages": [
+        "Inglés"
+      ],
+      "requirements": [
+        {
+          "platform": "Windows",
+          "minimum": [
+            "Requiere: Procesador y sistema operativo de 64 bits",
+            "SO: Windows 10 or higher",
+            "Memoria: 2 GB de RAM",
+            "Gráficos: 128 MB",
+            "DirectX: Versión 12"
+          ],
+          "recommended": [
+            "(No Especificados)"
+          ]
+        }
+      ],
+      "screenshots": [
+        "https://i.imgur.com/Wg2Y97n.png",
+        "https://i.imgur.com/fWBgEnT.png",
+        "https://i.imgur.com/N3BbUp6.png",
+        "https://i.imgur.com/GZZxNAg.png"
+      ],
+      "trailerUrl": "https://www.youtube.com/embed/CN4ZcGJoZac?si=n7jC5glyXVl_mrD9",
+      "distributions": [
+        {
+          "label": "Enlaces del archivo original",
+          "version": "",
+          "size": "350 MB",
+          "format": "Portable",
+          "links": [
+            {
+              "label": "Mediafire",
+              "url": "https://www.mediafire.com/file/wbriqwpzoeh1p2v/Delt1arun7e-1.04-elamigos.rar/file",
+              "type": "base"
+            },
+            {
+              "label": "Mega",
+              "url": "https://mega.nz/file/elxWnJrK#IXLFbK15i9njsABjkkrhHux0vB12wzcs317Dc5Kvqjw",
+              "type": "base"
+            },
+            {
+              "label": "Drive",
+              "url": "https://drive.marketcat.io/drive/s/UN4CwfC0q7wcvJMSLz3Y0kEmsE8xqy",
+              "type": "base"
+            }
+          ],
+          "installation": []
+        }
+      ],
+      "evidence": [
+        {
+          "field": "archive",
+          "label": "Migrado del archivo de GameZone; datos pendientes de revisión",
+          "value": "Archivo del 25 de septiembre de 2025",
+          "provider": "editorial",
+          "sourceUrl": "https://impaul17.github.io/GameZone/games/deltarune/deltarune.html",
+          "retrievedAt": "2025-09-25T00:00:00.000Z",
+          "status": "reported"
+        }
+      ]
+    },
+    "published": {
+      "title": "Deltarune",
+      "slug": "deltarune",
+      "summary": "Una aventura RPG por capítulos del creador de Undertale. Viaja con Kris, Susie y Ralsei para restaurar el equilibrio del Mundo Oscuro, combinando exploración, humor y combates estratégicos donde tus decisiones importan.",
+      "description": [
+        "Deltarune es un RPG por capítulos creado por Toby Fox que expande y reimagina ideas del universo de Undertale. Ambientado entre el Mundo de la Luz y el misterioso Mundo Oscuro, combina humor, emoción y un diseño narrativo que sorprende constantemente.",
+        "La historia sigue a Kris, un estudiante aparentemente normal, que junto a Susie y el príncipe Ralsei se ve arrastrado a restaurar el equilibrio de diferentes reinos del Mundo Oscuro. A lo largo del viaje conocerás a personajes carismáticos como Lancer, Noelle, Queen y muchos más, con diálogos ingeniosos y momentos memorables.",
+        "El sistema de combate mantiene la mezcla única entre turnos y bullet hell: puedes atacar, DEFENDER, ACTUAR para cambiar el estado de los enemigos y PACIFICARlos sin necesidad de derrotarlos. La gestión del TP, las habilidades de equipo y las sinergias entre personajes elevan la estrategia respecto a Undertale.",
+        "La banda sonora original de Toby Fox —con colaboradores como Lena Raine— destaca con temas como \"The Legend\", \"Checker Dance\", \"BIG SHOT\" y \"Attack of the Killer Queen\", aportando identidad y energía a cada encuentro y escenario.",
+        "Deltarune se publica en capítulos y no requiere haber jugado Undertale para disfrutarlo. Explora, resuelve puzles, entabla amistad con tus oponentes y descubre una historia sobre identidad, amistad y las elecciones que podemos —o no podemos— tomar."
+      ],
+      "coverImage": "https://i.imgur.com/7C3pgMF.png",
+      "coverAlt": "Deltarune",
+      "genres": [
+        "Aventura",
+        "RPG",
+        "Indie"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "developer": "Toby Fox",
+      "publisher": "Toby Fox",
+      "releaseDate": "",
+      "steamAppId": "1671210",
+      "languages": [
+        "Inglés"
+      ],
+      "requirements": [
+        {
+          "platform": "Windows",
+          "minimum": [
+            "Requiere: Procesador y sistema operativo de 64 bits",
+            "SO: Windows 10 or higher",
+            "Memoria: 2 GB de RAM",
+            "Gráficos: 128 MB",
+            "DirectX: Versión 12"
+          ],
+          "recommended": [
+            "(No Especificados)"
+          ]
+        }
+      ],
+      "screenshots": [
+        "https://i.imgur.com/Wg2Y97n.png",
+        "https://i.imgur.com/fWBgEnT.png",
+        "https://i.imgur.com/N3BbUp6.png",
+        "https://i.imgur.com/GZZxNAg.png"
+      ],
+      "trailerUrl": "https://www.youtube.com/embed/CN4ZcGJoZac?si=n7jC5glyXVl_mrD9",
+      "distributions": [
+        {
+          "label": "Enlaces del archivo original",
+          "version": "",
+          "size": "350 MB",
+          "format": "Portable",
+          "links": [
+            {
+              "label": "Mediafire",
+              "url": "https://www.mediafire.com/file/wbriqwpzoeh1p2v/Delt1arun7e-1.04-elamigos.rar/file",
+              "type": "base"
+            },
+            {
+              "label": "Mega",
+              "url": "https://mega.nz/file/elxWnJrK#IXLFbK15i9njsABjkkrhHux0vB12wzcs317Dc5Kvqjw",
+              "type": "base"
+            },
+            {
+              "label": "Drive",
+              "url": "https://drive.marketcat.io/drive/s/UN4CwfC0q7wcvJMSLz3Y0kEmsE8xqy",
+              "type": "base"
+            }
+          ],
+          "installation": []
+        }
+      ],
+      "evidence": [
+        {
+          "field": "archive",
+          "label": "Migrado del archivo de GameZone; datos pendientes de revisión",
+          "value": "Archivo del 25 de septiembre de 2025",
+          "provider": "editorial",
+          "sourceUrl": "https://impaul17.github.io/GameZone/games/deltarune/deltarune.html",
+          "retrievedAt": "2025-09-25T00:00:00.000Z",
+          "status": "reported"
+        }
+      ]
+    },
+    "publishedAt": "2025-09-25T00:00:00.000Z",
+    "source": null,
+    "lastImported": null,
+    "revision": 1,
+    "createdAt": "2025-09-25T00:00:00.000Z",
+    "updatedAt": "2025-09-25T00:00:00.000Z"
+  },
+  {
+    "id": "67ee0e71-7795-4871-adc4-5f56593a9f9b",
+    "draft": {
+      "title": "Grand Theft Auto V Enhanced",
+      "slug": "grand-theft-auto-v-enhanced",
+      "summary": "La experiencia definitiva de Los Santos llega con mejoras visuales espectaculares, nuevos contenidos y optimizaciones de última generación. Vive el crimen organizado como nunca antes.",
+      "description": [
+        "Grand Theft Auto V Enhanced Edition representa la evolución definitiva de uno de los videojuegos más influyentes de la historia. Esta versión mejorada de la obra maestra de Rockstar Games lleva la experiencia de Los Santos a nuevas alturas con gráficos de última generación y optimizaciones técnicas que aprovechan al máximo el hardware moderno.",
+        "Sumérgete en las vidas entrelazadas de Michael De Santa, Franklin Clinton y Trevor Philips, tres criminales únicos luchando por sobrevivir en una ciudad despiadada donde la traición acecha en cada esquina. La narrativa cinematográfica te llevará a través de una montaña rusa emocional de atracos espectaculares, persecuciones adrenalinizantes y momentos de profunda introspección personal.",
+        "El mundo abierto de Los Santos ha sido completamente remasterizado con texturas 4K, iluminación volumétrica avanzada, efectos de partículas mejorados y un sistema de clima dinámico que transforma cada momento del juego en una experiencia visual impresionante. Desde las playas de Vespucci hasta los rascacielos del centro, cada rincón de la ciudad cobra vida con un detalle sin precedentes.",
+        "La campaña principal ofrece más de 60 horas de contenido con misiones principales y secundarias que exploran cada aspecto de la vida criminal en Los Santos. Desde robos a bancos hasta carreras ilegales, cada actividad está diseñada para sumergirte completamente en este mundo de crimen y caos donde las decisiones tienen consecuencias reales.",
+        "Grand Theft Auto V Enhanced Edition representa una mejora visual significativa adaptada específicamente para las nuevas generaciones de hardware. Con gráficos mejorados, mayor resolución, mejor rendimiento y optimizaciones técnicas, esta versión permite disfrutar de la experiencia clásica de GTA V con la calidad visual que los jugadores modernos esperan, confirmando por qué este título sigue siendo una referencia en el género de mundo abierto."
+      ],
+      "coverImage": "https://i.imgur.com/IvU1JC5.jpeg",
+      "coverAlt": "Grand Theft Auto V Enhanced",
+      "genres": [
+        "Acción",
+        "Aventura",
+        "Mundo Abierto"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "developer": "Rockstar North",
+      "publisher": "Rockstar Games",
+      "releaseDate": "",
+      "steamAppId": "3240220",
+      "languages": [
+        "Múltiples idiomas"
+      ],
+      "requirements": [
+        {
+          "platform": "Windows",
+          "minimum": [
+            "SO: Windows Vista 64 Bit / 7 / 8 / 8.1",
+            "Procesador: Intel Core 2 Quad Q6600 2.40GHz / AMD Phenom 9850",
+            "Memoria: 4 GB RAM",
+            "Gráficos: NVIDIA 9800 GT 1GB / AMD HD 4870 1GB",
+            "DirectX: Versión 10",
+            "Almacenamiento: 65 GB"
+          ],
+          "recommended": [
+            "SO: Windows 7 / 8 / 8.1 64 Bit",
+            "Procesador: Intel Core i5 3470 3.2GHz / AMD FX-8350 4GHz",
+            "Memoria: 8 GB RAM",
+            "Gráficos: NVIDIA GTX 660 2GB / AMD HD7870 2GB",
+            "DirectX: Versión 10 compatible",
+            "Almacenamiento: 65 GB"
+          ]
+        }
+      ],
+      "screenshots": [
+        "https://i.imgur.com/Udmy5vK.png",
+        "https://i.imgur.com/UUOEbEc.png",
+        "https://i.imgur.com/8wVUnBj.png",
+        "https://i.imgur.com/ojyE8Ix.png"
+      ],
+      "trailerUrl": "https://www.youtube.com/embed/QkkoHAzjnUs",
+      "distributions": [
+        {
+          "label": "Enlaces del archivo original",
+          "version": "v889.15",
+          "size": "67 GB",
+          "format": "ISO ELAMIGOS",
+          "links": [
+            {
+              "label": "Torrent",
+              "url": "https://madiashare.com/downloads?d=1layvgj3e7m7w7oxht",
+              "type": "base"
+            },
+            {
+              "label": "Update 811.16 Mediafire",
+              "url": "https://www.mediafire.com/file/boib423slrirjrr/Gra5ndTA5utoVEnhan5ce-Update811.16-elamigos.rar/file",
+              "type": "update"
+            },
+            {
+              "label": "Update 812.6 Mega",
+              "url": "https://mega.nz/file/aP4kEACD#Ll860mfpJ5Q-mmyWgLxn6Topu3vjsGZ-SPesiE_lfaA",
+              "type": "update"
+            },
+            {
+              "label": "Update 813.11 Mediafire",
+              "url": "https://www.mediafire.com/file/h1x9v68fiet0foq/Gra5ndTA5utoVEnhan5ce-Update813.11-elamigos.rar/file",
+              "type": "update"
+            },
+            {
+              "label": "Update 814.9 Mediafire",
+              "url": "https://www.mediafire.com/file/7rka2ua17rqzz06/Gra5ndTA5utoVEnhan5ce-Update814.9-elamigosgames.org.rar/file",
+              "type": "update"
+            },
+            {
+              "label": "Update 889.15 Mediafire",
+              "url": "https://www.mediafire.com/file/teb9w1y5oqbtmky/Gra5ndTA5utoVEnhan5ce-Update889.15-elamigos.rar/file",
+              "type": "update"
+            }
+          ],
+          "installation": []
+        }
+      ],
+      "evidence": [
+        {
+          "field": "archive",
+          "label": "Migrado del archivo de GameZone; datos pendientes de revisión",
+          "value": "Archivo del 25 de septiembre de 2025",
+          "provider": "editorial",
+          "sourceUrl": "https://impaul17.github.io/GameZone/games/grand-theft-auto-v-enhanced/grand-theft-auto-v-enhanced.html",
+          "retrievedAt": "2025-09-25T00:00:00.000Z",
+          "status": "reported"
+        }
+      ]
+    },
+    "published": {
+      "title": "Grand Theft Auto V Enhanced",
+      "slug": "grand-theft-auto-v-enhanced",
+      "summary": "La experiencia definitiva de Los Santos llega con mejoras visuales espectaculares, nuevos contenidos y optimizaciones de última generación. Vive el crimen organizado como nunca antes.",
+      "description": [
+        "Grand Theft Auto V Enhanced Edition representa la evolución definitiva de uno de los videojuegos más influyentes de la historia. Esta versión mejorada de la obra maestra de Rockstar Games lleva la experiencia de Los Santos a nuevas alturas con gráficos de última generación y optimizaciones técnicas que aprovechan al máximo el hardware moderno.",
+        "Sumérgete en las vidas entrelazadas de Michael De Santa, Franklin Clinton y Trevor Philips, tres criminales únicos luchando por sobrevivir en una ciudad despiadada donde la traición acecha en cada esquina. La narrativa cinematográfica te llevará a través de una montaña rusa emocional de atracos espectaculares, persecuciones adrenalinizantes y momentos de profunda introspección personal.",
+        "El mundo abierto de Los Santos ha sido completamente remasterizado con texturas 4K, iluminación volumétrica avanzada, efectos de partículas mejorados y un sistema de clima dinámico que transforma cada momento del juego en una experiencia visual impresionante. Desde las playas de Vespucci hasta los rascacielos del centro, cada rincón de la ciudad cobra vida con un detalle sin precedentes.",
+        "La campaña principal ofrece más de 60 horas de contenido con misiones principales y secundarias que exploran cada aspecto de la vida criminal en Los Santos. Desde robos a bancos hasta carreras ilegales, cada actividad está diseñada para sumergirte completamente en este mundo de crimen y caos donde las decisiones tienen consecuencias reales.",
+        "Grand Theft Auto V Enhanced Edition representa una mejora visual significativa adaptada específicamente para las nuevas generaciones de hardware. Con gráficos mejorados, mayor resolución, mejor rendimiento y optimizaciones técnicas, esta versión permite disfrutar de la experiencia clásica de GTA V con la calidad visual que los jugadores modernos esperan, confirmando por qué este título sigue siendo una referencia en el género de mundo abierto."
+      ],
+      "coverImage": "https://i.imgur.com/IvU1JC5.jpeg",
+      "coverAlt": "Grand Theft Auto V Enhanced",
+      "genres": [
+        "Acción",
+        "Aventura",
+        "Mundo Abierto"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "developer": "Rockstar North",
+      "publisher": "Rockstar Games",
+      "releaseDate": "",
+      "steamAppId": "3240220",
+      "languages": [
+        "Múltiples idiomas"
+      ],
+      "requirements": [
+        {
+          "platform": "Windows",
+          "minimum": [
+            "SO: Windows Vista 64 Bit / 7 / 8 / 8.1",
+            "Procesador: Intel Core 2 Quad Q6600 2.40GHz / AMD Phenom 9850",
+            "Memoria: 4 GB RAM",
+            "Gráficos: NVIDIA 9800 GT 1GB / AMD HD 4870 1GB",
+            "DirectX: Versión 10",
+            "Almacenamiento: 65 GB"
+          ],
+          "recommended": [
+            "SO: Windows 7 / 8 / 8.1 64 Bit",
+            "Procesador: Intel Core i5 3470 3.2GHz / AMD FX-8350 4GHz",
+            "Memoria: 8 GB RAM",
+            "Gráficos: NVIDIA GTX 660 2GB / AMD HD7870 2GB",
+            "DirectX: Versión 10 compatible",
+            "Almacenamiento: 65 GB"
+          ]
+        }
+      ],
+      "screenshots": [
+        "https://i.imgur.com/Udmy5vK.png",
+        "https://i.imgur.com/UUOEbEc.png",
+        "https://i.imgur.com/8wVUnBj.png",
+        "https://i.imgur.com/ojyE8Ix.png"
+      ],
+      "trailerUrl": "https://www.youtube.com/embed/QkkoHAzjnUs",
+      "distributions": [
+        {
+          "label": "Enlaces del archivo original",
+          "version": "v889.15",
+          "size": "67 GB",
+          "format": "ISO ELAMIGOS",
+          "links": [
+            {
+              "label": "Torrent",
+              "url": "https://madiashare.com/downloads?d=1layvgj3e7m7w7oxht",
+              "type": "base"
+            },
+            {
+              "label": "Update 811.16 Mediafire",
+              "url": "https://www.mediafire.com/file/boib423slrirjrr/Gra5ndTA5utoVEnhan5ce-Update811.16-elamigos.rar/file",
+              "type": "update"
+            },
+            {
+              "label": "Update 812.6 Mega",
+              "url": "https://mega.nz/file/aP4kEACD#Ll860mfpJ5Q-mmyWgLxn6Topu3vjsGZ-SPesiE_lfaA",
+              "type": "update"
+            },
+            {
+              "label": "Update 813.11 Mediafire",
+              "url": "https://www.mediafire.com/file/h1x9v68fiet0foq/Gra5ndTA5utoVEnhan5ce-Update813.11-elamigos.rar/file",
+              "type": "update"
+            },
+            {
+              "label": "Update 814.9 Mediafire",
+              "url": "https://www.mediafire.com/file/7rka2ua17rqzz06/Gra5ndTA5utoVEnhan5ce-Update814.9-elamigosgames.org.rar/file",
+              "type": "update"
+            },
+            {
+              "label": "Update 889.15 Mediafire",
+              "url": "https://www.mediafire.com/file/teb9w1y5oqbtmky/Gra5ndTA5utoVEnhan5ce-Update889.15-elamigos.rar/file",
+              "type": "update"
+            }
+          ],
+          "installation": []
+        }
+      ],
+      "evidence": [
+        {
+          "field": "archive",
+          "label": "Migrado del archivo de GameZone; datos pendientes de revisión",
+          "value": "Archivo del 25 de septiembre de 2025",
+          "provider": "editorial",
+          "sourceUrl": "https://impaul17.github.io/GameZone/games/grand-theft-auto-v-enhanced/grand-theft-auto-v-enhanced.html",
+          "retrievedAt": "2025-09-25T00:00:00.000Z",
+          "status": "reported"
+        }
+      ]
+    },
+    "publishedAt": "2025-09-25T00:00:00.000Z",
+    "source": null,
+    "lastImported": null,
+    "revision": 1,
+    "createdAt": "2025-09-25T00:00:00.000Z",
+    "updatedAt": "2025-09-25T00:00:00.000Z"
+  },
+  {
+    "id": "cb4d87d8-3763-4fb0-ab42-9887fcd54388",
+    "draft": {
+      "title": "Hollow Knight: Silksong",
+      "slug": "hollow-knight-silksong",
+      "summary": "La secuela muy esperada de Hollow Knight. Juega como Hornet, la princesa-protectora de Hallownest, en una aventura épica a través del reino de Pharloom.",
+      "description": [
+        "Hollow Knight: Silksong es la muy esperada secuela del aclamado Hollow Knight, desarrollada por Team Cherry. En esta nueva aventura, los jugadores toman el control de Hornet, la ágil princesa-protectora de Hallownest, en su épico viaje a través del misterioso reino de Pharloom.",
+        "Pharloom es un reino en ruinas lleno de secretos antiguos, criaturas extrañas y desafíos mortales. Como Hornet, deberás dominar un arsenal completamente nuevo de habilidades, incluyendo su icónica aguja y hilo de seda, que te permitirán navegar por este mundo vertical de manera única y fluida.",
+        "El juego presenta un sistema de combate refinado y más dinámico que su predecesor, con nuevas mecánicas de movimiento que hacen que Hornet se sienta completamente diferente al Caballero. Su agilidad superior y sus habilidades de seda crean oportunidades de exploración y combate completamente nuevas.",
+        "Silksong mantiene la esencia del metroidvania que hizo famoso a Hollow Knight, pero expande la fórmula con nuevos elementos como un sistema de herramientas más profundo, jefes épicos rediseñados y una narrativa que profundiza en la mitología del universo de Hallownest.",
+        "Con su arte dibujado a mano impresionante, una banda sonora atmosférica que complementa perfectamente la experiencia, y la atención meticulosa al detalle que caracteriza a Team Cherry, Hollow Knight: Silksong promete ser una de las secuelas más esperadas en la historia de los juegos indie."
+      ],
+      "coverImage": "https://i.imgur.com/EXbst5F.png",
+      "coverAlt": "Hollow Knight: Silksong",
+      "genres": [
+        "Acción",
+        "Aventura",
+        "Plataformas",
+        "Indie"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "developer": "Team Cherry",
+      "publisher": "Team Cherry",
+      "releaseDate": "",
+      "steamAppId": "1030300",
+      "languages": [
+        "Múltiples idiomas"
+      ],
+      "requirements": [
+        {
+          "platform": "Windows",
+          "minimum": [
+            "SO: Windows 10 (build 19043) o superior",
+            "Procesador: Intel Core i3-3240, AMD FX-4300",
+            "Memoria: 4 GB RAM",
+            "Gráficos: GeForce GTX 560 Ti (1GB), Radeon HD 7750 (1GB)",
+            "DirectX: Versión 10",
+            "Almacenamiento: 2 GB disponibles",
+            "Notas: Requiere procesador y SO de 64 bits"
+          ],
+          "recommended": [
+            "SO: Windows 10 (build 19043) o superior",
+            "Procesador: Intel Core i5-3470",
+            "Memoria: 8 GB RAM",
+            "Gráficos: GeForce GTX 1050 (2GB), Radeon R9 380 (2GB)",
+            "DirectX: Versión 10",
+            "Almacenamiento: 2 GB disponibles",
+            "Notas: Requiere procesador y SO de 64 bits"
+          ]
+        }
+      ],
+      "screenshots": [
+        "https://i.imgur.com/reUnUcK.jpeg",
+        "https://i.imgur.com/OvT8tnh.png",
+        "https://i.imgur.com/mOgOdhB.jpeg",
+        "https://i.imgur.com/7DT515t.jpeg"
+      ],
+      "trailerUrl": "https://www.youtube.com/embed/6XGeJwsUP9c",
+      "distributions": [
+        {
+          "label": "Enlaces del archivo original",
+          "version": "v1.0.28324",
+          "size": "1.74 GB",
+          "format": "ISO ELAMIGOS",
+          "links": [
+            {
+              "label": "Torrent (Recomendado)",
+              "url": "https://madiashare.com/downloads?d=1layvgj1w5x3mf5ubr6y",
+              "type": "base"
+            },
+            {
+              "label": "Mega",
+              "url": "https://mega.nz/file/m8YxzJTL#OnwzNTA6yHRDE5kAkfyHGeVj2SGVzd8FshEbDgRUBqc",
+              "type": "base"
+            },
+            {
+              "label": "Mediafire",
+              "url": "https://www.mediafire.com/file/pguj8arhz98bhyc/Hol2lowKSilk2song-elamigos.rar/file",
+              "type": "base"
+            },
+            {
+              "label": "Drive",
+              "url": "https://drive.marketcat.io/drive/s/ifKukpYLNijQS1pnjCV3JTwgUCoF7O",
+              "type": "base"
+            }
+          ],
+          "installation": []
+        }
+      ],
+      "evidence": [
+        {
+          "field": "archive",
+          "label": "Migrado del archivo de GameZone; datos pendientes de revisión",
+          "value": "Archivo del 25 de septiembre de 2025",
+          "provider": "editorial",
+          "sourceUrl": "https://impaul17.github.io/GameZone/games/hollow-knight-silksong/hollow-knight-silksong.html",
+          "retrievedAt": "2025-09-25T00:00:00.000Z",
+          "status": "reported"
+        }
+      ]
+    },
+    "published": {
+      "title": "Hollow Knight: Silksong",
+      "slug": "hollow-knight-silksong",
+      "summary": "La secuela muy esperada de Hollow Knight. Juega como Hornet, la princesa-protectora de Hallownest, en una aventura épica a través del reino de Pharloom.",
+      "description": [
+        "Hollow Knight: Silksong es la muy esperada secuela del aclamado Hollow Knight, desarrollada por Team Cherry. En esta nueva aventura, los jugadores toman el control de Hornet, la ágil princesa-protectora de Hallownest, en su épico viaje a través del misterioso reino de Pharloom.",
+        "Pharloom es un reino en ruinas lleno de secretos antiguos, criaturas extrañas y desafíos mortales. Como Hornet, deberás dominar un arsenal completamente nuevo de habilidades, incluyendo su icónica aguja y hilo de seda, que te permitirán navegar por este mundo vertical de manera única y fluida.",
+        "El juego presenta un sistema de combate refinado y más dinámico que su predecesor, con nuevas mecánicas de movimiento que hacen que Hornet se sienta completamente diferente al Caballero. Su agilidad superior y sus habilidades de seda crean oportunidades de exploración y combate completamente nuevas.",
+        "Silksong mantiene la esencia del metroidvania que hizo famoso a Hollow Knight, pero expande la fórmula con nuevos elementos como un sistema de herramientas más profundo, jefes épicos rediseñados y una narrativa que profundiza en la mitología del universo de Hallownest.",
+        "Con su arte dibujado a mano impresionante, una banda sonora atmosférica que complementa perfectamente la experiencia, y la atención meticulosa al detalle que caracteriza a Team Cherry, Hollow Knight: Silksong promete ser una de las secuelas más esperadas en la historia de los juegos indie."
+      ],
+      "coverImage": "https://i.imgur.com/EXbst5F.png",
+      "coverAlt": "Hollow Knight: Silksong",
+      "genres": [
+        "Acción",
+        "Aventura",
+        "Plataformas",
+        "Indie"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "developer": "Team Cherry",
+      "publisher": "Team Cherry",
+      "releaseDate": "",
+      "steamAppId": "1030300",
+      "languages": [
+        "Múltiples idiomas"
+      ],
+      "requirements": [
+        {
+          "platform": "Windows",
+          "minimum": [
+            "SO: Windows 10 (build 19043) o superior",
+            "Procesador: Intel Core i3-3240, AMD FX-4300",
+            "Memoria: 4 GB RAM",
+            "Gráficos: GeForce GTX 560 Ti (1GB), Radeon HD 7750 (1GB)",
+            "DirectX: Versión 10",
+            "Almacenamiento: 2 GB disponibles",
+            "Notas: Requiere procesador y SO de 64 bits"
+          ],
+          "recommended": [
+            "SO: Windows 10 (build 19043) o superior",
+            "Procesador: Intel Core i5-3470",
+            "Memoria: 8 GB RAM",
+            "Gráficos: GeForce GTX 1050 (2GB), Radeon R9 380 (2GB)",
+            "DirectX: Versión 10",
+            "Almacenamiento: 2 GB disponibles",
+            "Notas: Requiere procesador y SO de 64 bits"
+          ]
+        }
+      ],
+      "screenshots": [
+        "https://i.imgur.com/reUnUcK.jpeg",
+        "https://i.imgur.com/OvT8tnh.png",
+        "https://i.imgur.com/mOgOdhB.jpeg",
+        "https://i.imgur.com/7DT515t.jpeg"
+      ],
+      "trailerUrl": "https://www.youtube.com/embed/6XGeJwsUP9c",
+      "distributions": [
+        {
+          "label": "Enlaces del archivo original",
+          "version": "v1.0.28324",
+          "size": "1.74 GB",
+          "format": "ISO ELAMIGOS",
+          "links": [
+            {
+              "label": "Torrent (Recomendado)",
+              "url": "https://madiashare.com/downloads?d=1layvgj1w5x3mf5ubr6y",
+              "type": "base"
+            },
+            {
+              "label": "Mega",
+              "url": "https://mega.nz/file/m8YxzJTL#OnwzNTA6yHRDE5kAkfyHGeVj2SGVzd8FshEbDgRUBqc",
+              "type": "base"
+            },
+            {
+              "label": "Mediafire",
+              "url": "https://www.mediafire.com/file/pguj8arhz98bhyc/Hol2lowKSilk2song-elamigos.rar/file",
+              "type": "base"
+            },
+            {
+              "label": "Drive",
+              "url": "https://drive.marketcat.io/drive/s/ifKukpYLNijQS1pnjCV3JTwgUCoF7O",
+              "type": "base"
+            }
+          ],
+          "installation": []
+        }
+      ],
+      "evidence": [
+        {
+          "field": "archive",
+          "label": "Migrado del archivo de GameZone; datos pendientes de revisión",
+          "value": "Archivo del 25 de septiembre de 2025",
+          "provider": "editorial",
+          "sourceUrl": "https://impaul17.github.io/GameZone/games/hollow-knight-silksong/hollow-knight-silksong.html",
+          "retrievedAt": "2025-09-25T00:00:00.000Z",
+          "status": "reported"
+        }
+      ]
+    },
+    "publishedAt": "2025-09-25T00:00:00.000Z",
+    "source": null,
+    "lastImported": null,
+    "revision": 1,
+    "createdAt": "2025-09-25T00:00:00.000Z",
+    "updatedAt": "2025-09-25T00:00:00.000Z"
+  },
+  {
+    "id": "bd6f7345-d056-4b58-a17a-aa779d8444f4",
+    "draft": {
+      "title": "Metal Gear Solid Delta: Snake Eater",
+      "slug": "metal-gear-solid-delta-snake-eater",
+      "summary": "La legendaria obra maestra de espionaje regresa completamente remasterizada. Infiltra, sobrevive y descubre la verdad en la jungla soviética.",
+      "description": [
+        "Metal Gear Solid Delta: Snake Eater es la remasterización definitiva de uno de los juegos más aclamados de la saga Metal Gear. Desarrollado por Konami, este remake trae de vuelta la legendaria aventura de espionaje de Naked Snake con gráficos completamente renovados y mecánicas mejoradas para las nuevas generaciones.",
+        "Ambientado en 1964 durante la Guerra Fría, la historia sigue a Naked Snake (más tarde conocido como Big Boss) en una misión de infiltración en territorio soviético. Tu objetivo es rescatar a un científico ruso y eliminar a una unidad militar rebelde conocida como FOX, mientras descubres una conspiración que cambiará el curso de la historia.",
+        "El juego combina elementos de sigilo táctico, supervivencia y acción cinematográfica. Deberás cazar animales para sobrevivir, usar camuflaje para evitar la detección, y enfrentarte a jefes memorables como The Boss, The End, y The Fury. Cada encuentro requiere estrategia y habilidad para superar desafíos únicos.",
+        "Esta remasterización incluye gráficos completamente renovados con tecnología moderna, controles mejorados, y todas las características que hicieron del original una obra maestra. La experiencia visual ha sido completamente reconstruida manteniendo la esencia y el alma del juego original.",
+        "Metal Gear Solid Delta: Snake Eater no es solo un remake, es una celebración de una de las historias más emotivas y complejas en la historia de los videojuegos, explorando temas de lealtad, traición, patriotismo y el verdadero significado de ser un soldado."
+      ],
+      "coverImage": "https://i.imgur.com/opD66Aa.jpeg",
+      "coverAlt": "Metal Gear Solid Delta: Snake Eater",
+      "genres": [
+        "Acción",
+        "Aventura"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "developer": "Konami",
+      "publisher": "Konami",
+      "releaseDate": "",
+      "steamAppId": "2417610",
+      "languages": [
+        "Múltiples idiomas"
+      ],
+      "requirements": [
+        {
+          "platform": "Windows",
+          "minimum": [
+            "SO: Windows® 10, Windows® 11 (64-bit OS required)",
+            "Procesador: Intel i5-8600 or AMD Ryzen 5 3600",
+            "Memoria: 16 GB de RAM",
+            "Gráficos: RTX 2060 Super (8GB)",
+            "DirectX: Versión 12",
+            "Almacenamiento: 100 GB de espacio disponible",
+            "Notas adicionales: SSD Recommend"
+          ],
+          "recommended": [
+            "SO: Windows® 10, Windows® 11 (64-bit OS required)",
+            "Procesador: Intel i7-8700K or AMD Ryzen 5 3600",
+            "Memoria: 16 GB de RAM",
+            "Gráficos: RTX 3080",
+            "DirectX: Versión 12",
+            "Almacenamiento: 100 GB de espacio disponible"
+          ]
+        }
+      ],
+      "screenshots": [
+        "https://i.imgur.com/k1ATY9S.png",
+        "https://i.imgur.com/lYx4nuO.png",
+        "https://i.imgur.com/rJd77Rm.png",
+        "https://i.imgur.com/ORL2oMV.png"
+      ],
+      "trailerUrl": "https://www.youtube.com/embed/ajh3YHJ6baI",
+      "distributions": [
+        {
+          "label": "Enlaces del archivo original",
+          "version": "v1.1.3",
+          "size": "72 GB",
+          "format": "ISO ELAMIGOS (Cracy by P2P)",
+          "links": [
+            {
+              "label": "Torrent",
+              "url": "https://madiashare.com/downloads?d=1layvgj1nuismesyoj41",
+              "type": "base"
+            },
+            {
+              "label": "Update 1.1.2 Mediafire",
+              "url": "https://www.mediafire.com/file/qsvrkv6w2qq4ooj/Me25talGSSna25keEater202-Update1.1.2-elamigos.rar/file",
+              "type": "update"
+            },
+            {
+              "label": "Update 1.1.2 Mega",
+              "url": "https://mega.nz/file/CQ1FDSgJ#AV3z4Sd2xAGnPjLuHM2Z0TFbXJnv7QixBMOr2ztySHA",
+              "type": "update"
+            },
+            {
+              "label": "Update 1.1.3 Mediafire",
+              "url": "https://www.mediafire.com/file/r1kv6u6hcrag7g6/Me25talGSSna25keEater202-Update1.1.3-elamigos.rar/file",
+              "type": "update"
+            },
+            {
+              "label": "Update 1.1.3 Mega",
+              "url": "https://mega.nz/file/K94SGbAQ#hoBtGygm6z2PNGDS73nMZuwxMSxzFjxHcG_g6qjH14E",
+              "type": "update"
+            }
+          ],
+          "installation": []
+        }
+      ],
+      "evidence": [
+        {
+          "field": "archive",
+          "label": "Migrado del archivo de GameZone; datos pendientes de revisión",
+          "value": "Archivo del 25 de septiembre de 2025",
+          "provider": "editorial",
+          "sourceUrl": "https://impaul17.github.io/GameZone/games/metal-gear-solid-delta-snake-eater/metal-gear-solid-delta-snake-eater.html",
+          "retrievedAt": "2025-09-25T00:00:00.000Z",
+          "status": "reported"
+        }
+      ]
+    },
+    "published": {
+      "title": "Metal Gear Solid Delta: Snake Eater",
+      "slug": "metal-gear-solid-delta-snake-eater",
+      "summary": "La legendaria obra maestra de espionaje regresa completamente remasterizada. Infiltra, sobrevive y descubre la verdad en la jungla soviética.",
+      "description": [
+        "Metal Gear Solid Delta: Snake Eater es la remasterización definitiva de uno de los juegos más aclamados de la saga Metal Gear. Desarrollado por Konami, este remake trae de vuelta la legendaria aventura de espionaje de Naked Snake con gráficos completamente renovados y mecánicas mejoradas para las nuevas generaciones.",
+        "Ambientado en 1964 durante la Guerra Fría, la historia sigue a Naked Snake (más tarde conocido como Big Boss) en una misión de infiltración en territorio soviético. Tu objetivo es rescatar a un científico ruso y eliminar a una unidad militar rebelde conocida como FOX, mientras descubres una conspiración que cambiará el curso de la historia.",
+        "El juego combina elementos de sigilo táctico, supervivencia y acción cinematográfica. Deberás cazar animales para sobrevivir, usar camuflaje para evitar la detección, y enfrentarte a jefes memorables como The Boss, The End, y The Fury. Cada encuentro requiere estrategia y habilidad para superar desafíos únicos.",
+        "Esta remasterización incluye gráficos completamente renovados con tecnología moderna, controles mejorados, y todas las características que hicieron del original una obra maestra. La experiencia visual ha sido completamente reconstruida manteniendo la esencia y el alma del juego original.",
+        "Metal Gear Solid Delta: Snake Eater no es solo un remake, es una celebración de una de las historias más emotivas y complejas en la historia de los videojuegos, explorando temas de lealtad, traición, patriotismo y el verdadero significado de ser un soldado."
+      ],
+      "coverImage": "https://i.imgur.com/opD66Aa.jpeg",
+      "coverAlt": "Metal Gear Solid Delta: Snake Eater",
+      "genres": [
+        "Acción",
+        "Aventura"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "developer": "Konami",
+      "publisher": "Konami",
+      "releaseDate": "",
+      "steamAppId": "2417610",
+      "languages": [
+        "Múltiples idiomas"
+      ],
+      "requirements": [
+        {
+          "platform": "Windows",
+          "minimum": [
+            "SO: Windows® 10, Windows® 11 (64-bit OS required)",
+            "Procesador: Intel i5-8600 or AMD Ryzen 5 3600",
+            "Memoria: 16 GB de RAM",
+            "Gráficos: RTX 2060 Super (8GB)",
+            "DirectX: Versión 12",
+            "Almacenamiento: 100 GB de espacio disponible",
+            "Notas adicionales: SSD Recommend"
+          ],
+          "recommended": [
+            "SO: Windows® 10, Windows® 11 (64-bit OS required)",
+            "Procesador: Intel i7-8700K or AMD Ryzen 5 3600",
+            "Memoria: 16 GB de RAM",
+            "Gráficos: RTX 3080",
+            "DirectX: Versión 12",
+            "Almacenamiento: 100 GB de espacio disponible"
+          ]
+        }
+      ],
+      "screenshots": [
+        "https://i.imgur.com/k1ATY9S.png",
+        "https://i.imgur.com/lYx4nuO.png",
+        "https://i.imgur.com/rJd77Rm.png",
+        "https://i.imgur.com/ORL2oMV.png"
+      ],
+      "trailerUrl": "https://www.youtube.com/embed/ajh3YHJ6baI",
+      "distributions": [
+        {
+          "label": "Enlaces del archivo original",
+          "version": "v1.1.3",
+          "size": "72 GB",
+          "format": "ISO ELAMIGOS (Cracy by P2P)",
+          "links": [
+            {
+              "label": "Torrent",
+              "url": "https://madiashare.com/downloads?d=1layvgj1nuismesyoj41",
+              "type": "base"
+            },
+            {
+              "label": "Update 1.1.2 Mediafire",
+              "url": "https://www.mediafire.com/file/qsvrkv6w2qq4ooj/Me25talGSSna25keEater202-Update1.1.2-elamigos.rar/file",
+              "type": "update"
+            },
+            {
+              "label": "Update 1.1.2 Mega",
+              "url": "https://mega.nz/file/CQ1FDSgJ#AV3z4Sd2xAGnPjLuHM2Z0TFbXJnv7QixBMOr2ztySHA",
+              "type": "update"
+            },
+            {
+              "label": "Update 1.1.3 Mediafire",
+              "url": "https://www.mediafire.com/file/r1kv6u6hcrag7g6/Me25talGSSna25keEater202-Update1.1.3-elamigos.rar/file",
+              "type": "update"
+            },
+            {
+              "label": "Update 1.1.3 Mega",
+              "url": "https://mega.nz/file/K94SGbAQ#hoBtGygm6z2PNGDS73nMZuwxMSxzFjxHcG_g6qjH14E",
+              "type": "update"
+            }
+          ],
+          "installation": []
+        }
+      ],
+      "evidence": [
+        {
+          "field": "archive",
+          "label": "Migrado del archivo de GameZone; datos pendientes de revisión",
+          "value": "Archivo del 25 de septiembre de 2025",
+          "provider": "editorial",
+          "sourceUrl": "https://impaul17.github.io/GameZone/games/metal-gear-solid-delta-snake-eater/metal-gear-solid-delta-snake-eater.html",
+          "retrievedAt": "2025-09-25T00:00:00.000Z",
+          "status": "reported"
+        }
+      ]
+    },
+    "publishedAt": "2025-09-25T00:00:00.000Z",
+    "source": null,
+    "lastImported": null,
+    "revision": 1,
+    "createdAt": "2025-09-25T00:00:00.000Z",
+    "updatedAt": "2025-09-25T00:00:00.000Z"
+  },
+  {
+    "id": "a024b274-53f4-415b-a1e0-3642dea716fe",
+    "draft": {
+      "title": "PEAK",
+      "slug": "peak",
+      "summary": "Un emocionante juego de acción y aventura que combina exploración, combate dinámico y narrativa envolvente en un mundo lleno de desafíos únicos.",
+      "description": [
+        "PEAK es un emocionante juego de acción y aventura desarrollado por Team PEAK que combina elementos de exploración, combate dinámico y narrativa envolvente. Sumérgete en un mundo lleno de desafíos donde cada decisión cuenta y la supervivencia depende de tu habilidad y estrategia.",
+        "En PEAK, los jugadores se embarcan en una épica aventura a través de paisajes diversos y peligrosos, enfrentándose a enemigos únicos y resolviendo puzzles complejos. El juego presenta un sistema de combate fluido que recompensa tanto la precisión como la creatividad táctica.",
+        "Con gráficos impresionantes y una banda sonora atmosférica, PEAK ofrece una experiencia inmersiva que mantendrá a los jugadores enganchados desde el primer momento. El juego incluye múltiples rutas de progresión y secretos ocultos que invitan a la exploración repetida.",
+        "Desarrollado con el motor Unity, PEAK aprovecha las últimas tecnologías para ofrecer efectos visuales espectaculares y un rendimiento optimizado. La experiencia se enriquece con mecánicas de juego innovadoras que desafían las convenciones del género."
+      ],
+      "coverImage": "https://i.imgur.com/IpXmPIi.jpeg",
+      "coverAlt": "PEAK",
+      "genres": [
+        "Acción",
+        "Aventura",
+        "Indie"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "developer": "Team PEAK",
+      "publisher": "Aggro Crab, Landfall",
+      "releaseDate": "",
+      "steamAppId": "3527290",
+      "languages": [
+        "Inglés"
+      ],
+      "requirements": [
+        {
+          "platform": "Windows",
+          "minimum": [
+            "SO: Win 10",
+            "Procesador: Intel Core i5 @ 2.5 GHz or equivalent",
+            "Memoria: 8 GB de RAM",
+            "Gráficos: NVIDIA GeForce GTX 1050 ti or AMD R9 380",
+            "DirectX: Versión 11",
+            "Almacenamiento: 4 GB de espacio disponible",
+            "Notas adicionales: Requiere un procesador y un sistema operativo de 64 bits"
+          ],
+          "recommended": [
+            "SO: Win 11",
+            "Procesador: Intel Core i5 @ 3.0 GHz or AMD Ryzen 5 or equivalent",
+            "Memoria: 16 GB de RAM",
+            "Gráficos: NVIDIA GeForce GTX 1060 or AMD RX 470 or equivalent",
+            "DirectX: Versión 12",
+            "Almacenamiento: 6 GB de espacio disponible",
+            "Notas adicionales: Requiere un procesador y un sistema operativo de 64 bits"
+          ]
+        }
+      ],
+      "screenshots": [
+        "https://i.imgur.com/C1hO4t0.png",
+        "https://i.imgur.com/WmB0xGe.png",
+        "https://i.imgur.com/mHwFQq4.png",
+        "https://i.imgur.com/oldlhd9.png"
+      ],
+      "trailerUrl": "https://www.youtube.com/embed/jrlUVhLBjG0",
+      "distributions": [
+        {
+          "label": "Enlaces del archivo original",
+          "version": "v1.27a",
+          "size": "1.2 GB",
+          "format": "Portable 0xdeadcode",
+          "links": [
+            {
+              "label": "Mega",
+              "url": "https://mega.nz/file/uWoGQToB#w9XMOmoGUGbUWatZ_dTE5H0o70_HozHKg6wc_aVWVU4",
+              "type": "base"
+            },
+            {
+              "label": "Drive",
+              "url": "https://drive.marketcat.io/drive/s/f4drEpYMCbmKU7dpkBcOGa9xxmWQHm",
+              "type": "base"
+            }
+          ],
+          "installation": []
+        }
+      ],
+      "evidence": [
+        {
+          "field": "archive",
+          "label": "Migrado del archivo de GameZone; datos pendientes de revisión",
+          "value": "Archivo del 25 de septiembre de 2025",
+          "provider": "editorial",
+          "sourceUrl": "https://impaul17.github.io/GameZone/games/peak/peak.html",
+          "retrievedAt": "2025-09-25T00:00:00.000Z",
+          "status": "reported"
+        }
+      ]
+    },
+    "published": {
+      "title": "PEAK",
+      "slug": "peak",
+      "summary": "Un emocionante juego de acción y aventura que combina exploración, combate dinámico y narrativa envolvente en un mundo lleno de desafíos únicos.",
+      "description": [
+        "PEAK es un emocionante juego de acción y aventura desarrollado por Team PEAK que combina elementos de exploración, combate dinámico y narrativa envolvente. Sumérgete en un mundo lleno de desafíos donde cada decisión cuenta y la supervivencia depende de tu habilidad y estrategia.",
+        "En PEAK, los jugadores se embarcan en una épica aventura a través de paisajes diversos y peligrosos, enfrentándose a enemigos únicos y resolviendo puzzles complejos. El juego presenta un sistema de combate fluido que recompensa tanto la precisión como la creatividad táctica.",
+        "Con gráficos impresionantes y una banda sonora atmosférica, PEAK ofrece una experiencia inmersiva que mantendrá a los jugadores enganchados desde el primer momento. El juego incluye múltiples rutas de progresión y secretos ocultos que invitan a la exploración repetida.",
+        "Desarrollado con el motor Unity, PEAK aprovecha las últimas tecnologías para ofrecer efectos visuales espectaculares y un rendimiento optimizado. La experiencia se enriquece con mecánicas de juego innovadoras que desafían las convenciones del género."
+      ],
+      "coverImage": "https://i.imgur.com/IpXmPIi.jpeg",
+      "coverAlt": "PEAK",
+      "genres": [
+        "Acción",
+        "Aventura",
+        "Indie"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "developer": "Team PEAK",
+      "publisher": "Aggro Crab, Landfall",
+      "releaseDate": "",
+      "steamAppId": "3527290",
+      "languages": [
+        "Inglés"
+      ],
+      "requirements": [
+        {
+          "platform": "Windows",
+          "minimum": [
+            "SO: Win 10",
+            "Procesador: Intel Core i5 @ 2.5 GHz or equivalent",
+            "Memoria: 8 GB de RAM",
+            "Gráficos: NVIDIA GeForce GTX 1050 ti or AMD R9 380",
+            "DirectX: Versión 11",
+            "Almacenamiento: 4 GB de espacio disponible",
+            "Notas adicionales: Requiere un procesador y un sistema operativo de 64 bits"
+          ],
+          "recommended": [
+            "SO: Win 11",
+            "Procesador: Intel Core i5 @ 3.0 GHz or AMD Ryzen 5 or equivalent",
+            "Memoria: 16 GB de RAM",
+            "Gráficos: NVIDIA GeForce GTX 1060 or AMD RX 470 or equivalent",
+            "DirectX: Versión 12",
+            "Almacenamiento: 6 GB de espacio disponible",
+            "Notas adicionales: Requiere un procesador y un sistema operativo de 64 bits"
+          ]
+        }
+      ],
+      "screenshots": [
+        "https://i.imgur.com/C1hO4t0.png",
+        "https://i.imgur.com/WmB0xGe.png",
+        "https://i.imgur.com/mHwFQq4.png",
+        "https://i.imgur.com/oldlhd9.png"
+      ],
+      "trailerUrl": "https://www.youtube.com/embed/jrlUVhLBjG0",
+      "distributions": [
+        {
+          "label": "Enlaces del archivo original",
+          "version": "v1.27a",
+          "size": "1.2 GB",
+          "format": "Portable 0xdeadcode",
+          "links": [
+            {
+              "label": "Mega",
+              "url": "https://mega.nz/file/uWoGQToB#w9XMOmoGUGbUWatZ_dTE5H0o70_HozHKg6wc_aVWVU4",
+              "type": "base"
+            },
+            {
+              "label": "Drive",
+              "url": "https://drive.marketcat.io/drive/s/f4drEpYMCbmKU7dpkBcOGa9xxmWQHm",
+              "type": "base"
+            }
+          ],
+          "installation": []
+        }
+      ],
+      "evidence": [
+        {
+          "field": "archive",
+          "label": "Migrado del archivo de GameZone; datos pendientes de revisión",
+          "value": "Archivo del 25 de septiembre de 2025",
+          "provider": "editorial",
+          "sourceUrl": "https://impaul17.github.io/GameZone/games/peak/peak.html",
+          "retrievedAt": "2025-09-25T00:00:00.000Z",
+          "status": "reported"
+        }
+      ]
+    },
+    "publishedAt": "2025-09-25T00:00:00.000Z",
+    "source": null,
+    "lastImported": null,
+    "revision": 1,
+    "createdAt": "2025-09-25T00:00:00.000Z",
+    "updatedAt": "2025-09-25T00:00:00.000Z"
+  },
+  {
+    "id": "85c481d4-d01d-4455-a17b-78b0d7bc0c8b",
+    "draft": {
+      "title": "Red Dead Redemption 2",
+      "slug": "red-dead-redemption-2",
+      "summary": "Una epopeya de mundo abierto ambientada en el ocaso del Salvaje Oeste: sigue a Arthur Morgan y la banda de Van der Linde en una historia intensa, con un mundo vivo, decisiones morales y una realización técnica sobresaliente.",
+      "description": [
+        "Red Dead Redemption 2 es una epopeya de mundo abierto que retrata con crudeza el final del Salvaje Oeste. Encarnas a Arthur Morgan, el hombre de confianza de la banda de Dutch van der Linde, obligado a cuestionar su lealtad, su moral y su lugar en un mundo que cambia a punta de hierro y progreso. La historia entrelaza traición, supervivencia y familia encontrada con una sensibilidad poco habitual en el medio.",
+        "El mundo es amplio, denso y sorprendentemente reactivo: ciudades polvorientas, campamentos itinerantes, pantanos brumosos, cordilleras nevadas y llanuras repletas de fauna conviven con un clima dinámico y ciclos de día y noche que afectan rutinas y comportamientos. La IA sistémica permite encuentros emergentes y consecuencias tangibles a tus actos; nada existe aislado, todo responde a tu presencia. De un simple saludo a un forastero puede nacer una amistad, una pelea o una subtrama inesperada.",
+        "La narrativa, de ritmo medido y puesta en escena cinematográfica, se apoya en misiones principales memorables y en actividades secundarias que enriquecen personajes y contexto. El campamento funciona como hogar y barómetro emocional del grupo, donde charlas, cartas, periódicos y pequeños detalles construyen mundo y empatía. Las decisiones —qué robas, a quién ayudas, qué dices— quedan registradas en tu Honor y modifican diálogos, precios y reacciones.",
+        "En lo jugable, los tiroteos combinan físicas de balística, animaciones detalladas y el icónico Dead Eye para planificar disparos con precisión. La caza y la recolección alimentan sistemas de artesanía y economía; limpiar tus armas, alimentarte, vestir acorde al clima y cuidar del caballo no son tareas accesorias, sino parte de la inmersión. La personalización de armas, atuendos y peinados, junto con una cámara cinematográfica y un modo foto robusto, fomentan expresión y autoría.",
+        "En PC, el juego despliega su mejor versión: texturas de alta resolución, mayores distancias de dibujado, sombras y oclusión ambiental mejoradas, reflejos más precisos y una amplia batería de opciones gráficas finas. Soporta monitores ultrapanorámicos y altas tasas de refresco, con escalado de resolución y ajustes de rendimiento para exprimir equipos potentes. Es, a todos los niveles, una producción técnicamente monumental que recompensa a quienes cuenten con un hardware a la altura."
+      ],
+      "coverImage": "https://i.imgur.com/HkmqE8l.jpeg",
+      "coverAlt": "Red Dead Redemption 2",
+      "genres": [
+        "Acción",
+        "Aventura",
+        "Mundo Abierto"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "developer": "Rockstar Games",
+      "publisher": "Rockstar Games",
+      "releaseDate": "",
+      "steamAppId": "1174180",
+      "languages": [
+        "Múltiples idiomas"
+      ],
+      "requirements": [
+        {
+          "platform": "Windows",
+          "minimum": [
+            "Requiere: Procesador y sistema operativo de 64 bits",
+            "SO: Windows 7 – Service Pack 1 (6.1.7601)",
+            "Procesador: Intel® Core™ i5-2500K / AMD FX-6300",
+            "Memoria: 8 GB de RAM",
+            "Gráficos: Nvidia GeForce GTX 770 2GB / AMD Radeon R9 280 3GB",
+            "Red: Conexión de banda ancha a Internet",
+            "Almacenamiento: 150 GB de espacio disponible",
+            "Tarjeta de sonido: Direct X Compatible"
+          ],
+          "recommended": [
+            "Requiere: Procesador y sistema operativo de 64 bits",
+            "SO: Windows 10 – April 2018 Update (v1803)",
+            "Procesador: Intel® Core™ i7-4770K / AMD Ryzen 5 1500X",
+            "Memoria: 12 GB de RAM",
+            "Gráficos: Nvidia GeForce GTX 1060 6GB / AMD Radeon RX 480 4GB",
+            "Red: Conexión de banda ancha a Internet",
+            "Almacenamiento: 150 GB de espacio disponible",
+            "Tarjeta de sonido: Direct X Compatible"
+          ]
+        }
+      ],
+      "screenshots": [
+        "https://i.imgur.com/YkLO4cq.png",
+        "https://i.imgur.com/gfrM1Es.png",
+        "https://i.imgur.com/Z4FGqzX.png",
+        "https://i.imgur.com/9qGlnZe.png"
+      ],
+      "trailerUrl": "https://www.youtube.com/embed/srUjOl_wBmU",
+      "distributions": [
+        {
+          "label": "Enlaces del archivo original",
+          "version": "v1491.50",
+          "size": "110 GB",
+          "format": "ISO ELAMIGOS",
+          "links": [
+            {
+              "label": "Torrent",
+              "url": "https://madiashare.com/downloads?d=1layvgju7wkzvc7lvj",
+              "type": "base"
+            },
+            {
+              "label": "Update 1491.50 Torrent",
+              "url": "https://madiashare.com/downloads?d=1layvgj1f3odlvq01pf0",
+              "type": "update"
+            },
+            {
+              "label": "Update 1491.50 GoFile",
+              "url": "https://gofile.io/d/w8BKfq",
+              "type": "update"
+            }
+          ],
+          "installation": []
+        }
+      ],
+      "evidence": [
+        {
+          "field": "archive",
+          "label": "Migrado del archivo de GameZone; datos pendientes de revisión",
+          "value": "Archivo del 25 de septiembre de 2025",
+          "provider": "editorial",
+          "sourceUrl": "https://impaul17.github.io/GameZone/games/red-dead-redemption-2/red-dead-redemption-2.html",
+          "retrievedAt": "2025-09-25T00:00:00.000Z",
+          "status": "reported"
+        }
+      ]
+    },
+    "published": {
+      "title": "Red Dead Redemption 2",
+      "slug": "red-dead-redemption-2",
+      "summary": "Una epopeya de mundo abierto ambientada en el ocaso del Salvaje Oeste: sigue a Arthur Morgan y la banda de Van der Linde en una historia intensa, con un mundo vivo, decisiones morales y una realización técnica sobresaliente.",
+      "description": [
+        "Red Dead Redemption 2 es una epopeya de mundo abierto que retrata con crudeza el final del Salvaje Oeste. Encarnas a Arthur Morgan, el hombre de confianza de la banda de Dutch van der Linde, obligado a cuestionar su lealtad, su moral y su lugar en un mundo que cambia a punta de hierro y progreso. La historia entrelaza traición, supervivencia y familia encontrada con una sensibilidad poco habitual en el medio.",
+        "El mundo es amplio, denso y sorprendentemente reactivo: ciudades polvorientas, campamentos itinerantes, pantanos brumosos, cordilleras nevadas y llanuras repletas de fauna conviven con un clima dinámico y ciclos de día y noche que afectan rutinas y comportamientos. La IA sistémica permite encuentros emergentes y consecuencias tangibles a tus actos; nada existe aislado, todo responde a tu presencia. De un simple saludo a un forastero puede nacer una amistad, una pelea o una subtrama inesperada.",
+        "La narrativa, de ritmo medido y puesta en escena cinematográfica, se apoya en misiones principales memorables y en actividades secundarias que enriquecen personajes y contexto. El campamento funciona como hogar y barómetro emocional del grupo, donde charlas, cartas, periódicos y pequeños detalles construyen mundo y empatía. Las decisiones —qué robas, a quién ayudas, qué dices— quedan registradas en tu Honor y modifican diálogos, precios y reacciones.",
+        "En lo jugable, los tiroteos combinan físicas de balística, animaciones detalladas y el icónico Dead Eye para planificar disparos con precisión. La caza y la recolección alimentan sistemas de artesanía y economía; limpiar tus armas, alimentarte, vestir acorde al clima y cuidar del caballo no son tareas accesorias, sino parte de la inmersión. La personalización de armas, atuendos y peinados, junto con una cámara cinematográfica y un modo foto robusto, fomentan expresión y autoría.",
+        "En PC, el juego despliega su mejor versión: texturas de alta resolución, mayores distancias de dibujado, sombras y oclusión ambiental mejoradas, reflejos más precisos y una amplia batería de opciones gráficas finas. Soporta monitores ultrapanorámicos y altas tasas de refresco, con escalado de resolución y ajustes de rendimiento para exprimir equipos potentes. Es, a todos los niveles, una producción técnicamente monumental que recompensa a quienes cuenten con un hardware a la altura."
+      ],
+      "coverImage": "https://i.imgur.com/HkmqE8l.jpeg",
+      "coverAlt": "Red Dead Redemption 2",
+      "genres": [
+        "Acción",
+        "Aventura",
+        "Mundo Abierto"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "developer": "Rockstar Games",
+      "publisher": "Rockstar Games",
+      "releaseDate": "",
+      "steamAppId": "1174180",
+      "languages": [
+        "Múltiples idiomas"
+      ],
+      "requirements": [
+        {
+          "platform": "Windows",
+          "minimum": [
+            "Requiere: Procesador y sistema operativo de 64 bits",
+            "SO: Windows 7 – Service Pack 1 (6.1.7601)",
+            "Procesador: Intel® Core™ i5-2500K / AMD FX-6300",
+            "Memoria: 8 GB de RAM",
+            "Gráficos: Nvidia GeForce GTX 770 2GB / AMD Radeon R9 280 3GB",
+            "Red: Conexión de banda ancha a Internet",
+            "Almacenamiento: 150 GB de espacio disponible",
+            "Tarjeta de sonido: Direct X Compatible"
+          ],
+          "recommended": [
+            "Requiere: Procesador y sistema operativo de 64 bits",
+            "SO: Windows 10 – April 2018 Update (v1803)",
+            "Procesador: Intel® Core™ i7-4770K / AMD Ryzen 5 1500X",
+            "Memoria: 12 GB de RAM",
+            "Gráficos: Nvidia GeForce GTX 1060 6GB / AMD Radeon RX 480 4GB",
+            "Red: Conexión de banda ancha a Internet",
+            "Almacenamiento: 150 GB de espacio disponible",
+            "Tarjeta de sonido: Direct X Compatible"
+          ]
+        }
+      ],
+      "screenshots": [
+        "https://i.imgur.com/YkLO4cq.png",
+        "https://i.imgur.com/gfrM1Es.png",
+        "https://i.imgur.com/Z4FGqzX.png",
+        "https://i.imgur.com/9qGlnZe.png"
+      ],
+      "trailerUrl": "https://www.youtube.com/embed/srUjOl_wBmU",
+      "distributions": [
+        {
+          "label": "Enlaces del archivo original",
+          "version": "v1491.50",
+          "size": "110 GB",
+          "format": "ISO ELAMIGOS",
+          "links": [
+            {
+              "label": "Torrent",
+              "url": "https://madiashare.com/downloads?d=1layvgju7wkzvc7lvj",
+              "type": "base"
+            },
+            {
+              "label": "Update 1491.50 Torrent",
+              "url": "https://madiashare.com/downloads?d=1layvgj1f3odlvq01pf0",
+              "type": "update"
+            },
+            {
+              "label": "Update 1491.50 GoFile",
+              "url": "https://gofile.io/d/w8BKfq",
+              "type": "update"
+            }
+          ],
+          "installation": []
+        }
+      ],
+      "evidence": [
+        {
+          "field": "archive",
+          "label": "Migrado del archivo de GameZone; datos pendientes de revisión",
+          "value": "Archivo del 25 de septiembre de 2025",
+          "provider": "editorial",
+          "sourceUrl": "https://impaul17.github.io/GameZone/games/red-dead-redemption-2/red-dead-redemption-2.html",
+          "retrievedAt": "2025-09-25T00:00:00.000Z",
+          "status": "reported"
+        }
+      ]
+    },
+    "publishedAt": "2025-09-25T00:00:00.000Z",
+    "source": null,
+    "lastImported": null,
+    "revision": 1,
+    "createdAt": "2025-09-25T00:00:00.000Z",
+    "updatedAt": "2025-09-25T00:00:00.000Z"
+  },
+  {
+    "id": "8f05807d-8d49-4a9a-ad27-0a244205210e",
+    "draft": {
+      "title": "Undertale",
+      "slug": "undertale",
+      "summary": "Un RPG único donde no tienes que destruir a nadie. Cada encuentro puede resolverse de forma pacífica. Lucha o ten piedad, la elección es tuya.",
+      "description": [
+        "Undertale es un RPG revolucionario creado por Toby Fox que desafía las convenciones tradicionales del género. En este mundo subterráneo habitado por monstruos, cada encuentro puede resolverse sin violencia, ofreciendo una experiencia única donde tus decisiones morales realmente importan.",
+        "La historia sigue a un niño humano que cae al mundo subterráneo, un reino mágico poblado por monstruos que han sido exiliados de la superficie. A medida que exploras este fascinante mundo, conocerás personajes inolvidables como Sans, Papyrus, Undyne, Alphys y Toriel, cada uno con personalidades distintivas y historias profundas.",
+        "El sistema de combate innovador combina elementos de RPG tradicional con mecánicas de bullet hell, donde puedes elegir entre luchar, actuar, usar objetos o mostrar misericordia. Cada decisión afecta la narrativa y puede llevar a múltiples finales diferentes, incluyendo el famoso \"True Pacifist Route\" donde puedes completar el juego sin matar a ningún enemigo.",
+        "La banda sonora, también compuesta por Toby Fox, es considerada una de las mejores en la historia de los videojuegos, con temas memorables como \"Megalovania\", \"His Theme\" y \"Hopes and Dreams\" que complementan perfectamente la experiencia emocional del juego.",
+        "Undertale no es solo un juego, es una experiencia que cuestiona la naturaleza de la violencia en los videojuegos y explora temas profundos como la amistad, el perdón, la determinación y la esperanza. Su impacto cultural ha sido enorme, inspirando a una generación de desarrolladores indie y creando una comunidad de fans apasionada."
+      ],
+      "coverImage": "https://i.imgur.com/tNdNUZm.png",
+      "coverAlt": "Undertale",
+      "genres": [
+        "Aventura",
+        "RPG",
+        "Indie"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "developer": "Toby Fox",
+      "publisher": "Toby Fox",
+      "releaseDate": "",
+      "steamAppId": "391540",
+      "languages": [
+        "Español",
+        "Inglés"
+      ],
+      "requirements": [
+        {
+          "platform": "Windows",
+          "minimum": [
+            "SO: Windows XP, Vista, 7, 8, 10",
+            "Procesador: 2 GHz",
+            "Memoria: 2 GB RAM",
+            "Gráficos: 128 MB",
+            "DirectX: Versión 9.0a",
+            "Almacenamiento: 200 MB"
+          ],
+          "recommended": [
+            "SO: Windows 10",
+            "Procesador: 2.5 GHz",
+            "Memoria: 4 GB RAM",
+            "Gráficos: 256 MB",
+            "DirectX: Versión 11",
+            "Almacenamiento: 500 MB"
+          ]
+        }
+      ],
+      "screenshots": [
+        "https://i.imgur.com/3M8eI7M.jpeg",
+        "https://i.imgur.com/TYWLGO9.png"
+      ],
+      "trailerUrl": "https://www.youtube.com/embed/1Hojv0m3TqA?si=HV7nfDamWZqDZAiP",
+      "distributions": [
+        {
+          "label": "Enlaces del archivo original",
+          "version": "",
+          "size": "500 MB",
+          "format": "Portable",
+          "links": [
+            {
+              "label": "Mediafire",
+              "url": "https://www.mediafire.com/file/uavrqn8gqnd9w3v/Undertale.20160309.GameZone.rar/file",
+              "type": "base"
+            }
+          ],
+          "installation": []
+        }
+      ],
+      "evidence": [
+        {
+          "field": "archive",
+          "label": "Migrado del archivo de GameZone; datos pendientes de revisión",
+          "value": "Archivo del 25 de septiembre de 2025",
+          "provider": "editorial",
+          "sourceUrl": "https://impaul17.github.io/GameZone/games/undertale/undertale.html",
+          "retrievedAt": "2025-09-25T00:00:00.000Z",
+          "status": "reported"
+        }
+      ]
+    },
+    "published": {
+      "title": "Undertale",
+      "slug": "undertale",
+      "summary": "Un RPG único donde no tienes que destruir a nadie. Cada encuentro puede resolverse de forma pacífica. Lucha o ten piedad, la elección es tuya.",
+      "description": [
+        "Undertale es un RPG revolucionario creado por Toby Fox que desafía las convenciones tradicionales del género. En este mundo subterráneo habitado por monstruos, cada encuentro puede resolverse sin violencia, ofreciendo una experiencia única donde tus decisiones morales realmente importan.",
+        "La historia sigue a un niño humano que cae al mundo subterráneo, un reino mágico poblado por monstruos que han sido exiliados de la superficie. A medida que exploras este fascinante mundo, conocerás personajes inolvidables como Sans, Papyrus, Undyne, Alphys y Toriel, cada uno con personalidades distintivas y historias profundas.",
+        "El sistema de combate innovador combina elementos de RPG tradicional con mecánicas de bullet hell, donde puedes elegir entre luchar, actuar, usar objetos o mostrar misericordia. Cada decisión afecta la narrativa y puede llevar a múltiples finales diferentes, incluyendo el famoso \"True Pacifist Route\" donde puedes completar el juego sin matar a ningún enemigo.",
+        "La banda sonora, también compuesta por Toby Fox, es considerada una de las mejores en la historia de los videojuegos, con temas memorables como \"Megalovania\", \"His Theme\" y \"Hopes and Dreams\" que complementan perfectamente la experiencia emocional del juego.",
+        "Undertale no es solo un juego, es una experiencia que cuestiona la naturaleza de la violencia en los videojuegos y explora temas profundos como la amistad, el perdón, la determinación y la esperanza. Su impacto cultural ha sido enorme, inspirando a una generación de desarrolladores indie y creando una comunidad de fans apasionada."
+      ],
+      "coverImage": "https://i.imgur.com/tNdNUZm.png",
+      "coverAlt": "Undertale",
+      "genres": [
+        "Aventura",
+        "RPG",
+        "Indie"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "developer": "Toby Fox",
+      "publisher": "Toby Fox",
+      "releaseDate": "",
+      "steamAppId": "391540",
+      "languages": [
+        "Español",
+        "Inglés"
+      ],
+      "requirements": [
+        {
+          "platform": "Windows",
+          "minimum": [
+            "SO: Windows XP, Vista, 7, 8, 10",
+            "Procesador: 2 GHz",
+            "Memoria: 2 GB RAM",
+            "Gráficos: 128 MB",
+            "DirectX: Versión 9.0a",
+            "Almacenamiento: 200 MB"
+          ],
+          "recommended": [
+            "SO: Windows 10",
+            "Procesador: 2.5 GHz",
+            "Memoria: 4 GB RAM",
+            "Gráficos: 256 MB",
+            "DirectX: Versión 11",
+            "Almacenamiento: 500 MB"
+          ]
+        }
+      ],
+      "screenshots": [
+        "https://i.imgur.com/3M8eI7M.jpeg",
+        "https://i.imgur.com/TYWLGO9.png"
+      ],
+      "trailerUrl": "https://www.youtube.com/embed/1Hojv0m3TqA?si=HV7nfDamWZqDZAiP",
+      "distributions": [
+        {
+          "label": "Enlaces del archivo original",
+          "version": "",
+          "size": "500 MB",
+          "format": "Portable",
+          "links": [
+            {
+              "label": "Mediafire",
+              "url": "https://www.mediafire.com/file/uavrqn8gqnd9w3v/Undertale.20160309.GameZone.rar/file",
+              "type": "base"
+            }
+          ],
+          "installation": []
+        }
+      ],
+      "evidence": [
+        {
+          "field": "archive",
+          "label": "Migrado del archivo de GameZone; datos pendientes de revisión",
+          "value": "Archivo del 25 de septiembre de 2025",
+          "provider": "editorial",
+          "sourceUrl": "https://impaul17.github.io/GameZone/games/undertale/undertale.html",
+          "retrievedAt": "2025-09-25T00:00:00.000Z",
+          "status": "reported"
+        }
+      ]
+    },
+    "publishedAt": "2025-09-25T00:00:00.000Z",
+    "source": null,
+    "lastImported": null,
+    "revision": 1,
+    "createdAt": "2025-09-25T00:00:00.000Z",
+    "updatedAt": "2025-09-25T00:00:00.000Z"
+  },
+  {
+    "id": "0dcd3188-43d5-4ac3-aeaa-ce67ab40fefa",
+    "draft": {
+      "title": "WWE 2K25",
+      "slug": "wwe-2k25",
+      "summary": "La experiencia de lucha libre más auténtica regresa con WWE 2K25. Vive la emoción del ring con gráficos mejorados, nuevos modos de juego y tu roster favorito de superestrelas de WWE.",
+      "description": [
+        "WWE 2K25 marca el regreso triunfal de la franquicia de lucha libre más auténtica del mundo. Desarrollado por Visual Concepts y publicado por 2K Games, esta nueva entrega promete llevar la experiencia de WWE a nuevas alturas con gráficos mejorados, mecánicas de combate refinadas y el roster más completo de superestrelas de WWE.",
+        "Sumérgete en el mundo del entretenimiento deportivo con modos de juego completamente renovados que incluyen una campaña narrativa envolvente, el clásico modo Universo expandido, y nuevas opciones de personalización que te permiten crear tus propias superestrelas y historias épicas dentro del universo WWE.",
+        "La experiencia de combate ha sido completamente rediseñada con un sistema de control más intuitivo y responsivo, animaciones capturadas en movimiento real de las superestrelas de WWE, y efectos visuales espectaculares que hacen que cada movimiento, cada golpe y cada finisher se sienta auténtico y emocionante.",
+        "WWE 2K25 incluye todas las superestrelas favoritas de los fanáticos, desde leyendas icónicas hasta las estrellas emergentes de hoy, con actualizaciones regulares que mantienen el roster fresco y actualizado con los últimos acontecimientos del mundo WWE."
+      ],
+      "coverImage": "https://i.imgur.com/o2aW2ve.jpeg",
+      "coverAlt": "WWE 2K25",
+      "genres": [
+        "Simulación",
+        "Deportes"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "developer": "Visual Concepts",
+      "publisher": "2K",
+      "releaseDate": "",
+      "steamAppId": "2878960",
+      "languages": [
+        "Múltiples idiomas"
+      ],
+      "requirements": [
+        {
+          "platform": "Windows",
+          "minimum": [
+            "Requiere un procesador y un sistema operativo de 64 bits",
+            "SO: Win 10 64 Bit",
+            "Procesador: Intel Core i5-4460 / AMD Ryzen 5 1400",
+            "Memoria: 12 GB de RAM",
+            "Gráficos: GeForce GTX 1060 / Radeon RX 480",
+            "DirectX: Versión 12",
+            "Almacenamiento: 103 GB de espacio disponible",
+            "Tarjeta de sonido: DirectX 9.0c compatible sound card"
+          ],
+          "recommended": [
+            "Requiere un procesador y un sistema operativo de 64 bits",
+            "SO: Win 10 64 Bit",
+            "Procesador: Intel i7-4790 / Ryzen 5 1600",
+            "Memoria: 16 GB de RAM",
+            "Gráficos: GeForce GTX 1070 / Radeon RX 5600 XT",
+            "DirectX: Versión 12",
+            "Almacenamiento: 103 GB de espacio disponible",
+            "Tarjeta de sonido: DirectX 9.0c compatible sound card",
+            "Notas adicionales: At least 6 GB Video Memory, SSD recommended, CPU must support AVX2 & F16C"
+          ]
+        }
+      ],
+      "screenshots": [
+        "https://i.imgur.com/Px0vzGT.png",
+        "https://i.imgur.com/KUhg235.png",
+        "https://i.imgur.com/KWkOgtv.png"
+      ],
+      "trailerUrl": "https://www.youtube.com/embed/Kr3IpZtvhAo",
+      "distributions": [
+        {
+          "label": "Enlaces del archivo original",
+          "version": "v1.21",
+          "size": "84.1 GB",
+          "format": "ISO ELAMIGOS",
+          "links": [
+            {
+              "label": "Torrent",
+              "url": "https://madiashare.com/downloads?d=1layvgj1zq5rm88zo54j",
+              "type": "base"
+            },
+            {
+              "label": "Update 1.07 Torrent",
+              "url": "https://madiashare.com/downloads?d=1layvgj1t427m9bemr4h",
+              "type": "update"
+            },
+            {
+              "label": "Update 1.08 Ranoz",
+              "url": "https://ranoz.gg/file/2vjvKRGB",
+              "type": "update"
+            },
+            {
+              "label": "Update 1.09 Mediafire",
+              "url": "https://www.mediafire.com/file/pwnfcp4pq83ybwq",
+              "type": "update"
+            },
+            {
+              "label": "Update 1.11 Torrent",
+              "url": "https://madiashare.com/downloads?d=1layvgj1pkxrmaosifv7",
+              "type": "update"
+            },
+            {
+              "label": "Update 1.14 Mediafire",
+              "url": "https://www.mediafire.com/file/hlswpqciz9q5kp2",
+              "type": "update"
+            },
+            {
+              "label": "Update 1.16 Drive",
+              "url": "https://drive.marketcat.io/drive/s/zmqbZla95oA3fLdE3pRYeNyfrnGMif",
+              "type": "update"
+            },
+            {
+              "label": "Update 1.21 Torrent",
+              "url": "https://madiashare.com/downloads?d=1layvgj25afzmdgxcbob",
+              "type": "update"
+            }
+          ],
+          "installation": []
+        }
+      ],
+      "evidence": [
+        {
+          "field": "archive",
+          "label": "Migrado del archivo de GameZone; datos pendientes de revisión",
+          "value": "Archivo del 25 de septiembre de 2025",
+          "provider": "editorial",
+          "sourceUrl": "https://impaul17.github.io/GameZone/games/wwe-2k25/wwe-2k25.html",
+          "retrievedAt": "2025-09-25T00:00:00.000Z",
+          "status": "reported"
+        }
+      ]
+    },
+    "published": {
+      "title": "WWE 2K25",
+      "slug": "wwe-2k25",
+      "summary": "La experiencia de lucha libre más auténtica regresa con WWE 2K25. Vive la emoción del ring con gráficos mejorados, nuevos modos de juego y tu roster favorito de superestrelas de WWE.",
+      "description": [
+        "WWE 2K25 marca el regreso triunfal de la franquicia de lucha libre más auténtica del mundo. Desarrollado por Visual Concepts y publicado por 2K Games, esta nueva entrega promete llevar la experiencia de WWE a nuevas alturas con gráficos mejorados, mecánicas de combate refinadas y el roster más completo de superestrelas de WWE.",
+        "Sumérgete en el mundo del entretenimiento deportivo con modos de juego completamente renovados que incluyen una campaña narrativa envolvente, el clásico modo Universo expandido, y nuevas opciones de personalización que te permiten crear tus propias superestrelas y historias épicas dentro del universo WWE.",
+        "La experiencia de combate ha sido completamente rediseñada con un sistema de control más intuitivo y responsivo, animaciones capturadas en movimiento real de las superestrelas de WWE, y efectos visuales espectaculares que hacen que cada movimiento, cada golpe y cada finisher se sienta auténtico y emocionante.",
+        "WWE 2K25 incluye todas las superestrelas favoritas de los fanáticos, desde leyendas icónicas hasta las estrellas emergentes de hoy, con actualizaciones regulares que mantienen el roster fresco y actualizado con los últimos acontecimientos del mundo WWE."
+      ],
+      "coverImage": "https://i.imgur.com/o2aW2ve.jpeg",
+      "coverAlt": "WWE 2K25",
+      "genres": [
+        "Simulación",
+        "Deportes"
+      ],
+      "platforms": [
+        "Windows"
+      ],
+      "developer": "Visual Concepts",
+      "publisher": "2K",
+      "releaseDate": "",
+      "steamAppId": "2878960",
+      "languages": [
+        "Múltiples idiomas"
+      ],
+      "requirements": [
+        {
+          "platform": "Windows",
+          "minimum": [
+            "Requiere un procesador y un sistema operativo de 64 bits",
+            "SO: Win 10 64 Bit",
+            "Procesador: Intel Core i5-4460 / AMD Ryzen 5 1400",
+            "Memoria: 12 GB de RAM",
+            "Gráficos: GeForce GTX 1060 / Radeon RX 480",
+            "DirectX: Versión 12",
+            "Almacenamiento: 103 GB de espacio disponible",
+            "Tarjeta de sonido: DirectX 9.0c compatible sound card"
+          ],
+          "recommended": [
+            "Requiere un procesador y un sistema operativo de 64 bits",
+            "SO: Win 10 64 Bit",
+            "Procesador: Intel i7-4790 / Ryzen 5 1600",
+            "Memoria: 16 GB de RAM",
+            "Gráficos: GeForce GTX 1070 / Radeon RX 5600 XT",
+            "DirectX: Versión 12",
+            "Almacenamiento: 103 GB de espacio disponible",
+            "Tarjeta de sonido: DirectX 9.0c compatible sound card",
+            "Notas adicionales: At least 6 GB Video Memory, SSD recommended, CPU must support AVX2 & F16C"
+          ]
+        }
+      ],
+      "screenshots": [
+        "https://i.imgur.com/Px0vzGT.png",
+        "https://i.imgur.com/KUhg235.png",
+        "https://i.imgur.com/KWkOgtv.png"
+      ],
+      "trailerUrl": "https://www.youtube.com/embed/Kr3IpZtvhAo",
+      "distributions": [
+        {
+          "label": "Enlaces del archivo original",
+          "version": "v1.21",
+          "size": "84.1 GB",
+          "format": "ISO ELAMIGOS",
+          "links": [
+            {
+              "label": "Torrent",
+              "url": "https://madiashare.com/downloads?d=1layvgj1zq5rm88zo54j",
+              "type": "base"
+            },
+            {
+              "label": "Update 1.07 Torrent",
+              "url": "https://madiashare.com/downloads?d=1layvgj1t427m9bemr4h",
+              "type": "update"
+            },
+            {
+              "label": "Update 1.08 Ranoz",
+              "url": "https://ranoz.gg/file/2vjvKRGB",
+              "type": "update"
+            },
+            {
+              "label": "Update 1.09 Mediafire",
+              "url": "https://www.mediafire.com/file/pwnfcp4pq83ybwq",
+              "type": "update"
+            },
+            {
+              "label": "Update 1.11 Torrent",
+              "url": "https://madiashare.com/downloads?d=1layvgj1pkxrmaosifv7",
+              "type": "update"
+            },
+            {
+              "label": "Update 1.14 Mediafire",
+              "url": "https://www.mediafire.com/file/hlswpqciz9q5kp2",
+              "type": "update"
+            },
+            {
+              "label": "Update 1.16 Drive",
+              "url": "https://drive.marketcat.io/drive/s/zmqbZla95oA3fLdE3pRYeNyfrnGMif",
+              "type": "update"
+            },
+            {
+              "label": "Update 1.21 Torrent",
+              "url": "https://madiashare.com/downloads?d=1layvgj25afzmdgxcbob",
+              "type": "update"
+            }
+          ],
+          "installation": []
+        }
+      ],
+      "evidence": [
+        {
+          "field": "archive",
+          "label": "Migrado del archivo de GameZone; datos pendientes de revisión",
+          "value": "Archivo del 25 de septiembre de 2025",
+          "provider": "editorial",
+          "sourceUrl": "https://impaul17.github.io/GameZone/games/wwe-2k25/wwe-2k25.html",
+          "retrievedAt": "2025-09-25T00:00:00.000Z",
+          "status": "reported"
+        }
+      ]
+    },
+    "publishedAt": "2025-09-25T00:00:00.000Z",
+    "source": null,
+    "lastImported": null,
+    "revision": 1,
+    "createdAt": "2025-09-25T00:00:00.000Z",
+    "updatedAt": "2025-09-25T00:00:00.000Z"
+  }
+]
