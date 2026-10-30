@@ -4,6 +4,7 @@ import { AdminDashboard, AdminLogin } from "@/components/admin";
 import { editorAuthMode, getEditor } from "@/modules/accounts/auth";
 import { editorEmailMethod } from "@/modules/accounts/configuration";
 import { listRecords, storageMode } from "@/modules/catalog/repository";
+import { listNewsRecords } from "@/modules/news/repository";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -19,5 +20,6 @@ export default async function AdminPage({ searchParams }: { searchParams: Promis
     const loginError = login === "expired" || login === "denied" || login === "unavailable" ? login : undefined;
     return <AdminLogin mode={editorAuthMode(request)} emailMethod={editorEmailMethod()} loginError={loginError} />;
   }
-  return <AdminDashboard initialRecords={await listRecords()} storageMode={storageMode()} />;
+  const [records, news] = await Promise.all([listRecords(), listNewsRecords()]);
+  return <AdminDashboard initialRecords={records} initialNewsRecords={news} storageMode={storageMode()} />;
 }

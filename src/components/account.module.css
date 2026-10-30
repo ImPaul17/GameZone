@@ -1,0 +1,150 @@
+@font-face {
+  font-family: "SnesItalic";
+  src: url("/fonts/SnesItalic.ttf") format("truetype");
+  font-style: italic;
+  font-weight: normal;
+  font-display: swap;
+}
+
+.page {
+  --account-green: #6eb92b;
+  --account-border: rgba(110, 185, 43, .2);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #0a0a0a;
+  color: #fff;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.6;
+}
+.page * { box-sizing: border-box; }
+.page :is(button, input, textarea) { font: inherit; }
+.page a { color: inherit; text-decoration: none; }
+.page :is(a, button, input, textarea):focus-visible { outline: 2px solid var(--account-green); outline-offset: 4px; }
+.page :is(button, input, textarea):disabled { cursor: not-allowed; opacity: .55; }
+.page :is(h1, h2, p) { margin-top: 0; }
+.page p { color: #b0b0b0; }
+.visuallyHidden { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+.skipLink { position: fixed; top: -100px; left: 16px; z-index: 2000; background: var(--account-green); color: #0a0a0a !important; padding: 10px 16px; border-radius: 8px; }
+.skipLink:focus { top: 12px; }
+.header { position: sticky; top: 0; z-index: 1000; background: rgba(10, 10, 10, .95); backdrop-filter: blur(20px); border-bottom: 1px solid var(--account-border); }
+.headerInner { max-width: 1400px; height: 80px; padding: 0 32px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+.logo { font-family: "SnesItalic", Inter, sans-serif; font-style: italic; font-size: 2.6rem; font-weight: 700; line-height: 1.6; letter-spacing: 1px; text-shadow: 0 0 10px rgba(110, 185, 43, .3); flex-shrink: 0; }
+.navigation { display: flex; align-items: center; gap: 16px; flex-shrink: 0; }
+.navigation > a { display: flex; align-items: center; gap: 8px; font-size: 16px; font-weight: 500; color: #fff; padding: 8px 16px; white-space: nowrap; border-radius: 8px; transition: color .3s, background .3s; }
+.navigation > a svg { flex-shrink: 0; }
+.navigation > a:hover, .navigation > a[aria-current] { color: var(--account-green); background: rgba(110, 185, 43, .1); }
+.search { position: relative; display: flex; align-items: center; flex: 1; width: 100%; min-width: 140px; max-width: 500px; background: #2a2a2a; border: 2px solid var(--account-border); border-radius: 25px; }
+.search:focus-within { border-color: var(--account-green); box-shadow: 0 0 0 3px rgba(110, 185, 43, .1); background: #1a1a1a; }
+.search input { width: 100%; min-width: 0; border: 0; outline: none; padding: 10px 48px 10px 14px; color: #fff; background: transparent; font-size: 14px; border-radius: 25px; }
+.search input::placeholder { color: #808080; }
+.search button { position: absolute; right: 6px; top: 50%; transform: translateY(-50%); width: 35px; height: 35px; display: grid; place-items: center; border: 0; border-radius: 50%; padding: 0; background: linear-gradient(135deg, #6eb92b, #5a9823); color: #0a0a0a; cursor: pointer; }
+.search button:hover { box-shadow: 0 4px 15px rgba(110, 185, 43, .4); }
+.menuButton { display: none; border: 0; background: transparent; color: #fff; padding: 8px; }
+.main { width: 100%; max-width: 1120px; padding: 48px 32px 75px; margin: 0 auto; flex: 1; }
+.heading { text-align: center; padding: 12px 0 28px; }
+.heading h1 { font-family: "SnesItalic", Inter, sans-serif; color: var(--account-green); font-size: 3.8rem; line-height: 1.2; letter-spacing: 1px; font-weight: 800; margin-bottom: 12px; }
+.heading p { font-size: 15px; margin: 0; }
+.notice { display: flex; align-items: flex-start; gap: 12px; padding: 15px 18px; border-radius: 10px; background: rgba(110, 185, 43, .09); border: 1px solid rgba(110, 185, 43, .35); margin-bottom: 25px; font-size: 13px; }
+.notice svg { flex-shrink: 0; margin-top: 2px; color: var(--account-green); }
+.notice p { color: #d2eac0; margin: 0; overflow-wrap: anywhere; }
+.error { border-color: rgba(230, 0, 18, .35); background: rgba(230, 0, 18, .08); }
+.error svg { color: #ff828b; }
+.error p { color: #ffc9cd; }
+.profileTop { display: flex; justify-content: space-between; align-items: center; gap: 20px; margin: 0 0 20px; }
+.privateLabel { display: flex; align-items: center; gap: 8px; font-size: 12px; color: #b0b0b0; }
+.privateLabel svg { color: var(--account-green); }
+.profileGrid { display: grid; grid-template-columns: 280px minmax(0, 1fr); gap: 25px; align-items: start; }
+.avatarCard, .formCard, .loginCard { background: #1a1a1a; border: 1px solid var(--account-border); border-radius: 15px; padding: 30px; box-shadow: 0 8px 30px rgba(0, 0, 0, .2); }
+.avatarCard { display: flex; flex-direction: column; align-items: center; text-align: center; }
+.avatarCard h2, .formCard h2, .loginCard h2 { font-family: "SnesItalic", Inter, sans-serif; color: var(--account-green); font-size: 2rem; font-weight: 700; line-height: 1.3; letter-spacing: 1px; margin-bottom: 24px; }
+.avatar { display: grid; place-items: center; width: 160px; height: 160px; border-radius: 50%; border: 3px solid var(--account-green); background: #2a2a2a; overflow: hidden; color: #b0b0b0; margin-bottom: 24px; }
+.avatar img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.avatarCard .secondaryButton { width: 100%; }
+.avatarCard .textButton { font-size: 11px; margin-top: 17px; gap: 6px; }
+.avatarCard > .help { margin-top: 18px; margin-bottom: 0; }
+.cardDescription { font-size: 13px; line-height: 1.8; margin-bottom: 26px; }
+.formCard h2 { margin-bottom: 10px; }
+.fields { border: 0; margin: 0; padding: 0; min-width: 0; }
+.field { margin-bottom: 24px; }
+.field label { display: flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 600; color: #fff; margin-bottom: 10px; }
+.field :is(input, textarea) { width: 100%; border-radius: 10px; border: 1px solid #3a3a3a; background: #0a0a0a; color: #fff; padding: 12px 14px; font-size: 14px; line-height: 1.7; }
+.field textarea { min-height: 140px; resize: vertical; }
+.field input[readonly] { color: #b0b0b0; background: #2a2a2a; }
+.help { display: block; color: #909090 !important; font-size: 11px; line-height: 1.8; margin-top: 7px; }
+.privateTag { font-size: 10px; border-radius: 5px; border: 1px solid var(--account-border); color: var(--account-green); background: rgba(110, 185, 43, .08); padding: 1px 7px; font-weight: 500; }
+.primaryButton, .secondaryButton, .textButton { display: inline-flex; align-items: center; justify-content: center; gap: 9px; cursor: pointer; font-weight: 600; font-size: 13px; line-height: 1.5; transition: background .2s, transform .2s; }
+.primaryButton { border: 1px solid #5a9823; border-radius: 10px; padding: 12px 21px; color: #0a0a0a; background: linear-gradient(135deg, #6eb92b, #5a9823); }
+.primaryButton:hover:not(:disabled) { background: linear-gradient(135deg, #7bc93f, #6eb92b); transform: translateY(-2px); }
+.secondaryButton { border: 1px solid var(--account-border); border-radius: 10px; padding: 11px 18px; color: #fff; background: #2a2a2a; }
+.secondaryButton:hover:not(:disabled) { border-color: var(--account-green); background: #303a28; }
+.textButton { border: 0; padding: 3px 0; color: #b0b0b0; background: transparent; font-size: 12px; }
+.textButton:hover:not(:disabled) { color: var(--account-green); }
+.formActions { display: flex; align-items: center; gap: 22px; padding-top: 3px; flex-wrap: wrap; }
+.loginCard { max-width: 570px; margin: 15px auto 35px; text-align: center; padding: 42px 35px; }
+.loginCard h2 { margin-bottom: 16px; }
+.loginCard > p { font-size: 14px; line-height: 1.9; margin-bottom: 25px; }
+.cardIcon { display: block; color: var(--account-green); margin: 0 auto 22px; }
+.loginCard > .configurationNote { color: #b0b0b0; font-size: 12px; margin: 20px 0 0; }
+.loginPrivacy { display: flex; justify-content: center; align-items: center; gap: 7px; color: #808080; font-size: 10px; margin-top: 26px; }
+.reconnect { display: flex; align-items: center; gap: 18px; padding: 0 0 25px; flex-wrap: wrap; }
+.reconnect p { margin: 0; font-size: 12px; }
+.footer { background: #1a1a1a; border-top: 1px solid var(--account-border); margin-top: 50px; padding-top: 48px; }
+.footerInner { max-width: 1400px; padding: 0 32px 42px; margin: 0 auto; display: grid; grid-template-columns: 1.4fr 1fr 1fr; align-items: start; gap: 48px; }
+.footerLogo { font-family: "SnesItalic", Inter, sans-serif; font-size: 2.2rem; line-height: 1.2; color: var(--account-green) !important; }
+.footerBrand p { font-size: 14px; margin: 15px 0 0; line-height: 1.8; }
+.footerInner nav { display: flex; align-items: flex-start; flex-direction: column; gap: 8px; }
+.footerInner nav h2 { font-family: "SnesItalic", Inter, sans-serif; color: var(--account-green); font-size: 1.7rem; line-height: 1.3; letter-spacing: 1px; margin: 0 0 10px; }
+.footerInner nav a { color: #b0b0b0; font-size: 14px; }
+.footerInner nav a:hover { color: var(--account-green); }
+.footerBottom { max-width: 1336px; margin: 0 auto; border-top: 1px solid rgba(255, 255, 255, .1); color: #808080; font-size: 13px; padding: 25px 0; text-align: center; }
+.spinner { animation: accountSpin 1s linear infinite; }
+@keyframes accountSpin { to { transform: rotate(360deg); } }
+
+@media (max-width: 1000px) {
+  .headerInner { padding: 0 20px; gap: 20px; }
+  .navigation { gap: 6px; }
+  .navigation > a { font-size: 14px; padding: 8px 10px; }
+  .profileGrid { grid-template-columns: 240px minmax(0, 1fr); gap: 20px; }
+  .avatarCard, .formCard { padding: 25px; }
+  .avatar { width: 145px; height: 145px; }
+  .footerBottom { margin: 0 32px; }
+}
+@media (max-width: 768px) {
+  .headerInner { height: auto; min-height: 80px; padding: 16px; flex-wrap: wrap; gap: 16px; }
+  .menuButton { display: inline-flex; }
+  .navigation { display: none; position: absolute; top: 100%; left: 16px; right: 16px; background: #1a1a1a; border: 1px solid var(--account-border); border-radius: 12px; padding: 12px; flex-direction: column; align-items: stretch; gap: 4px; max-height: calc(100dvh - 180px); overflow-y: auto; box-shadow: 0 15px 50px rgba(0, 0, 0, .3); }
+  .navigationOpen { display: flex; }
+  .navigation > a { padding: 10px 16px; font-size: 16px; }
+  .search { flex: 0 0 100%; width: 100%; min-width: 0; max-width: none; order: 3; }
+  .search input { font-size: 14px; }
+  .main { padding: 32px 22px 50px; }
+  .heading { padding-top: 7px; padding-bottom: 25px; }
+  .heading h1 { font-size: 3.2rem; }
+  .heading p { font-size: 13px; }
+  .profileTop { align-items: flex-start; gap: 12px; }
+  .privateLabel { font-size: 10px; max-width: 220px; line-height: 1.8; align-items: flex-start; }
+  .privateLabel svg { margin-top: 2px; flex-shrink: 0; }
+  .profileTop .textButton { white-space: nowrap; font-size: 10px; }
+  .profileGrid { grid-template-columns: 1fr; gap: 20px; }
+  .avatarCard { padding: 26px; }
+  .avatarCard .secondaryButton { width: auto; min-width: 165px; }
+  .formCard { padding: 25px 22px; }
+  .field :is(input, textarea) { font-size: 14px; padding: 11px 12px; }
+  .notice { font-size: 12px; padding: 14px; gap: 10px; }
+  .notice svg { width: 18px; }
+  .loginCard { padding: 32px 23px; margin-top: 5px; }
+  .loginCard h2 { font-size: 2rem; }
+  .loginCard > p { font-size: 13px; }
+  .loginPrivacy { font-size: 9px; align-items: flex-start; line-height: 1.8; }
+  .loginPrivacy svg { flex-shrink: 0; margin-top: 1px; }
+  .footer { margin-top: 25px; padding-top: 32px; }
+  .footerInner { grid-template-columns: 1fr 1fr; gap: 30px 22px; padding: 0 22px 30px; }
+  .footerBrand { grid-column: 1 / -1; }
+  .footerInner nav { gap: 8px; }
+  .footerInner nav a { font-size: 13px; }
+  .footerBottom { margin: 0 22px; font-size: 11px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .page *, .page *::before, .page *::after { transition: none !important; animation: none !important; }
+}

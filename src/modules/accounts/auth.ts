@@ -1,10 +1,11 @@
 import "server-only";
 import { createHmac, randomBytes, scryptSync, timingSafeEqual } from "node:crypto";
 import { editorEmailMethod, editorSiteOrigin, hasSupabaseAuthConfiguration, supabaseAuthConfiguration } from "./configuration";
-import { getSupabaseCookieEditor, readEditorRole } from "./supabase";
+import { getSupabaseCookieEditor, getVerifiedSupabaseUser, readEditorRole } from "./supabase";
 import { serverEnvironment } from "@/lib/server-environment";
 
 export interface Editor { id: string; role: "editor" | "admin" }
+export interface Member { id: string; email: string | null }
 export type EditorAuthMode = "local" | "supabase" | "unavailable";
 export { editorEmailMethod } from "./configuration";
 export const sessionCookieName = "gamezone_editor_session";
@@ -124,4 +125,15 @@ export async function getEditor(request: Request): Promise<Editor | null> {
   if (mode !== "local") return null;
   const token = readCookie(request, sessionCookieName);
   return token ? readLocalSession(token) : null;
+}
+
+export async function getMember(request: Request): Promise<Member | null> {
+  try {
+    const user = await getVerifiedSupabaseUser(request);
+    return user ? { id: user.id, email: user.email ?? null } : null;
+  } catch { return null; }
+}
+
+export function discordLoginAvailable(request: Request): boolean {
+  return serverEnvironment("GAMEZONE_DISCORD_LOGIN_ENABLED") === "1" && Boolean(supabaseAuthConfiguration()) && Boolean(editorSiteOrigin()) && requestOrigin(request) === editorSiteOrigin();
 }

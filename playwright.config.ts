@@ -22,6 +22,7 @@ export default defineConfig({
     env: { GAMEZONE_LOCAL_MODE: "1", GAMEZONE_ADMIN_PASSWORD: password,
       NEXT_PUBLIC_SUPABASE_URL: "", NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: "", SUPABASE_SECRET_KEY: "",
       GAMEZONE_EDITOR_EMAIL_METHOD: "code", NEXT_PUBLIC_SITE_URL: "http://127.0.0.1:3100",
+      GAMEZONE_DISCORD_LOGIN_ENABLED: "0",
       GAMEZONE_SESSION_SECRET: localValue("GAMEZONE_SESSION_SECRET") || randomBytes(48).toString("base64url"),
       GAMEZONE_DATABASE_PATH: resolve(`.data/e2e-${Date.now()}.db`),
       NEXT_TELEMETRY_DISABLED: "1", TEMP: temporaryDirectory, TMP: temporaryDirectory },

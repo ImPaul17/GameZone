@@ -248,7 +248,7 @@ describe("SSR session refresh and logout", () => {
     expect(response.headers.get("pragma")).toBe("no-cache"); expect(response.headers.get("expires")).toBe("0");
     expect(await getEditor(incoming)).toEqual({ id: userId, role: "editor" });
     expect(calls.filter((call) => call.path.startsWith("/auth/v1/token"))).toHaveLength(1);
-    expect(proxyConfig.matcher).toEqual(["/admin/:path*", "/api/admin/:path*"]);
+    expect(proxyConfig.matcher).toEqual(["/admin/:path*", "/api/admin/:path*", "/cuenta.html", "/api/account/:path*"]);
   });
 
   it("clears chunked and local cookies on logout and revokes only the current Supabase session", async () => {

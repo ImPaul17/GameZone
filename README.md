@@ -16,6 +16,7 @@ npm.cmd run dev
 
 - Web: http://127.0.0.1:3000
 - Panel: http://127.0.0.1:3000/admin
+- Cuenta: http://127.0.0.1:3000/cuenta.html
 - Sin Supabase: contraseña `GAMEZONE_ADMIN_PASSWORD` del archivo privado `.env.local`.
 - Con Supabase: acceso por correo de una cuenta con rol editorial.
 
@@ -32,6 +33,14 @@ El catálogo local se inicializa con las nueve fichas del repositorio original. 
 5. Publicar para actualizar la ficha pública, catálogo y buscador. Los cambios posteriores quedan privados hasta volver a publicar.
 
 La reimportación propone diferencias y preserva los cambios editoriales. Un origen ya vinculado no crea otro juego. Una coincidencia por slug se presenta para revisión antes de vincularla; cambiar de juego o edición exige resolver esa identidad, no fusionarla automáticamente.
+
+La sección **Noticias** del panel permite crear artículos con portada, resumen, texto, etiquetas y fuente; guardar borradores, revisar la vista previa, publicar y retirar. Las noticias publicadas aparecen en la portada, en `/noticias.html` y en `/noticias/<slug>.html`, reutilizando los estilos originales. Los cambios de un borrador no alteran el artículo público hasta volver a publicarlo. Sin artículos, la página de noticias original permanece intacta. [Recorrido de noticias](docs/NOTICIAS.md).
+
+## Cuentas con Discord
+
+`/cuenta.html` añade un espacio personal con la tipografía y los colores de GameZone: acceso con Discord, alias, biografía, foto y cierre de sesión. El avatar inicial procede de Discord; cada usuario puede sustituirlo por un JPG, PNG o WebP de hasta 4 MiB, o recuperar su foto de Discord. El servidor normaliza las imágenes a WebP de 256 × 256 sin metadatos y las guarda en un bucket privado.
+
+El perfil y el correo solo se muestran al propio usuario. Registrarse con Discord no concede acceso al panel editorial. Las cuentas requieren Supabase y `GAMEZONE_DISCORD_LOGIN_ENABLED=1`; cuando se habilitan, el menú original incorpora «Mi cuenta», también dentro del menú desplegable móvil. El enlace al servidor de Discord se conserva. [Configuración y permisos](docs/CUENTAS_DISCORD.md).
 
 Las fichas existentes utilizan su HTML original. Las nuevas publicaciones se generan con la plantilla original de PEAK y sus estilos. El renderizador del servidor actualiza los campos de contenido y las tarjetas del catálogo; React se utiliza en el panel de administración aparte. El buscador conserva su aspecto original y corrige la interpolación que permitía XSS.
 
@@ -65,7 +74,7 @@ La configuración y las migraciones de Supabase están en [supabase/README.md](s
 
 Antes de activar Supabase hay que aplicar el SQL, trasladar el catálogo local y configurar el correo y el usuario editor. Prepara las claves en el archivo privado `.env.supabase.local`; no las pegues en el chat ni las añadas a Git. La configuración incompleta no activa el acceso local como sustituto. El acceso por enlace y la lectura del catálogo ya se han probado en local contra el proyecto propio; antes del despliegue público quedan el dominio, el correo para destinatarios externos y las comprobaciones del alojamiento elegido.
 
-También quedan las cuentas de visitantes, bibliotecas, comunidad, edición persistente de noticias, historial completo recuperable, newsletter y configuración de dominio/proveedores. `noticias.html` conserva la página original con su mensaje de «próximamente». Esta entrega es el primer recorrido editorial, no la finalización del plan de lanzamiento.
+Quedan bibliotecas, listas, comentarios y moderación de comunidad, eliminación de cuenta desde el producto, historial completo recuperable, newsletter y configuración pública de dominio/proveedores. El editor de noticias y la base de cuentas con Discord ya están implementados; las pruebas de código y navegador no sustituyen la comprobación del proveedor real y del alojamiento de producción.
 
 Los datos migrados mantienen la procedencia y antigüedad del archivo original; no se presentan como comprobados en 2026. Antes de publicación pública hay que revisar datos, fuentes, medios y enlaces, además de completar autenticación y comprobar el entorno de producción.
 
@@ -73,6 +82,8 @@ Los datos migrados mantienen la procedencia y antigüedad del archivo original; 
 
 - [Plan y fases](docs/PLAN_MEJORA.md)
 - [Importación y panel](docs/IMPORTACION_PIVIGAMES.md)
+- [Editor de noticias](docs/NOTICIAS.md)
+- [Cuentas y Discord](docs/CUENTAS_DISCORD.md)
 - [Fuentes y prioridad por campo](docs/FUENTES_DATOS_JUEGOS.md)
 - [Estado de implementación](docs/ESTADO_IMPLEMENTACION.md)
 

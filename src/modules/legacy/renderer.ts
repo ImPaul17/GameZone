@@ -6,15 +6,17 @@ import { load, type CheerioAPI } from "cheerio";
 import { isTag, type AnyNode } from "domhandler";
 import { seedRecords } from "../catalog/seed";
 import type { GameContent, PublishedGame } from "../catalog/types";
+import type { NewsContent, PublishedNews } from "../news/types";
 
 export class LegacyPageNotFoundError extends Error {}
-export interface LegacyRenderOptions { preview?: boolean; origin?: string; content?: GameContent }
+export interface LegacyRenderOptions { preview?: boolean; origin?: string; content?: GameContent; news?: PublishedNews[]; newsContent?: NewsContent }
 const staticPages = new Set(["index.html", "games.html", "buscar.html", "hall-of-fame.html", "about.html", "noticias.html", "dmca.html", "secret.html"]);
 const originals = new Map(seedRecords.map((record) => [record.draft.slug, record.draft]));
 const hallSlugs = new Set(["red-dead-redemption-2", "grand-theft-auto-v-enhanced", "hollow-knight-silksong"]);
 const esc = (value: unknown) => String(value ?? "").replace(/[&<>"']/g, (character) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[character]!);
 const scriptJson = (value: unknown) => JSON.stringify(value).replace(/</g, "\\u003c").replace(/>/g, "\\u003e").replace(/&/g, "\\u0026").replace(/\u2028/g, "\\u2028").replace(/\u2029/g, "\\u2029");
 const gameLink = (slug: string) => `/games/${slug}/${slug}.html`;
+const newsLink = (slug: string) => `/noticias/${slug}.html`;
 const slugFromLink = (href: string | undefined) => href?.match(/(?:^|\/)games\/([a-z0-9-]+)\/\1\.html$/)?.[1] ?? "";
 function originalContent(game: GameContent) {
   const original = originals.get(game.slug);
@@ -220,7 +222,7 @@ function renderSearch(source: string, games: PublishedGame[]) {
   return edits.finish();
 }
 
-function previewDocument(source: string, game: GameContent, origin?: string) {
+function previewDocument(source: string, basePath: string, origin?: string) {
   const $ = load(source);
   $("script,object,embed,form,base").remove();
   $("*").each((_, node) => { if (isTag(node)) for (const name of Object.keys(node.attribs)) if (/^on/i.test(name)) $(node).removeAttr(name); });
@@ -228,8 +230,95 @@ function previewDocument(source: string, game: GameContent, origin?: string) {
   $(".modal-overlay,.image-modal").remove();
   const parsed = new URL(origin || "http://localhost");
   if (!["http:", "https:"].includes(parsed.protocol) || parsed.username || parsed.password) throw new Error("Origen de vista previa no permitido.");
-  $("head").prepend(`<base href="${esc(`${parsed.origin}${gameLink(game.slug)}`)}">`);
+  $("head").prepend(`<base href="${esc(`${parsed.origin}${basePath}`)}">`);
   return $.html();
+}
+
+function newsDate(value: string) {
+  const parsed = new Date(value);
+  return Number.isNaN(parsed.getTime()) ? "" : parsed.toLocaleDateString("es-ES", { timeZone: "Europe/Madrid", year: "numeric", month: "long", day: "numeric" });
+}
+function newsCover(content: NewsContent) {
+  const source = safeAsset(content.coverImage);
+  return source ? `<img class="news-cover" src="${esc(source)}" alt="${esc(content.coverAlt)}" loading="lazy" style="width:100%;height:200px;object-fit:cover;border-radius:15px;">` : "";
+}
+function orderedNews(news: PublishedNews[]) { return [...news].sort((left, right) => right.publishedAt.localeCompare(left.publishedAt) || left.id.localeCompare(right.id)); }
+
+function guardOptionalNewsEmailSdk(edits: DocumentEdits) {
+  edits.$("script:not([src])").each((_, node) => {
+    const script = edits.$(node).html() ?? "";
+    if (!script.includes("class NotificationSystem")) return;
+    const guarded = script.replace(/emailjs\.init\(([^\n;]*)\);/, (_match, arguments_: string) =>
+      `if (typeof emailjs !== "undefined" && typeof emailjs.init === "function") { emailjs.init(${arguments_}); }`);
+    if (guarded !== script) edits.replace(node, guarded, true);
+  });
+}
+
+function renderNewsHome(source: string, news: PublishedNews[]) {
+  if (!news.length) return source;
+  const edits = new DocumentEdits(source);
+  const $ = edits.$;
+  const grid = $("#news .news-grid").first()[0];
+  const location = (grid as AnyNode & { sourceCodeLocation?: Location } | undefined)?.sourceCodeLocation;
+  const template = $("#games .game-card").first();
+  if (!location?.endTag || !template.length) return source;
+  const cards = orderedNews(news).slice(0, 6).map((article) => {
+    const card = template.clone().addClass("news-card");
+    card.find(".game-title").text(article.title);
+    card.find(".game-description").text(article.summary);
+    card.find(".game-image img").attr("src", safeAsset(article.coverImage)).attr("alt", article.coverAlt);
+    card.find(".game-categories").html(article.tags.map((tag) => `<span class="game-category">${esc(tag)}</span>`).join("\n"));
+    card.find(".game-actions a").attr("href", newsLink(article.slug)).html('<i class="fas fa-newspaper"></i> Leer noticia');
+    return $.html(card);
+  }).join("\n");
+  edits.replace({ sourceCodeLocation: { startOffset: location.endTag.startOffset, endOffset: location.endTag.startOffset } } as unknown as AnyNode, cards);
+  return edits.finish();
+}
+
+/** The empty news page remains literal. Published articles occupy its original feature-card grid. */
+function renderNewsListing(source: string, news: PublishedNews[]) {
+  if (!news.length) return source;
+  const edits = new DocumentEdits(source);
+  guardOptionalNewsEmailSdk(edits);
+  edits.inside(".news-hero-text", "Mantente al día con las últimas noticias, reseñas y actualizaciones del mundo gaming.");
+  edits.inside(".coming-soon-title", "Últimas noticias");
+  edits.inside(".coming-soon-text", "Noticias, novedades y actualidad del mundo gaming");
+  edits.inside(".coming-soon-features", orderedNews(news).map((article) => `<article class="feature-card news-card loading">
+    ${newsCover(article)}<div class="feature-icon"><i class="fas fa-newspaper"></i></div>
+    <h3 class="feature-title">${esc(article.title)}</h3><p class="feature-text">${esc(article.summary)}</p>
+    <p class="feature-text"><time datetime="${esc(article.publishedAt)}">${esc(newsDate(article.publishedAt))}</time></p>
+    <p class="feature-text">${article.tags.map(esc).join(" · ")}</p>
+    <a href="${newsLink(article.slug)}" class="btn btn-primary"><i class="fas fa-newspaper"></i> Leer noticia</a>
+  </article>`).join("\n"));
+  return edits.finish();
+}
+
+function renderNewsDetail(source: string, content: NewsContent, publishedAt?: string) {
+  const edits = new DocumentEdits(source);
+  guardOptionalNewsEmailSdk(edits);
+  edits.inside("title", `${esc(content.title)} - GameZone`);
+  edits.inside(".news-hero-title", esc(content.title));
+  edits.inside(".news-hero-text", esc(content.summary));
+  const $ = edits.$;
+  const mainArticle = $(".coming-soon").first();
+  const article = `<div class="container"><article class="news-article">
+    ${newsCover(content)}
+    ${publishedAt ? `<p class="feature-text"><time datetime="${esc(publishedAt)}">${esc(newsDate(publishedAt))}</time></p>` : ""}
+    ${content.tags.length ? `<p class="feature-text">${content.tags.map(esc).join(" · ")}</p>` : ""}
+    ${content.body.map((paragraph) => `<p class="coming-soon-text">${esc(paragraph)}</p>`).join("\n")}
+    ${safeAsset(content.sourceUrl) ? `<a href="${esc(safeAsset(content.sourceUrl))}" class="btn btn-secondary" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> Consultar fuente</a>` : ""}
+    <a href="/noticias.html" class="btn btn-primary"><i class="fas fa-newspaper"></i> Todas las noticias</a>
+  </article></div>`;
+  edits.replace(mainArticle[0], article, true);
+  // All source assets and navigation were authored for a root-level HTML page.
+  const head = $("head").first()[0];
+  const location = (head as AnyNode & { sourceCodeLocation?: Location } | undefined)?.sourceCodeLocation;
+  if (location?.startTag) edits.replace({ sourceCodeLocation: { startOffset: location.startTag.endOffset, endOffset: location.startTag.endOffset } } as unknown as AnyNode, '<base href="/">');
+  return edits.finish();
+}
+
+export async function renderLegacyNewsPreview(content: NewsContent, origin?: string): Promise<string> {
+  return renderLegacyPage(newsLink(content.slug), [], { preview: true, newsContent: content, origin });
 }
 
 /** Reads only whitelisted, trusted repository templates and projects published structured data into them. */
@@ -240,8 +329,20 @@ export async function renderLegacyPage(path: string, games: PublishedGame[], opt
     const source = await readOriginal(file);
     if (options.preview) throw new LegacyPageNotFoundError("La vista previa requiere una ficha de juego.");
     if (file === "buscar.html") return renderSearch(source, games);
-    if (["index.html", "games.html", "hall-of-fame.html"].includes(file)) return renderCatalogue(source, games, file);
+    if (file === "noticias.html") return renderNewsListing(source, options.news ?? []);
+    if (["index.html", "games.html", "hall-of-fame.html"].includes(file)) {
+      const catalogue = renderCatalogue(source, games, file);
+      return file === "index.html" ? renderNewsHome(catalogue, options.news ?? []) : catalogue;
+    }
     return source;
+  }
+  const articleSlug = path.match(/^\/noticias\/([a-z0-9]+(?:-[a-z0-9]+)*)\.html$/)?.[1];
+  if (articleSlug) {
+    const content = options.preview && options.newsContent ? options.newsContent : options.news?.find((article) => article.slug === articleSlug);
+    if (!content || content.slug !== articleSlug) throw new LegacyPageNotFoundError("Noticia no encontrada.");
+    const publishedAt = !options.preview && "publishedAt" in content && typeof content.publishedAt === "string" ? content.publishedAt : undefined;
+    const rendered = renderNewsDetail(await readOriginal("noticias.html"), content, publishedAt);
+    return options.preview ? previewDocument(rendered, "/", options.origin) : rendered;
   }
   const slug = path.match(/^\/games\/([a-z0-9]+(?:-[a-z0-9]+)*)\/\1\.html$/)?.[1];
   if (!slug) throw new LegacyPageNotFoundError("Página no encontrada.");
@@ -250,5 +351,5 @@ export async function renderLegacyPage(path: string, games: PublishedGame[], opt
   const existing = originals.has(slug);
   const source = await readOriginal(existing ? `games/${slug}/${slug}.html` : "games/peak/peak.html");
   const rendered = originalContent(game) ? source : renderGame(source, game, existing);
-  return options.preview ? previewDocument(rendered, game, options.origin) : rendered;
+  return options.preview ? previewDocument(rendered, gameLink(game.slug), options.origin) : rendered;
 }

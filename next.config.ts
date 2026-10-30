@@ -7,6 +7,7 @@ const nextConfig: NextConfig = {
   outputFileTracingIncludes: {
     "/api/site/[...path]": ["./*.html", "./games/**/*.html"],
     "/api/admin/preview": ["./games/**/*.html"],
+    "/api/admin/news/preview": ["./noticias.html", "./index.html"],
   },
   async redirects() {
     return [
@@ -24,6 +25,7 @@ const nextConfig: NextConfig = {
       ...["index.html", "games.html", "buscar.html", "noticias.html", "hall-of-fame.html", "about.html", "dmca.html", "secret.html"].map((path) => ({ source: `/${path}`, destination: `/api/site/${path}` })),
       { source: "/", destination: "/api/site/index.html" },
       { source: "/games/:slug/:file.html", destination: "/api/site/games/:slug/:file.html" },
+      { source: "/noticias/:slug.html", destination: "/api/site/noticias/:slug.html" },
     ] };
   },
   async headers() {

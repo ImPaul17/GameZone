@@ -1,6 +1,6 @@
 import "server-only";
 import { createServerClient, parseCookieHeader, type CookieOptions } from "@supabase/ssr";
-import { createClient } from "@supabase/supabase-js";
+import { createClient, type User } from "@supabase/supabase-js";
 import { NextRequest, NextResponse } from "next/server";
 import { supabaseAuthConfiguration } from "./configuration";
 import type { Editor } from "./auth";
@@ -81,11 +81,18 @@ export async function readEditorRole(userId: string): Promise<Editor | null> {
 
 export async function getSupabaseCookieEditor(request: Request): Promise<Editor | null> {
   try {
-    const { client } = supabaseSessionTransport(request);
-    // Proxy refreshes cookies before SSR/API authorization; the cookie's user object is never trusted.
-    const { data, error } = await client.auth.getUser();
-    return error || !data.user ? null : await readEditorRole(data.user.id);
+    const user = await getVerifiedSupabaseUser(request);
+    return user ? await readEditorRole(user.id) : null;
   } catch { return null; }
+}
+
+/** Authentication is independent of editorial authorization. Never trust cookie metadata. */
+export async function getVerifiedSupabaseUser(request: Request): Promise<User | null> {
+  if (!supabaseAuthConfiguration()) return null;
+  const { client } = supabaseSessionTransport(request);
+  const { data, error } = await client.auth.getUser();
+  if (error && (!error.status || error.status >= 500)) throw new Error("The account provider could not be reached.");
+  return error || !data.user || !/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i.test(data.user.id) ? null : data.user;
 }
 
 /** Refresh only. Pages and route handlers still verify the user and current database role. */

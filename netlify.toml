@@ -1,0 +1,11 @@
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "22"
+  NEXT_TELEMETRY_DISABLED = "1"
+
+# Netlify detects Next.js and installs its maintained OpenNext adapter.
+# Production credentials and auth URLs belong in scoped environment settings,
+# never in this file. Do not add an SPA fallback over the Next.js routes.
