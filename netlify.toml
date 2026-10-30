@@ -6,6 +6,10 @@
   NODE_VERSION = "22"
   NEXT_TELEMETRY_DISABLED = "1"
 
-# Netlify detects Next.js and installs its maintained OpenNext adapter.
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+# Keep the maintained OpenNext adapter unpinned. API-created sites need this
+# explicit registration so .next is packaged as a server application.
 # Production credentials and auth URLs belong in scoped environment settings,
 # never in this file. Do not add an SPA fallback over the Next.js routes.
