@@ -1,0 +1,62 @@
+name: Desplegar GameZone
+
+on:
+  workflow_call:
+    secrets:
+      GAMEZONE_NETLIFY_BUILD_HOOK:
+        required: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: gamezone-netlify-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    if: github.event_name == 'push' && github.repository == 'ImPaul17/GameZone' && github.ref == 'refs/heads/feat/react-editorial-foundation'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22.14.0"
+      - name: Solicitar el despliegue de la versión comprobada
+        env:
+          GH_TOKEN: ${{ github.token }}
+          CHECKED_COMMIT: ${{ github.sha }}
+          NETLIFY_BUILD_HOOK: ${{ secrets.GAMEZONE_NETLIFY_BUILD_HOOK }}
+        run: |
+          node --input-type=module <<'JS'
+          const sha = process.env.CHECKED_COMMIT;
+          if (!/^[a-f0-9]{40}$/.test(sha ?? '')) throw new Error('Commit no válido.');
+          const hook = new URL(process.env.NETLIFY_BUILD_HOOK ?? '');
+          if (hook.origin !== 'https://api.netlify.com' ||
+              !/^\/build_hooks\/[a-f0-9]+$/.test(hook.pathname) ||
+              hook.search || hook.hash || hook.username || hook.password) {
+            throw new Error('El build hook no es válido.');
+          }
+          const refResponse = await fetch('https://api.github.com/repos/ImPaul17/GameZone/git/ref/heads/feat/react-editorial-foundation', {
+            headers: { Authorization: `Bearer ${process.env.GH_TOKEN}`, Accept: 'application/vnd.github+json', 'X-GitHub-Api-Version': '2026-03-10' },
+            signal: AbortSignal.timeout(30000),
+          });
+          if (!refResponse.ok) throw new Error('No se ha podido comprobar la rama de publicación.');
+          const ref = await refResponse.json();
+          if (ref.object?.sha !== sha) {
+            console.log('Hay una versión más reciente: se omite este despliegue.');
+            process.exit(0);
+          }
+          let response;
+          try {
+            response = await fetch(hook, {
+              method: 'POST', headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ commit: sha }), signal: AbortSignal.timeout(30000),
+              redirect: 'error',
+            });
+          } catch {
+            throw new Error('No se ha podido contactar con el build hook de Netlify.');
+          }
+          if (!response.ok) throw new Error(`Netlify ha rechazado el despliegue (${response.status}).`);
+          await response.body?.cancel();
+          console.log(`Netlify ha aceptado la solicitud del commit ${sha}. El resultado se comprueba en su panel de despliegues.`);
+          JS

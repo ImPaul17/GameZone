@@ -5,7 +5,8 @@ const nextConfig: NextConfig = {
   serverExternalPackages: ["node:sqlite"],
   outputFileTracingExcludes: { "*": ["./.data/**", "./.env*", "./GameZone-main.zip", "./logos/logo.psd"] },
   outputFileTracingIncludes: {
-    "/api/site/[...path]": ["./*.html", "./games/**/*.html"],
+    // A wildcard also matches the catch-all route in Turbopack's tracing matcher.
+    "/api/site/*": ["./*.html", "./games/**/*.html"],
     "/api/admin/preview": ["./games/**/*.html"],
     "/api/admin/news/preview": ["./noticias.html", "./index.html"],
   },

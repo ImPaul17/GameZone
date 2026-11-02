@@ -9,5 +9,6 @@ test-results/
 !.env.example
 !.env.supabase.example
 .data/
+supabase/.temp/
 *.tsbuildinfo
 *.log

@@ -26,3 +26,9 @@ jobs:
         env:
           PLAYWRIGHT_BROWSERS_PATH: .data/browsers
       - run: npm run test:e2e
+  deploy:
+    needs: check
+    if: github.event_name == 'push' && github.repository == 'ImPaul17/GameZone' && github.ref == 'refs/heads/feat/react-editorial-foundation'
+    uses: ./.github/workflows/netlify-deploy.yml
+    secrets:
+      GAMEZONE_NETLIFY_BUILD_HOOK: ${{ secrets.GAMEZONE_NETLIFY_BUILD_HOOK }}
