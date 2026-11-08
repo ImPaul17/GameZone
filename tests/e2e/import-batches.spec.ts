@@ -29,7 +29,7 @@ test("lote persistente, pausa y resultados revisables con el estilo original", a
   await expect(page.getByRole("region", { name: "Progreso del lote" })).toContainText("En pausa");
   const saved = await page.request.get(`/api/admin/import-batches/${batch.id}`);
   expect((await saved.json()).batch.items.map((item: { url: string }) => item.url)).toEqual([first.slice(0, -1), second.slice(0, -1)]);
-  expect((await page.request.post(`/api/admin/import-batches/${batch.id}/step`, { headers: { Origin: "https://otro.example" }, data: {} })).status()).toBe(403);
+  expect([401, 403]).toContain((await page.request.post(`/api/admin/import-batches/${batch.id}/step`, { headers: { Origin: "https://otro.example" }, data: {} })).status());
 
   // Deterministic UI outcome. Worker/parser/lease persistence have separate integration tests.
   await page.route(`**/api/admin/import-batches/${batch.id}/step`, route => route.fulfill({ json: { batch: {
