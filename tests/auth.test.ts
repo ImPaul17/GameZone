@@ -65,6 +65,13 @@ describe("local editorial sessions", () => {
 });
 
 describe("Supabase editorial authorization", () => {
+  it("recognizes the configured HTTPS host behind a reverse proxy without accepting an arbitrary host", () => {
+    vi.stubEnv("NEXT_PUBLIC_SITE_URL", "https://gamezone.example");
+    const proxied = new Request("http://localhost:3000/api/account/discord", { headers: { host: "gamezone.example", "x-forwarded-proto": "https" } });
+    expect(requestOrigin(proxied)).toBe("https://gamezone.example");
+    const other = new Request("http://localhost:3000/api/account/discord", { headers: { host: "evil.example", "x-forwarded-proto": "https" } });
+    expect(requestOrigin(other)).toBeNull();
+  });
   const userId = "21c3a809-ffbf-4810-a92d-86bec57049cf";
   function bearerRequest() { return new Request("https://gamezone.example/api/admin/games", { headers: { authorization: "Bearer a-user-access-token" } }); }
   it("verifies the token remotely and requires an explicit editorial database role", async () => {

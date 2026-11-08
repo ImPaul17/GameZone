@@ -28,6 +28,9 @@ export function requestOrigin(request: Request): string | null {
     if (!["http:", "https:"].includes(url.protocol)) return null;
     const host = request.headers.get("host");
     if (!host) return url.origin;
+    const configured = editorSiteOrigin();
+    if (configured && new URL(configured).protocol === "https:" && host === new URL(configured).host
+      && (url.protocol === "https:" || request.headers.get("x-forwarded-proto") === "https")) return configured;
     const browserUrl = new URL(`${url.protocol}//${host}`);
     if (browserUrl.username || browserUrl.password || browserUrl.pathname !== "/" || browserUrl.search || browserUrl.hash) return null;
     if (browserUrl.host !== url.host && !(loopback(browserUrl.hostname) && loopback(url.hostname) && browserUrl.port === url.port)) return null;

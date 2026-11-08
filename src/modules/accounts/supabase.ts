@@ -2,7 +2,7 @@ import "server-only";
 import { createServerClient, parseCookieHeader, type CookieOptions } from "@supabase/ssr";
 import { createClient, type User } from "@supabase/supabase-js";
 import { NextRequest, NextResponse } from "next/server";
-import { supabaseAuthConfiguration } from "./configuration";
+import { editorSiteOrigin, supabaseAuthConfiguration } from "./configuration";
 import type { Editor } from "./auth";
 import { serverEnvironment } from "@/lib/server-environment";
 
@@ -18,7 +18,7 @@ export function supabaseSessionTransport(request: Request) {
   const cookies = new Map(parseCookieHeader(request.headers.get("cookie") || "").map(({ name, value }) => [name, value ?? ""]));
   const changes = new Map<string, CookieChange>();
   const cacheHeaders = new Map<string, string>();
-  const secure = new URL(request.url).protocol === "https:";
+  const secure = new URL(editorSiteOrigin() || request.url).protocol === "https:";
   const policy = { httpOnly: true, secure, sameSite: "lax" as const, path: "/" };
   const client = createServerClient(config.url, config.publishableKey, {
     cookieOptions: { name: supabaseSessionCookieName, ...policy },
@@ -48,7 +48,7 @@ export function supabaseSessionTransport(request: Request) {
 }
 
 export function clearSupabaseSessionCookies(request: Request, response: NextResponse): NextResponse {
-  for (const { name } of parseCookieHeader(request.headers.get("cookie") || "")) if (isSessionCookie(name)) response.cookies.set(name, "", { httpOnly: true, secure: new URL(request.url).protocol === "https:", sameSite: "lax", path: "/", maxAge: 0, expires: new Date(0) });
+  for (const { name } of parseCookieHeader(request.headers.get("cookie") || "")) if (isSessionCookie(name)) response.cookies.set(name, "", { httpOnly: true, secure: new URL(editorSiteOrigin() || request.url).protocol === "https:", sameSite: "lax", path: "/", maxAge: 0, expires: new Date(0) });
   response.headers.set("Cache-Control", privateCache);
   return response;
 }
