@@ -72,6 +72,26 @@ export interface CatalogRecord {
   updatedAt: string;
 }
 
+/** List data only; full draft, published and importer snapshots stay on the server. */
+export interface CatalogSummary {
+  id: string;
+  title: string;
+  slug: string;
+  coverImage: string;
+  source: SourceIdentity | null;
+  published: boolean;
+  hasPendingChanges: boolean;
+  updatedAt: string;
+}
+
+export function summarizeRecord(record: CatalogRecord): CatalogSummary {
+  return {
+    id: record.id, title: record.draft.title, slug: record.draft.slug, coverImage: record.draft.coverImage,
+    source: record.source, published: Boolean(record.published),
+    hasPendingChanges: JSON.stringify(record.draft) !== JSON.stringify(record.published), updatedAt: record.updatedAt,
+  };
+}
+
 export interface PublishedGame extends GameContent {
   id: string;
   publishedAt: string;

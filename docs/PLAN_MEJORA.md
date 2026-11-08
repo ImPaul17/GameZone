@@ -2,6 +2,8 @@
 
 Fecha: 30 de octubre de 2026. Base revisada: `main`, commit `0c59186cc1abfbd9d10df42007e17def3d02e2db` del 25 de septiembre de 2025.
 
+Actualización de ejecución, 2 de noviembre: alojamiento Netlify Free y Supabase Free configurados; web disponible en `https://gamezone-impaul17.netlify.app`, con Discord y sesión editorial comprobados por el propietario. Los detalles vigentes de publicación y verificaciones están en [Despliegue](DESPLIEGUE.md) y [Estado de implementación](ESTADO_IMPLEMENTACION.md); las secciones siguientes conservan el plan y la auditoría de partida.
+
 El objetivo es mejorar las bases y las funciones de GameZone para su publicación, conservando literalmente la web pública actual: aspecto, HTML, CSS, estructura y rutas `.html`. React se utiliza en un panel de administración separado y Next.js aporta el servidor y las integraciones. Las cuentas y la comunidad siguen dentro del plan.
 
 **Restricción expresa del propietario: no rediseñar la web pública.** Cualquier cambio visual futuro deberá ser solicitado expresamente. La modernización de datos, seguridad y publicación se integra en las páginas originales.
@@ -107,7 +109,7 @@ El panel incluirá listado de juegos y estados, creación manual, importación p
 
 IGDB requiere credenciales de aplicación; su documentación distingue el uso no comercial de las asociaciones para proyectos monetizados. GameZone ya contiene afiliación, por lo que esa condición debe resolverse antes de integrarlo. Los nueve juegos pueden importarse y revisarse manualmente sin depender de esta aprobación. Los permisos sobre textos e imágenes se comprobarán según su fuente. [Documentación de IGDB](https://api-docs.igdb.com/).
 
-Supabase necesita correo SMTP configurado para el acceso por email en producción; Resend es uno de los proveedores compatibles. Ese correo transaccional será necesario para lanzar las cuentas. [SMTP de Supabase](https://supabase.com/docs/guides/auth/auth-smtp).
+Supabase necesita SMTP propio para enviar acceso por email a destinatarios externos; Resend es uno de los proveedores compatibles. El lanzamiento actual utiliza Discord para las cuentas públicas y reserva el correo predeterminado para el propietario editorial. [SMTP de Supabase](https://supabase.com/docs/guides/auth/auth-smtp).
 
 Resend ofrece correo y gestión de contactos, pero la confirmación de alta y el estado de suscripción deben implementarse de forma coherente en GameZone; crear un contacto no prueba por sí solo que haya confirmado. Registrar una cuenta tampoco suscribirá automáticamente a la newsletter. [Contactos de Resend](https://resend.com/docs/api-reference/contacts/create-contact). Para las métricas, [Plausible documenta estadísticas y eventos](https://plausible.io/docs).
 
@@ -154,4 +156,4 @@ El panel editorial permite crear, importar desde PiviGames, corregir, publicar y
 
 Después de publicar, se establecerá una rutina de revisión de enlaces y datos, atención a reportes y actualización de dependencias. Las métricas iniciales serán guardados en biblioteca, listas compartidas, participación útil, búsquedas sin resultados y antigüedad de fichas. Los objetivos numéricos se fijarán al disponer de una línea base.
 
-Quedan por concretar el dominio, presupuesto, proveedores definitivos, responsable de moderación y documentación de los enlaces actuales. Estas decisiones condicionan el lanzamiento; la modernización local puede continuar sobre el panel React y las páginas públicas originales mientras se resuelven.
+La primera publicación utiliza Netlify Free y Supabase Free con el subdominio de Netlify y cuentas Discord. Quedan por concretar un dominio propio, SMTP externo, presupuesto de ampliaciones, responsable de moderación y revisión documental de los enlaces actuales. La apertura de comentarios y otras funciones de comunidad se planificará con esos responsables y controles; no se consideran incluidas en esta primera publicación.

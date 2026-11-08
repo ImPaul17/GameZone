@@ -1,51 +1,63 @@
 # Despliegue de GameZone
 
-Estado: **proyecto Netlify creado; primer despliegue público pendiente de validar**. Fecha de revisión: 30 de octubre de 2026. El propietario autorizó Netlify y se creó `gamezone-impaul17`, con URL `https://gamezone-impaul17.netlify.app`, en su cuenta Free sin recarga automática. Las variables de Supabase y el origen están configurados de forma privada. La existencia del proyecto no confirma todavía que haya una versión publicada y comprobada.
+Revisión: **2 de noviembre de 2026**. Web pública: **https://gamezone-impaul17.netlify.app**. Netlify Free sirve la aplicación Next.js, sus API y sesiones; Supabase conserva el catálogo, noticias, identidades y fotos privadas. No se ha contratado un dominio propio ni se ha activado una recarga automática.
 
-La web anterior responde en `https://impaul17.github.io/GameZone/`. El enlace `https://bit.ly/gamezonesite` apunta a ella. GitHub Pages sirve contenido estático; la versión con sesiones, API y publicación editorial necesita el servidor de Next.js. [GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages), [opciones de despliegue de Next.js](https://nextjs.org/docs/app/getting-started/deploying).
+## Repositorio y publicación
 
-## Configuración mínima propuesta en Netlify
+El sitio `gamezone-impaul17` utiliza `ImPaul17/GameZone`, rama `feat/react-editorial-foundation`. La conexión emplea una clave de despliegue de solo lectura. Las comprobaciones de GitHub ejecutan lint, TypeScript, pruebas, build y recorridos de navegador. Solo después de completarse correctamente, un push de esa rama solicita el despliegue mediante un build hook limitado al sitio; su URL permanece en un secreto cifrado del repositorio.
 
-Conectar el repositorio de GitHub y seleccionar la rama de lanzamiento revisada. Usar la raíz del repositorio como directorio base, detectar Next.js y ejecutar `npm run build`; el directorio de publicación de Next es `.next`. Dejar que Netlify instale su adaptador OpenNext automáticamente. No añadir una exportación estática ni un rewrite global a `index.html`: impedirían servir las sesiones y API correctamente. [Adaptador oficial](https://docs.netlify.com/build/frameworks/framework-setup-guides/nextjs/overview/), [precaución con rewrites globales](https://www.netlify.com/knowledge-base/how-to-deploy-nextjs-astro-nuxt-or-sveltekit-to-netlify/).
+El workflow comprueba que el commit revisado sigue siendo la punta de la rama. `scripts/verify-netlify-commit.mjs` compara además el payload del hook con `COMMIT_REF` antes de compilar, y cancela una publicación que hubiera clonado otra revisión. Los builds manuales de Netlify no requieren payload. La aceptación del hook significa que se ha solicitado un build; el resultado final debe comprobarse en Netlify. [Build hooks](https://docs.netlify.com/build/configure-builds/build-hooks/).
 
-| Ajuste | Valor propuesto |
+`netlify.toml` registra explícitamente `@netlify/plugin-nextjs` sin fijar su versión. Se ha comprobado el empaquetado con **OpenNext 5.16.5**, **Next.js 16.4.3**, Turbopack y funciones Node 22, incluyendo Proxy. No se necesita exportación estática ni un rewrite global a `index.html`. [Adaptador oficial](https://docs.netlify.com/build/frameworks/framework-setup-guides/nextjs/overview/).
+
+| Ajuste | Configuración |
 | --- | --- |
-| Node del build | Rama 22 actual, que cumpla `>=22.14.0`. |
-| Funciones Node | `AWS_LAMBDA_JS_RUNTIME=nodejs22.x`. |
-| Almacenamiento | Supabase configurado; `GAMEZONE_LOCAL_MODE=0`. |
-| Origen de la aplicación | `NEXT_PUBLIC_SITE_URL=https://<sitio>.netlify.app` o el dominio HTTPS definitivo. |
-| Acceso Discord | Mantener desactivado hasta configurar y comprobar su callback en ese origen. |
+| Build | `node scripts/verify-netlify-commit.mjs && npm run build` |
+| Publicación | `.next`, empaquetado por el adaptador |
+| Node del build | Rama 22 compatible con `>=22.14.0` |
+| Funciones | `AWS_LAMBDA_JS_RUNTIME=nodejs22.x` |
+| Persistencia | Supabase; `GAMEZONE_LOCAL_MODE=0` |
+| Origen | `NEXT_PUBLIC_SITE_URL=https://gamezone-impaul17.netlify.app` |
+| Discord | Activado; acceso real confirmado por el propietario en esta URL |
+| Visibilidad | Producción pública; Deploy Previews privados |
 
-`AWS_LAMBDA_JS_RUNTIME` debe establecerse mediante la interfaz, CLI o API de Netlify, no desde `netlify.toml`. Las variables utilizadas en ejecución deben estar disponibles para **Functions**, y para **Builds** cuando intervengan en la compilación. En esta cuenta Free, restringir los ámbitos por API devuelve 403: se utilizan los ámbitos predeterminados del plan. La credencial de Supabase sigue siendo una variable privada del alojamiento y los módulos que la consumen son exclusivamente de servidor; no se añade al código ni a los paquetes del navegador. Cambiar variables requiere un nuevo despliegue. [Runtime de funciones](https://docs.netlify.com/build/functions/configuration/), [variables para Edge Functions de Next.js](https://docs.netlify.com/build/edge-functions/environment-variables/).
+Las variables de Supabase y la credencial del servidor están guardadas en el entorno privado de Netlify, fuera de Git. El plan Free utiliza los ámbitos predeterminados: restringirlos por API devolvía 403. La credencial del servidor se consume exclusivamente en módulos de servidor y nunca se añade a los paquetes del navegador. Cambiar variables exige un nuevo despliegue. [Variables y funciones](https://docs.netlify.com/build/functions/configuration/).
 
-Netlify genera las funciones del servidor mediante el adaptador; no necesita ejecutar nuestro `npm start` local, que escucha en loopback. La elección del plan y sus límites de uso se comprueban en la cuenta antes de publicar; esta preparación no activa servicios de pago.
+## Supabase y autenticación
 
-## Compatibilidad que debe comprobar el primer despliegue
+Proyecto GameZone, región París, plan Free. La Site URL es el origen público y se conservan las dos URLs locales de desarrollo. Retornos de producción permitidos:
 
-El adaptador ejecuta SSR y Route Handlers en funciones Node y el middleware de Next mediante Edge Functions. Su compatibilidad con Node Middleware excluye sistema de archivos y complementos C++. El `proxy.ts` de GameZone solo importa el módulo de sesión basado en Supabase/HTTP; su importación de los tipos de autorización se elimina al compilar. Debe mantenerse separado de los repositorios SQLite y del procesamiento de imágenes. [Soporte y limitaciones de Netlify](https://docs.netlify.com/build/frameworks/framework-setup-guides/nextjs/overview/).
+- `https://gamezone-impaul17.netlify.app/api/admin/session/callback`
+- `https://gamezone-impaul17.netlify.app/api/account/discord/callback`
 
-Los repositorios de catálogo y noticias importan `node:sqlite` al cargar el módulo, aunque la producción utilice Supabase. Por eso hay que fijar un runtime Node compatible, no confiar en que la selección de almacenamiento evite el import. Node 22.13 eliminó la necesidad del flag experimental para SQLite; el proyecto requiere como mínimo 22.14. No se utilizará un archivo SQLite como almacenamiento persistente de Netlify ni como sustituto ante un fallo remoto. [SQLite en Node 22](https://nodejs.org/download/release/latest-jod/docs/api/sqlite.html).
+El callback del portal de Discord continúa apuntando a Supabase: `https://gcykxpjuuujtpkoftmwl.supabase.co/auth/v1/callback`. El propietario introdujo la credencial directamente en Supabase y confirmó que el recorrido público termina en su perfil. El registro Discord no concede permisos editoriales.
 
-Sharp debe instalarse y empaquetarse con los binarios Linux de la arquitectura de las funciones. Mantener sus dependencias opcionales y comprobar una subida real de avatar; un `node_modules` copiado de Windows no sirve como paquete de producción. El procesamiento de fotos permanece en una función Node, nunca en `proxy.ts`. [Instalación de Sharp y AWS Lambda](https://sharp.pixelplumbing.com/install/#aws-lambda).
+Las migraciones del catálogo, snapshots, noticias y perfiles están aplicadas. También está aplicada `20261030170818_restrict_rls_auto_enable_execute.sql`, que retira la ejecución pública del helper del trigger de RLS sin desactivar dicho trigger. El catálogo conserva nueve juegos y no se han publicado noticias sintéticas en la base real.
 
-Las funciones con payload binario tienen menos capacidad efectiva que el límite de petición sin codificar debido a Base64. GameZone limita el archivo a **4 MiB** y la solicitud multipart completa a **4 MiB + 64 KiB**, con un único archivo; SQL 004 configura el bucket con el mismo máximo de archivo. Se mantiene la comprobación de 20 megapíxeles y la normalización a WebP de 256 × 256. [Límites de payload de Netlify](https://docs.netlify.com/build/functions/configuration/).
+El correo editorial del propietario funciona con el proveedor predeterminado. **El envío de acceso por correo a destinatarios externos requiere configurar SMTP propio**; las cuentas públicas usan Discord. No se ha contratado un proveedor de correo.
 
-Hay una incidencia abierta del adaptador sobre el empaquetado de `proxy.ts` con Next 16.3.x y Turbopack. No demuestra un fallo de nuestra versión 16.4.3, pero impide dar por validado el despliegue solo porque `next build` pase en local. El primer build del adaptador debe completarse y su sesión debe probarse antes de promover el sitio. No se eliminará Proxy ni se desactivará la autorización para resolver un fallo de empaquetado. [Incidencia #3575 del adaptador](https://github.com/opennextjs/opennextjs-netlify/issues/3575).
+## Plantillas originales y recursos
 
-`npm run build -- --webpack` es una opción válida de Next.js para comparar ambos compiladores. **No es una solución confirmada para esa incidencia**: el autor también reprodujo el fallo con Webpack, donde faltaba `webpack-runtime.js`. Cualquier elección del compilador sigue requiriendo la comprobación completa del adaptador y un despliegue de prueba. [Opciones de `next build`](https://nextjs.org/docs/app/api-reference/cli/next#next-build-options), [comprobación de Webpack en #3575](https://github.com/opennextjs/opennextjs-netlify/issues/3575#issuecomment-5861735932).
+Next.js debe incluir las 17 páginas HTML originales en el servidor de Netlify. El patrón de tracing `/api/site/*` incluye todas ellas; el patrón anterior con corchetes del catch-all dejaba vacío su manifiesto de archivos con Turbopack y provocaba 503 en catálogo, búsqueda y páginas informativas. La comprobación del manifiesto forma parte de la validación de este arreglo.
 
-Los HTML originales que lee el renderizador deben formar parte de las funciones. El proyecto ya declara `outputFileTracingIncludes` para las páginas y vistas previas. Verificar en el resultado del adaptador que aparecen los HTML de la raíz y `games/`, junto con los recursos de `public/`; no incluir `.env*`, `.data/`, copias privadas ni el ZIP histórico.
+Los archivos de `public/` se sirven como recursos. `.env*`, `.data/`, copias privadas y el ZIP histórico quedan excluidos del tracing. Las páginas y fichas conservan sus rutas `.html` y el aspecto original. SQLite es únicamente almacenamiento local; no es persistencia ni sustituto ante errores de Supabase en producción.
 
-## Orden de publicación
+Las fotos se normalizan con Sharp a WebP de 256 × 256 sin metadatos y se almacenan en el bucket privado `profile-avatars`. El máximo del archivo es 4 MiB, el cuerpo multipart admite 4 MiB + 64 KiB y se limita la imagen de entrada a 20 megapíxeles. Estos límites contemplan la codificación de payload binario en Netlify. [Sharp en Lambda](https://sharp.pixelplumbing.com/install/#aws-lambda), [límites de funciones](https://docs.netlify.com/build/functions/configuration/).
 
-1. Conservar la web de GitHub Pages mientras se valida la nueva URL de Netlify.
-2. Ejecutar los controles del repositorio y crear un despliegue de prueba con el adaptador, sin promoción automática inicial.
-3. Configurar el origen HTTPS definitivo y los tres valores de Supabase en el entorno privado. Aplicar y comprobar las migraciones; no transferir otra vez un catálogo que ya esté verificado sin revisar antes el dry-run.
-4. Añadir a la lista de retornos de Supabase `<origen>/api/admin/session/callback` y `<origen>/api/account/discord/callback`. El callback registrado en Discord sigue siendo `https://<project-ref>.supabase.co/auth/v1/callback`.
-5. Comprobar las páginas `.html`, recursos y fuentes; noticias; acceso editorial; aislamiento de un miembro sin rol; renovación y cierre de sesión; subida y lectura privada de una foto. Comprobar los encabezados privados de caché y que el origen recibido por el servidor coincide con la configuración canónica.
-6. Activar Discord solo después de completar su configuración y prueba. Promover el despliegue cuando los recorridos anteriores funcionen en la URL HTTPS real.
-7. Actualizar la entrada pública al sitio nuevo mediante el enlace corto y/o un puente desde GitHub Pages, conservando la posibilidad de volver a la versión anterior.
+## Dirección anterior y reversión
 
-El origen de producción no debe añadir `/GameZone` como prefijo: la aplicación actual mantiene sus rutas `.html` en la raíz del dominio nuevo. Para cualquier puente desde Pages, retirar únicamente el prefijo `/GameZone` y conservar el resto de la ruta, consultas y fragmentos. No se da por disponible una redirección HTTP administrada desde GitHub Pages; su transición debe resolverse con las capacidades del alojamiento y el acceso del titular al enlace corto.
+La dirección anterior es `https://impaul17.github.io/GameZone/`, destino del enlace corto `https://bit.ly/gamezonesite`. `scripts/build-pages-bridge.mjs` genera únicamente páginas de transición dentro de `.data/pages-bridge`, sin modificar los HTML originales. El destino está limitado al origen de producción. El puente elimina solo `/GameZone` y conserva la ruta, consulta y fragmento; incluye enlace de continuación y una página 404 para rutas nuevas. GitHub Pages no aporta redirecciones HTTP administradas para este caso.
 
-La configuración detallada de permisos y datos está en [supabase/README.md](../supabase/README.md) y [Cuentas con Discord](CUENTAS_DISCORD.md). Registrar aquí la URL, el adaptador y el resultado de las pruebas cuando el despliegue real esté terminado.
+La publicación inicial del puente utiliza la rama de artefactos `codex/pages-bridge`, con 20 páginas, la fuente SNES y `.nojekyll`; la fuente de Pages apunta a esa rama y `/`. `main` conserva la web estática anterior. El workflow opcional `pages-bridge.yml` es manual y debe incorporarse a la rama predeterminada antes de utilizar su botón de ejecución; no intervino en esta primera publicación. Subir código editorial no cambia por sí mismo el puente.
+
+Para volver temporalmente a la web estática anterior, restaurar la fuente de Pages a `main` y `/` y solicitar un build de Pages. Para revertir la aplicación, restaurar un despliegue anterior compatible en Netlify; no borrar ni reinicializar Supabase o SQLite.
+
+## Verificación
+
+231 pruebas de código, lint, TypeScript, build y 18 recorridos de navegador correctos. La [ejecución de GitHub](https://github.com/ImPaul17/GameZone/actions/runs/41383963098) del commit `98c56f2a73322ace954c90eb8ea774d43d91cc8e` solicitó automáticamente el despliegue `6ae805ddcc17eaddb8ccdcd5`, publicado correctamente. Los logs confirman que la guardia recibió y verificó ese mismo SHA.
+
+En HTTPS responden correctamente las 17 páginas originales, la raíz, el panel, la cuenta y los 21 recursos locales referenciados comprobados. El catálogo mantiene nueve juegos. Las API privadas devuelven 401 sin sesión y encabezados de caché privada; las mutaciones con un origen ajeno devuelven 403. Discord usa cookies Secure/HttpOnly y PKCE. El propietario confirmó su perfil en producción.
+
+El cambio de foto se prueba con imágenes reales y transporte simulado; la subida, lectura y retirada de una imagen sintética también se comprobó directamente en el bucket real. No se ha sustituido la foto personal del propietario para realizar pruebas.
+
+Los estados finales del despliegue, el puente y las verificaciones remotas se registran en [Estado de implementación](ESTADO_IMPLEMENTACION.md). Quedan como ampliaciones independientes el dominio propio, SMTP externo, biblioteca, comentarios, moderación y newsletter.

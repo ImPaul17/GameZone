@@ -5,7 +5,7 @@ import { dirname, resolve } from "node:path";
 import { DatabaseSync } from "node:sqlite";
 import { seedRecords } from "./seed";
 import { gameContentSchema, publishIssues } from "./validation";
-import type { CatalogRecord, GameContent, PublishedGame, SourceIdentity } from "./types";
+import { summarizeRecord, type CatalogRecord, type CatalogSummary, type GameContent, type PublishedGame, type SourceIdentity } from "./types";
 import { serverEnvironment } from "@/lib/server-environment";
 
 export class RepositoryError extends Error {
@@ -99,9 +99,27 @@ async function remote(path: string, init?: RequestInit): Promise<unknown> {
 
 export async function listRecords(): Promise<CatalogRecord[]> {
   if (storageMode() === "sqlite") return database().prepare("SELECT record, locked_slug FROM catalog_records ORDER BY json_extract(record,'$.updatedAt') DESC, id").all().map((row) => decodeRow(row)!);
-  const rows = await remote("catalog_records?select=record,locked_slug&order=updated_at.desc,id.asc") as RemoteRow[];
-  return rows.map((row) => withLockedSlug(row.record, row.locked_slug));
+  // PostgREST caps an unpaginated response at 1000 rows by default. Stable IDs
+  // keep editorial updates from moving records between pages while reading.
+  const pageSize = 200;
+  const records: CatalogRecord[] = [];
+  const seen = new Set<string>();
+  for (let offset = 0; ; offset += pageSize) {
+    const query = new URLSearchParams({ select: "record,locked_slug", order: "id.asc", limit: String(pageSize), offset: String(offset) });
+    const rows = await remote(`catalog_records?${query}`);
+    if (!Array.isArray(rows) || rows.length > pageSize) throw new RepositoryError("Supabase devolvió un catálogo no válido.", "storage");
+    for (const value of rows) {
+      const row = value as RemoteRow | null;
+      if (!row || !row.record || typeof row.record.id !== "string" || typeof row.record.updatedAt !== "string" || !row.record.draft || seen.has(row.record.id)) throw new RepositoryError("Supabase devolvió un catálogo no válido.", "storage");
+      seen.add(row.record.id);
+      records.push(withLockedSlug(row.record, row.locked_slug));
+    }
+    if (rows.length < pageSize) break;
+  }
+  return records.sort((first, second) => second.updatedAt.localeCompare(first.updatedAt) || first.id.localeCompare(second.id));
 }
+
+export async function listRecordSummaries(): Promise<CatalogSummary[]> { return (await listRecords()).map(summarizeRecord); }
 
 export async function getRecord(id: string): Promise<CatalogRecord | null> {
   if (storageMode() === "sqlite") return decodeRow(database().prepare("SELECT record, locked_slug FROM catalog_records WHERE id=?").get(id));

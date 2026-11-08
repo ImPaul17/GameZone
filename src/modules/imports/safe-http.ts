@@ -8,6 +8,24 @@ import ipaddr from "ipaddr.js";
 const MAX_BODY = 2 * 1024 * 1024;
 const TIMEOUT_MS = 12_000;
 
+/** Structured upstream failures let batch workers pause instead of hammering a blocked source. */
+export class SourceHttpError extends Error {
+  constructor(public readonly status: number, public readonly retryAfterMs?: number) {
+    super(status === 429 ? "La fuente ha limitado las consultas; inténtalo más tarde."
+      : `La fuente devolvió HTTP ${status}. La publicación no se ha modificado.`);
+    this.name = "SourceHttpError";
+  }
+}
+function retryAfter(value: string | string[] | undefined): number | undefined {
+  const raw = Array.isArray(value) ? value[0] : value; if (!raw) return undefined;
+  const milliseconds = /^\d+$/.test(raw.trim()) ? Number(raw) * 1000 : Date.parse(raw) - Date.now();
+  return Number.isFinite(milliseconds) && milliseconds > 0 ? Math.min(3600000, Math.max(2000, milliseconds)) : undefined;
+}
+function sourceChallenge(body: string, contentType: string): boolean {
+  return /text\/html/i.test(contentType) && (/<title[^>]*>\s*(?:Just a moment|Attention Required|Verifica que eres humano)/i.test(body)
+    || /<(?:form|div)[^>]+id=["'](?:challenge-form|cf-challenge-running)["']/i.test(body));
+}
+
 /** Reject special-use, private, loopback and IPv4-mapped private addresses. */
 export function isPublicAddress(value: string): boolean {
   try {
@@ -86,8 +104,7 @@ export async function safeHttps(urlValue: string, options: RequestOptions): Prom
       }
       if (status < 200 || status >= 300) {
         response.destroy();
-        reject(new Error(status === 429 ? "La fuente ha limitado las consultas; inténtalo más tarde."
-          : `La fuente devolvió HTTP ${status}. La publicación no se ha modificado.`));
+        reject(new SourceHttpError(status, retryAfter(response.headers["retry-after"])));
         return;
       }
       if (Number(response.headers["content-length"] ?? 0) > maxBytes) {
@@ -120,8 +137,9 @@ export async function safeHttps(urlValue: string, options: RequestOptions): Prom
           }
           chunks.push(buffer);
         }
-        resolve({ body: Buffer.concat(chunks).toString("utf8"), url: url.href,
-          contentType: response.headers["content-type"] ?? "" });
+        const body = Buffer.concat(chunks).toString("utf8"); const contentType = response.headers["content-type"] ?? "";
+        if (sourceChallenge(body, contentType)) throw new SourceHttpError(403, retryAfter(response.headers["retry-after"]));
+        resolve({ body, url: url.href, contentType });
       })().catch(reject);
     });
     const timer = setTimeout(() => req.destroy(new Error("Tiempo de consulta a la fuente agotado.")),

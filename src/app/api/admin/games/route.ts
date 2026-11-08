@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { createRecord, listRecords } from "@/modules/catalog/repository";
+import { createRecord, listRecords, listRecordSummaries } from "@/modules/catalog/repository";
 import { gameContentSchema } from "@/modules/catalog/validation";
 import { apiError, json, readJson, requireEditor } from "@/lib/api";
 
@@ -11,7 +11,10 @@ const createSchema = z.object({
 }).strict();
 
 export async function GET(request: Request) {
-  try { await requireEditor(request); return json({ records: await listRecords() }); }
+  try {
+    await requireEditor(request);
+    return json({ records: new URL(request.url).searchParams.get("summary") === "1" ? await listRecordSummaries() : await listRecords() });
+  }
   catch (error) { return apiError(error); }
 }
 

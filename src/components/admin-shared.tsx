@@ -16,6 +16,7 @@ export async function request<T>(path: string, method: string, body?: unknown): 
       throw new Error("La sesión ha caducado. Abre el acceso editorial en otra pestaña, vuelve a identificarte y reintenta; tu borrador sigue aquí.");
     }
     if (response.status === 409) {
+      if (typeof data.error === "string" && data.error.startsWith("La fuente ha pedido una pausa")) throw new Error(data.error);
       throw new Error("Hay una versión más reciente en el servidor. El contenido que estás editando se conserva. Abre el panel en otra pestaña para comparar antes de continuar.");
     }
     throw new Error(data.error || "No se ha podido completar la operación. Tu borrador se conserva.");

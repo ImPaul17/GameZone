@@ -2,6 +2,8 @@
 
 Requisito confirmado el 30 de octubre de 2026: el propietario obtiene los juegos de `https://pivigames.blog` y quiere crear publicaciones de GameZone importando un enlace, completar los datos ambiguos con otras fuentes, revisarlas y publicarlas desde un panel conectado al resto de la web. Este documento define el alcance completo; el primer recorrido React e importador ya está implementado en local. El [Estado de implementación](ESTADO_IMPLEMENTACION.md) distingue lo disponible de funciones pendientes como el historial completo recuperable y el acceso web de producción.
 
+Actualización del 8 de noviembre: el panel incorpora importación por lotes de hasta 1.000 enlaces y descubrimiento de mapas públicos. La cola es persistente, procesa una publicación por petición mientras el panel permanece abierto, permite pausar y continuar, omite fichas existentes y crea solamente borradores. Ante un límite o bloqueo de la fuente se detiene y respeta el tiempo de espera. La investigación sobre mapas, cobertura y límites se encuentra en [Importación por lotes](IMPORTACION_LOTES_PIVIGAMES.md).
+
 ## Flujo del editor
 
 1. Abrir `/admin/juegos` y elegir **Importar desde PiviGames** o **Crear manualmente**.

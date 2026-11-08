@@ -2,6 +2,8 @@
 
 Portal de videojuegos para PC con **la web pública original conservada** y un panel editorial separado en **React, Next.js y TypeScript**. Next.js aporta el servidor, la persistencia y las integraciones. El catálogo, las fichas y el buscador reciben los datos publicados manteniendo el aspecto, el HTML, el CSS y las rutas `.html` de GameZone.
 
+**Web:** [gamezone-impaul17.netlify.app](https://gamezone-impaul17.netlify.app). [Mi cuenta](https://gamezone-impaul17.netlify.app/cuenta.html) · [Panel editorial](https://gamezone-impaul17.netlify.app/admin) · [Despliegue y reversión](docs/DESPLIEGUE.md).
+
 **No se está rediseñando la web pública.** Los cambios visuales futuros requieren una petición expresa del propietario. Los HTML originales son las páginas y plantillas activas, no una referencia para sustituirlas por otro diseño.
 
 ## Arrancar en local
@@ -33,6 +35,8 @@ El catálogo local se inicializa con las nueve fichas del repositorio original. 
 5. Publicar para actualizar la ficha pública, catálogo y buscador. Los cambios posteriores quedan privados hasta volver a publicar.
 
 La reimportación propone diferencias y preserva los cambios editoriales. Un origen ya vinculado no crea otro juego. Una coincidencia por slug se presenta para revisión antes de vincularla; cambiar de juego o edición exige resolver esa identidad, no fusionarla automáticamente.
+
+El panel incluye **Importar en lote**: permite pegar hasta 1.000 enlaces o preparar una lista desde los mapas públicos de PiviGames. Las fichas nuevas se guardan como borradores; las existentes se conservan. El avance queda en la base de datos y puede pausarse o reanudarse. La pestaña del panel debe permanecer abierta mientras se procesan los enlaces. Los mapas también contienen noticias, promociones y juegos móviles, por lo que se revisan antes de publicar. [Investigación y límites de la fuente](docs/IMPORTACION_LOTES_PIVIGAMES.md).
 
 La sección **Noticias** del panel permite crear artículos con portada, resumen, texto, etiquetas y fuente; guardar borradores, revisar la vista previa, publicar y retirar. Las noticias publicadas aparecen en la portada, en `/noticias.html` y en `/noticias/<slug>.html`, reutilizando los estilos originales. Los cambios de un borrador no alteran el artículo público hasta volver a publicarlo. Sin artículos, la página de noticias original permanece intacta. [Recorrido de noticias](docs/NOTICIAS.md).
 
@@ -70,13 +74,13 @@ Las pruebas de navegador levantan el build en el puerto 3100 con una base aislad
 
 La configuración y las migraciones de Supabase están en [supabase/README.md](supabase/README.md). El panel admite acceso local y acceso de editores de Supabase por enlace de correo con PKCE o por código. La sesión se guarda en cookies HttpOnly, se renueva en el servidor y comprueba el rol editorial en cada operación. Solicitar acceso no crea cuentas ni concede roles.
 
-`GAMEZONE_EDITOR_EMAIL_METHOD=link` utiliza la plantilla predeterminada de Supabase y exige abrir el enlace en el mismo navegador donde se solicitó. `code` permite introducir el código cuando el proveedor de correo y la plantilla correspondiente estén configurados. El proyecto propio está vinculado con `ImPaul17/GameZone`, inicialmente con despliegue manual.
+`GAMEZONE_EDITOR_EMAIL_METHOD=link` utiliza la plantilla predeterminada de Supabase y exige abrir el enlace en el mismo navegador donde se solicitó. `code` permite introducir el código cuando el proveedor de correo y la plantilla correspondiente estén configurados. El sitio Netlify está conectado a `ImPaul17/GameZone`, rama `feat/react-editorial-foundation`; sus pushes solicitan el despliegue después de superar las comprobaciones de GitHub.
 
-Antes de activar Supabase hay que aplicar el SQL, trasladar el catálogo local y configurar el correo y el usuario editor. Prepara las claves en el archivo privado `.env.supabase.local`; no las pegues en el chat ni las añadas a Git. La configuración incompleta no activa el acceso local como sustituto. El acceso por enlace y la lectura del catálogo ya se han probado en local contra el proyecto propio; antes del despliegue público quedan el dominio, el correo para destinatarios externos y las comprobaciones del alojamiento elegido.
+Para un proyecto Supabase nuevo hay que aplicar el SQL, trasladar el catálogo local y configurar el usuario editor. Prepara las claves en el archivo privado `.env.supabase.local`; no las pegues en el chat ni las añadas a Git. La configuración incompleta no activa el acceso local como sustituto. El proyecto propio ya conserva los nueve juegos y el propietario confirmó el acceso Discord y su perfil en la URL pública; su sesión también carga el panel y el editor de noticias. El correo editorial para destinatarios externos requiere SMTP propio.
 
-Quedan bibliotecas, listas, comentarios y moderación de comunidad, eliminación de cuenta desde el producto, historial completo recuperable, newsletter y configuración pública de dominio/proveedores. El editor de noticias y la base de cuentas con Discord ya están implementados; las pruebas de código y navegador no sustituyen la comprobación del proveedor real y del alojamiento de producción.
+Quedan bibliotecas, listas, comentarios y moderación de comunidad, eliminación de cuenta desde el producto, historial completo recuperable, newsletter, dominio propio y correo externo. El editor de noticias y la base de cuentas con Discord ya están implementados. [Estado de las verificaciones locales y reales](docs/ESTADO_IMPLEMENTACION.md).
 
-Los datos migrados mantienen la procedencia y antigüedad del archivo original; no se presentan como comprobados en 2026. Antes de publicación pública hay que revisar datos, fuentes, medios y enlaces, además de completar autenticación y comprobar el entorno de producción.
+Los datos migrados mantienen la procedencia y antigüedad del archivo original; no se presentan como comprobados en 2026. La revisión editorial de datos, fuentes, medios y enlaces sigue siendo una tarea de mantenimiento del catálogo.
 
 ## Documentación y recursos
 
